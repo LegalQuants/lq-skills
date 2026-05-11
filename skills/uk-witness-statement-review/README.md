@@ -35,6 +35,12 @@ Test scenarios:
 
 Expected behavior: the skill flags issues for lawyer/witness review and does not certify the evidence as true.
 
+## Maintenance
+
+Version: 0.1.0  
+Last reviewed: 2026-05  
+Issues and updates: propose changes by PR.
+
 ## Local Evals
 
 Behaviour checks for this skill live in `evals.yaml`.

@@ -40,6 +40,12 @@ Test scenarios:
 
 Expected behavior: the skill exposes assumptions and shortfalls rather than forcing a single commercial answer.
 
+## Maintenance
+
+Version: 0.1.0  
+Last reviewed: 2026-05  
+Issues and updates: propose changes by PR.
+
 ## Local Evals
 
 Behaviour checks for this skill live in `evals.yaml`.

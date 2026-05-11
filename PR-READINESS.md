@@ -1,13 +1,11 @@
-# PR Readiness Checklist (AnonLQ Skills)
+# PR Readiness Checklist
 
-Scope: this checklist applies to the AnonLQ-banner skills in this repo (`building-chronologies`, `collating-reviewer-feedback`, `corporate-registry-investigation`, `legal-claim-economics`, `local-first-legal-workspace`, `proposition-checking`, `uk-citation-verification`, `uk-court-of-appeal-judicial-preference-check`, `uk-disclosure-list-review`, `uk-particulars-of-claim-review`, `uk-witness-statement-review`). Named-author community skills follow their own attribution model — see the top-level `README.md`.
-
-Use this before opening a pull request that adds or changes AnonLQ skills.
+Use this before opening a pull request to a public skills repository.
 
 ## Content Checks
 
-- [ ] AnonLQ skill directories contain only AnonLQ-authored contribution materials.
-- [ ] No private app, firm, client, project, or personal-name references inside AnonLQ skill directories.
+- [ ] Repo contains only AnonLQ-authored contribution materials.
+- [ ] No private app, firm, client, project, or personal-name references.
 - [ ] Each skill has:
   - `SKILL.md`
   - `README.md`
@@ -49,7 +47,8 @@ Test at least one clean installation route:
 
 ## Testing
 
-- Validated clean AnonLQ skill structure and AnonLQ-only content inside AnonLQ skill directories.
-- Checked every AnonLQ skill has SKILL.md, README.md, LICENSE, examples/output.md, and references/*.md.
-- Ran forbidden-reference scans inside AnonLQ skill directories for private app/project/identity labels.
+- Validated clean repo structure and AnonLQ-only content.
+- Checked every skill has SKILL.md, README.md, LICENSE, examples/output.md, and references/*.md.
+- Ran forbidden-reference scans for private app/project/identity labels.
+- Fresh-cloned public repo and verified only AnonLQ skill directories were present.
 ```

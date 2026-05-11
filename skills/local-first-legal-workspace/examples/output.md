@@ -44,6 +44,7 @@ external_calls:
     status: user_supplied_source
 
 user_disclosure_note:
+  confidence: medium
   text: "Documents and generated files appear to be stored in the selected local workspace based on supplied materials. Model-backed analysis sends selected content to the configured model provider. Citation checks may send citation queries to public legal databases. This has not been verified by runtime network testing."
 
 unknowns_and_verification_needed:

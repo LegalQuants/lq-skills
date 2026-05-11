@@ -26,16 +26,19 @@ registry_evidence:
     source: "Companies House charges page search result for company 00445790"
     document_id: "https://find-and-update.company-information.service.gov.uk/company/00445790/charges"
     status: registry_evidence
+    confidence: high
   - fact: "PSC information is not publicly available because Tesco PLC is exempt due to voting shares admitted to trading on a UK regulated market."
     source: "Companies House PSC page search result for company 00445790"
     document_id: "https://find-and-update.company-information.service.gov.uk/company/00445790/persons-with-significant-control"
     status: registry_evidence
+    confidence: high
 
 inferences:
   - observation: "Outstanding pension-trustee security agreements may be relevant to financing/security diligence but are not allegations of distress."
     basis:
       - "Charges page search result identifies two outstanding account security agreements created on 4 November 2009."
     status: needs_verification
+    confidence: medium
     not_an_allegation: true
 
 identity_cautions:

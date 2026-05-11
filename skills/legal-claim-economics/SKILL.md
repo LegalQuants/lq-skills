@@ -2,6 +2,8 @@
 name: legal-claim-economics
 description: Use when users say "model claim economics", "litigation funding waterfall", "portfolio economics", "funder MOIC", "DBA/CFA economics", "Monte Carlo", "ATE/adverse costs", or need legal claim recoveries, fee structures, recourse, and settlement distributions modelled.
 author: AnonLQ
+version: 0.1.0
+last_reviewed: 2026-05
 jurisdiction: Agnostic
 tags: [litigation-finance, claim-economics, damages, funding, waterfall, monte-carlo]
 ---
@@ -15,6 +17,18 @@ tags: [litigation-finance, claim-economics, damages, funding, waterfall, monte-c
 - The user needs sensitivity or scenario analysis rather than a single best-case number.
 
 This skill models economics. It does not recommend whether to bring, settle, fund, or abandon a claim.
+
+## Audience and Work Shape
+
+Audience: litigation partners, litigation-finance counsel, funding analysts, and legally supervised team members with enough quantitative fluency to review assumptions and formulas.
+
+Work shape: bounded transactional calculation in `calculation_mode`; accretive judgment in `specification_mode`. The skill models assumptions and scenarios, but the responsible lawyer or funder decides what action to take.
+
+## Legal Failure Modes
+
+- Legal support, not legal advice: outputs are working calculations and assumptions registers, not merits, enforceability, tax, regulatory, or professional-conduct advice.
+- Privilege/confidentiality: claim economics may be privileged or work-product material. Sharing with funders, auditors, counterparties, insurers, or third parties can affect privilege/confidentiality and needs lawyer approval.
+- Accountability: a lawyer or authorised investment decision-maker must sign off before any output is used for fund/no-fund, bring/no-bring, settle/no-settle, or client-facing advice.
 
 ## Access Modes
 
@@ -111,6 +125,24 @@ Recommended outputs:
 - Input assumptions requiring verification.
 
 Distinguish calculated values from user-supplied assumptions and legal assumptions. Do not opine on merits, funding enforceability, tax treatment, regulatory capital, or professional conduct unless the user supplies the rule or counsel-approved assumption to model.
+
+## Confidence Bands
+
+- High: critical inputs are user-supplied or document-sourced, formulas are shown, and no unresolved legal/tax/funding warnings sit in the critical path.
+- Medium: at least one critical assumption is marked `assumption_to_verify`, but the calculation method is auditable.
+- Low: specification-only model, missing distributions for stochastic outputs, inconsistent inputs, or no runnable calculation method.
+
+## Out of Scope and Routing
+
+- Merits assessment -> responsible matter lawyer.
+- Funding enforceability, champerty, DBA/CFA/PACCAR issues -> litigation-finance specialist.
+- Tax/VAT/accounting treatment -> tax/accounting adviser.
+- Regulatory capital or fund regulation -> regulatory specialist.
+- Professional-conduct issues -> professional responsibility counsel.
+
+## Escalation
+
+Stop and route when the user asks for a legal/tax/enforceability conclusion, when a novel jurisdiction is involved, when funder/firm/client interests conflict, when DBA/CFA/PACCAR questions affect the economics, or when inputs are internally inconsistent and the user has not expressly asked to model the inconsistent scenario.
 
 ## Example
 

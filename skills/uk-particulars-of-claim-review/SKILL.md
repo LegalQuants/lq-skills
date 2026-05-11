@@ -2,6 +2,8 @@
 name: uk-particulars-of-claim-review
 description: Use when users say "review these Particulars of Claim", "check this PoC", "pleading gaps", "CPR 16", "PD16", "limitation issue", or need England and Wales pleadings checked for elements, material facts, remedies, parties, source support, and drafting risk.
 author: AnonLQ
+version: 0.1.0
+last_reviewed: 2026-05
 jurisdiction: England and Wales
 tags: [litigation, particulars-of-claim, pleadings, cpr, england-and-wales, drafting]
 ---
@@ -16,6 +18,18 @@ tags: [litigation, particulars-of-claim, pleadings, cpr, england-and-wales, draf
 - The claim is in England and Wales civil litigation.
 
 This skill reviews pleading sufficiency and structure. It does not certify merits, settle pleading strategy, sign statements of truth, or replace solicitor/counsel approval of the final pleading.
+
+## Audience and Work Shape
+
+Audience: England and Wales litigation solicitors, pupils/junior counsel, trainees, and paralegals preparing or checking a pleading for solicitor/counsel review.
+
+Work shape: pattern-matched review with accretive judgment. The skill maps pleaded facts to elements and flags drafting gaps; it does not settle legal strategy or merits.
+
+## Legal Failure Modes
+
+- Legal support, not legal advice: the review identifies pleading gaps and verification points; it does not certify viability, merits, strategy, or limitation.
+- Privilege/confidentiality: draft pleadings and advice notes are often privileged work product until filed or served. Keep review outputs internal unless a responsible lawyer approves circulation.
+- Accountability: the responsible solicitor/counsel owns the final pleading, statement of truth, allegations, and relief sought.
 
 ## Access Modes
 
@@ -81,6 +95,10 @@ Flag:
 
 Do not accuse a person or company of serious wrongdoing without checking the pleaded basis and source support.
 
+## Escalation
+
+Stop and route to solicitor/counsel when the draft includes fraud, dishonesty, bad faith, conspiracy, professional negligence, discrimination, urgent injunctive relief, limitation uncertainty, jurisdiction/service uncertainty, or any allegation that lacks source support.
+
 ### 5. Produce the review
 
 Recommended sections:
@@ -94,6 +112,12 @@ Recommended sections:
 7. Questions for solicitor/counsel/client.
 
 Each issue should include a paragraph reference, severity, and proposed next step.
+
+## Confidence Bands
+
+- High: issue is directly supported by the draft and supplied source.
+- Medium: issue depends on `verify_current_law` or `verify_current_rule` but the drafting gap is visible.
+- Low: source is missing, limitation facts are incomplete, or element law has not been supplied/retrieved.
 
 ## Example
 

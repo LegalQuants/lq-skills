@@ -36,6 +36,12 @@ Test scenarios:
 
 Expected behavior: the skill produces a QC report and keeps privilege/adverse labels as review flags.
 
+## Maintenance
+
+Version: 0.1.0  
+Last reviewed: 2026-05  
+Issues and updates: propose changes by PR.
+
 ## Local Evals
 
 Behaviour checks for this skill live in `evals.yaml`.

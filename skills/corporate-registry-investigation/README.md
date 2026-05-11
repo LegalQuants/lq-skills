@@ -34,6 +34,12 @@ Test scenarios:
 
 Expected behavior: registry facts are cited as registry evidence, while ownership or risk conclusions are marked as inferences or follow-up items.
 
+## Maintenance
+
+Version: 0.1.0  
+Last reviewed: 2026-05  
+Issues and updates: propose changes by PR.
+
 ## Local Evals
 
 Behaviour checks for this skill live in `evals.yaml`.

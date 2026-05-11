@@ -23,6 +23,7 @@ propositions:
     proposition_type: legal/factual background
     citation: "DnaNudge [2023] EWCA Civ 1142 at [1]"
     status: supported
+    confidence: high
     source_location: "Find Case Law, para 1"
     source_excerpt: "The case concerns the interpretation of the Articles of Association of the Company..."
     problem: ""
@@ -33,6 +34,7 @@ propositions:
     proposition_type: legal
     citation: "DnaNudge [2023] EWCA Civ 1142 at [41]-[43]"
     status: supported
+    confidence: high
     source_location: "Find Case Law, paras 41-43"
     source_excerpt: "the process of interpretation is an iterative one in which potential meanings... are tested against... commercial consequences"
     problem: ""
@@ -43,6 +45,7 @@ propositions:
     proposition_type: legal
     citation: "[2018] EWCA Civ 404"
     status: unverified-source-unavailable
+    confidence: low
     source_location: source_missing
     problem: "No authority text, URL, or live access available."
     suggested_fix: "Provide judgment text/URL or move to verification queue."

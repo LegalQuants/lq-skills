@@ -20,6 +20,7 @@ citations:
     retrieved_citation: "[2023] EWCA Civ 1142"
     retrieved_court_date: "Court of Appeal, 2023-10-05"
     status: verified
+    confidence: high
     matched_source: "Find Case Law"
     source_type: public database
     sources_searched:
@@ -33,6 +34,7 @@ citations:
     document_location: "Skeleton para 22"
     cited_case_name: "Case name as drafted; no retrieved public match"
     status: citation-not-found
+    confidence: high
     matched_source: ""
     source_type: public database
     sources_searched:
@@ -51,6 +53,7 @@ citations:
     retrieved_case_name: "Lindner v Rawlins"
     retrieved_citation: "[2015] EWCA Civ 61"
     status: citation-mismatch
+    confidence: medium
     matched_source: "BAILII"
     source_type: public database
     issue: "Party names point to a real EWCA authority, but the citation in the draft is wrong."

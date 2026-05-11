@@ -39,11 +39,13 @@ element_map:
 issues:
   - paragraph: 21
     severity: major
+    confidence: high
     issue: "Loss is not particularised."
     rule_or_source_checked: "Draft and supplied documents only; CPR/PD16 to verify."
     next_step: "Add heads of loss, amounts or method of calculation, and source documents."
   - paragraph: 24
     severity: critical
+    confidence: medium
     issue: "Interest claimed but no basis/rate/period pleaded."
     rule_or_source_checked: verify_current_rule
     next_step: "Confirm statutory/contractual basis and plead period."

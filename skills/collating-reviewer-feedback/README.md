@@ -35,6 +35,12 @@ Tested against a reviewer-markup workflow design:
 
 Expected behavior: the skill produces a checklist and conflict report, not a merged document.
 
+## Maintenance
+
+Version: 0.1.0  
+Last reviewed: 2026-05  
+Issues and updates: propose changes by PR.
+
 ## Local Evals
 
 Behaviour checks for this skill live in `evals.yaml`.

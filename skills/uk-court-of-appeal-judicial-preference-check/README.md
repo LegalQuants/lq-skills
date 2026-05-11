@@ -37,6 +37,12 @@ Test scenarios:
 
 Expected behavior: the skill produces source-backed preference signals and preserves uncertainty. It does not predict the appeal outcome or claim to know private judicial preferences.
 
+## Maintenance
+
+Version: 0.1.0  
+Last reviewed: 2026-05  
+Issues and updates: propose changes by PR.
+
 ## Local Evals
 
 Behaviour checks for this skill live in `evals.yaml`.

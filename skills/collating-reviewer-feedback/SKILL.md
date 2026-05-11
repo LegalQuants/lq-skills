@@ -2,6 +2,8 @@
 name: collating-reviewer-feedback
 description: Use when users say "collate comments", "combine reviewer markups", "compile tracked changes", "make a resolution checklist", or have multiple DOCX drafts, Word comments, redlines, partner/client markups, or external feedback to review without auto-merging.
 author: AnonLQ
+version: 0.1.0
+last_reviewed: 2026-05
 jurisdiction: Agnostic
 tags: [docx, comments, track-changes, litigation, drafting, review-workflow]
 ---
@@ -16,6 +18,18 @@ tags: [docx, comments, track-changes, litigation, drafting, review-workflow]
 - Feedback arrived outside Word, such as email, Teams, WhatsApp, phone notes, or conference comments, and needs to be added to the same resolution list.
 
 Do not use this skill to automatically accept, reject, or merge changes into the master document. The output is a review checklist. The lawyer makes every document edit.
+
+## Audience and Work Shape
+
+Audience: drafting and litigation lawyers, trainees, and paralegals who own or support the master document and understand Word comments/track changes.
+
+Work shape: pattern-matched review with bounded extraction. The skill compiles, groups, and classifies reviewer inputs; it does not decide the legal or drafting outcome.
+
+## Legal Failure Modes
+
+- Legal support, not legal advice: the checklist is a review aid. The responsible lawyer decides whether and how to amend the master.
+- Privilege/confidentiality: privileged or confidential drafts must be processed only in an approved environment. Uploading drafts or extracted comments to an unapproved third-party AI surface may affect privilege or confidentiality.
+- Accountability: every item defaults to `open` or `unresolved`; a lawyer owns each accept/reject/defer decision.
 
 ## Access Modes
 
@@ -85,6 +99,10 @@ Output a resolution checklist with one row per item:
 
 Keep the default status `open`. Do not infer acceptance from reviewer seniority.
 
+## Confidence Bands
+
+Use `location_confidence` as the operative confidence band: `exact`, `approximate`, `location_uncertain`, or `manual_review`. Anything affecting tables, footnotes, text boxes, numbering, duplicated clauses, or heavily reworked paragraphs should default down to `location_uncertain` or `manual_review`.
+
 ### 5. Call out conflicts and high-risk items
 
 Surface separately:
@@ -104,6 +122,10 @@ Recommended outputs:
 - A printable report grouped by document order.
 
 The final step is always: the lawyer edits the master document in Word and checks off the resolution list.
+
+## Escalation
+
+Stop and route to the responsible lawyer when a conflict turns on legal substance, including privilege waiver, settlement strategy, regulatory exposure, pleaded relief/remedies, limitation, admissions, or client instructions. Do not classify these as ordinary drafting conflicts.
 
 ## Example
 

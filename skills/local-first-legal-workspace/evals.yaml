@@ -3,6 +3,7 @@ evals:
     prompt: >
       Audit a desktop legal AI app from a README only. It says documents are local and model calls use BYOK. No runtime network capture is supplied.
     must_include:
+      - confidence
       - local_state_map
       - external_calls
       - BYOK provider sees prompts/content sent
@@ -13,6 +14,7 @@ evals:
     prompt: >
       Audit a local-first legal workspace, but no code, runtime evidence, provider docs, or architecture notes are supplied.
     must_include:
+      - confidence
       - audit plan
       - unknown
       - not verified

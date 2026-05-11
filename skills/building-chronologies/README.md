@@ -33,6 +33,12 @@ Test scenarios:
 
 Expected behavior: duplicate events are merged with source trail preserved, conflicts are flagged, and source gaps are listed.
 
+## Maintenance
+
+Version: 0.1.0  
+Last reviewed: 2026-05  
+Issues and updates: propose changes by PR.
+
 ## Local Evals
 
 Behaviour checks for this skill live in `evals.yaml`.

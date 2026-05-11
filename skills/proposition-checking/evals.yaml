@@ -3,6 +3,7 @@ evals:
     prompt: >
       Draft says: "The email terminated the contract." Source text says: "We reserve all rights if delivery is not made by Friday." Check support.
     must_include:
+      - confidence
       - partially_supported
       - exact source excerpt
       - suggested narrowing or source request
@@ -13,6 +14,7 @@ evals:
     prompt: >
       Check whether this proposition is supported by Wood v Capita, but I have not supplied the judgment and you have no source access.
     must_include:
+      - confidence
       - unverified_source_unavailable
       - no source text
       - do not assess from model memory

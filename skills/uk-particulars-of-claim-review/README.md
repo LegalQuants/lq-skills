@@ -35,6 +35,12 @@ Test scenarios:
 
 Expected behavior: the skill surfaces pleading gaps and verification needs without certifying merits.
 
+## Maintenance
+
+Version: 0.1.0  
+Last reviewed: 2026-05  
+Issues and updates: propose changes by PR.
+
 ## Local Evals
 
 Behaviour checks for this skill live in `evals.yaml`.

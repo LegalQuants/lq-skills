@@ -35,6 +35,12 @@ Test scenarios:
 
 Expected behavior: the skill distinguishes local storage from external model calls and avoids vague privacy claims.
 
+## Maintenance
+
+Version: 0.1.0  
+Last reviewed: 2026-05  
+Issues and updates: propose changes by PR.
+
 ## Local Evals
 
 Behaviour checks for this skill live in `evals.yaml`.

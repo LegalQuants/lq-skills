@@ -2,6 +2,8 @@
 name: uk-witness-statement-review
 description: Use when users say "review this witness statement", "check this statement before service", "PD 57AC", "statement of truth", "hearsay in this witness evidence", or need England and Wales witness evidence checked for source support, CPR/PD issues, exhibits, chronology conflicts, or argument.
 author: AnonLQ
+version: 0.1.0
+last_reviewed: 2026-05
 jurisdiction: England and Wales
 tags: [litigation, witness-statements, cpr, evidence, england-and-wales, drafting]
 ---
@@ -16,6 +18,18 @@ tags: [litigation, witness-statements, cpr, evidence, england-and-wales, draftin
 - The draft may contain argument, speculation, hearsay, unsupported recollection, or inconsistent dates.
 
 This skill is a review workflow. It does not certify truth, settle admissibility, or replace solicitor/counsel sign-off.
+
+## Audience and Work Shape
+
+Audience: England and Wales litigation lawyers, pupils/trainees, and paralegals reviewing witness evidence under supervision before service or filing.
+
+Work shape: pattern-matched review with accretive judgment. The skill classifies paragraph types, flags support/rule issues, and prepares questions for the responsible lawyer/witness; it does not certify the evidence.
+
+## Legal Failure Modes
+
+- Legal support, not legal advice: the review flags drafting, evidential, and procedural issues; it does not certify truth, admissibility, or compliance.
+- Privilege/confidentiality: witness drafts, exhibits, and reviewer comments may be privileged or confidential. Use approved environments and keep outputs within the privilege group unless a responsible lawyer approves circulation.
+- Accountability: the witness owns the truth of the evidence, and the responsible lawyer owns service, filing, and strategic use.
 
 ## Access Modes
 
@@ -84,6 +98,16 @@ Flag:
 - Statement of truth, signature, date, interpreter, translation, or exhibit formatting issues where applicable.
 
 Do not invent procedural requirements from memory. If current CPR/PD wording matters, retrieve it or mark `verify_current_rule`.
+
+## Confidence Bands
+
+- High: issue is directly supported by the statement text and supplied exhibit/source.
+- Medium: issue is visible on the draft but depends on current rule, order, or witness confirmation.
+- Low: source is missing, forum/rule status is unclear, or the point turns on admissibility/weight.
+
+## Escalation
+
+Stop and route to the responsible lawyer when evidence is hearsay-critical, a source conflict affects a material fact, PD 57AC or a court order is unclear, the statement contains argument or legal conclusions that drive the case, or the user asks whether the statement is ready to sign/file.
 
 ### 5. Produce a review report
 

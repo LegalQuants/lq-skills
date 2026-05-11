@@ -32,6 +32,12 @@ Test scenarios:
 
 Expected behavior: unresolved or unavailable sources stay marked unresolved; the skill does not invent case summaries.
 
+## Maintenance
+
+Version: 0.1.0  
+Last reviewed: 2026-05  
+Issues and updates: propose changes by PR.
+
 ## Local Evals
 
 Behaviour checks for this skill live in `evals.yaml`.

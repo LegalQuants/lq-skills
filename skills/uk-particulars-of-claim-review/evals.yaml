@@ -3,6 +3,7 @@ evals:
     prompt: >
       Review this draft PoC: it pleads a contract, breach, and "loss to be particularised" but asks for damages and interest. No limitation facts are pleaded.
     must_include:
+      - confidence
       - element map
       - loss not particularised
       - interest basis/rate/period issue
@@ -13,6 +14,7 @@ evals:
     prompt: >
       Review a draft Particulars of Claim, but no governing law, documents, limitation facts, or CPR/PD source is available.
     must_include:
+      - confidence
       - verify_current_law
       - verify_current_rule
       - source-request list

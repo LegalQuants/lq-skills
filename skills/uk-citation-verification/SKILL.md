@@ -2,6 +2,8 @@
 name: uk-citation-verification
 description: Use when users say "verify these UK citations", "check this skeleton for hallucinated cases", "BAILII/FCL check", "is this EWCA citation real", or need UK authorities, paragraph references, case names, or quotations checked against public sources.
 author: AnonLQ
+version: 0.1.0
+last_reviewed: 2026-05
 jurisdiction: UK
 tags: [citation, uk, bailii, find-case-law, hallucination-detection, litigation]
 ---
@@ -18,6 +20,18 @@ tags: [citation, uk, bailii, find-case-law, hallucination-detection, litigation]
 This skill verifies existence and citation integrity. It does not decide the merits of the case.
 
 For Scotland, Northern Ireland, tribunal-specific, or devolved materials, identify the applicable official source before treating the citation as verified.
+
+## Audience and Work Shape
+
+Audience: UK litigators, trainees, paralegals, and legal researchers checking draft legal text before lawyer review or filing.
+
+Work shape: pattern-matched verification. The skill resolves and classifies citations; it does not decide whether the authority supports a proposition.
+
+## Legal Failure Modes
+
+- Legal support, not legal advice: citation existence and integrity checks do not decide merits or legal propositions.
+- Privilege/confidentiality: drafts may be privileged or confidential. Use only approved environments or user-supplied/public sources; do not send client drafts to unapproved services.
+- Accountability: unresolved, ambiguous, traditional, or lower-confidence authorities remain for lawyer/researcher review.
 
 ## Access Modes
 
@@ -68,6 +82,12 @@ Use these statuses:
 
 Use `citation-not-found` only after recording the sources and queries searched. If the search could not be run, use `unverified-source-unavailable`.
 
+## Confidence Bands
+
+- High: direct public/official source match with retrieved text and matching citation/case name.
+- Medium: existence appears confirmed but text, party names, paragraph, or quote still needs checking.
+- Low: indirect mention, ambiguous match, traditional citation without primary text, or unofficial/source-limited lead.
+
 ### 4. Check quotation and paragraph integrity
 
 For direct quotes:
@@ -101,6 +121,10 @@ Output a table:
 | `suggested_next_step` | verify, correct, replace, or research manually |
 
 Keep unresolved authorities unresolved. A false negative is annoying; a false positive is dangerous.
+
+## Escalation
+
+Stop and ask when the citation appears Scottish, Northern Irish, tribunal-specific, devolved, non-UK, or otherwise outside the available public-source path and the correct official source cannot be identified. Do not fall back to BAILII or model memory as if it were verification-grade for those sources.
 
 ## Example
 

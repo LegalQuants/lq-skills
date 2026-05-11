@@ -2,6 +2,8 @@
 name: building-chronologies
 description: Use when users say "build a chronology", "make a timeline", "what happened when", "chronology from disclosure", "source the key events", or need legal documents, correspondence, pleadings, witness evidence, or disclosure materials turned into a sourced event chronology.
 author: AnonLQ
+version: 0.1.0
+last_reviewed: 2026-05
 jurisdiction: Agnostic
 tags: [chronology, timeline, litigation, evidence, disclosure, source-attribution]
 ---
@@ -15,6 +17,18 @@ tags: [chronology, timeline, litigation, evidence, disclosure, source-attributio
 - The output must cite each event back to a source document.
 
 Do not use this skill to fill gaps from memory. A chronology is only as reliable as its sources.
+
+## Audience and Work Shape
+
+Audience: litigators, trainees, paralegals, and litigation-support teams building first-pass chronologies for lawyer review.
+
+Work shape: bounded extraction with accretive judgment. The skill extracts dated events from sources, then applies judgment to de-duplicate, flag conflicts, and surface gaps. It does not decide what happened.
+
+## Legal Failure Modes
+
+- Legal support, not legal advice: a chronology is a working evidence map, not merits advice, submissions, or a final statement of facts.
+- Privilege/confidentiality: if source material appears privileged or work-product-sensitive, flag it as `privilege_review` and do not include it in an externally shareable chronology without lawyer approval.
+- Accountability: the responsible lawyer decides whether a disputed or low-confidence event can be used in pleadings, evidence, settlement material, or submissions.
 
 ## Access Modes
 
@@ -73,6 +87,10 @@ Use these confidence values:
 - `date_uncertain` - event happened, but exact date is unclear.
 - `source_conflict` - sources disagree materially.
 
+## Confidence Bands
+
+Use the event `confidence` and `date_certainty` together. High confidence requires a contemporaneous source and clear event date. Medium confidence means the event is sourced but date, actor, or context needs checking. Low confidence means the entry is inferred, pleaded-only, or source-limited. `source_conflict` always requires lawyer review before advocacy use.
+
 ### 3. De-duplicate and reconcile
 
 When multiple documents describe the same event:
@@ -119,6 +137,18 @@ Only produce a narrative statement of facts after the working chronology is comp
 - Exclude or flag disputed entries depending on the user's requested posture.
 - Keep verification notes separate from advocacy prose.
 - Never convert a disputed chronology entry into advocacy prose unless it is explicitly labelled as disputed or deliberately excluded.
+
+## Out of Scope
+
+- Merits assessment.
+- Limitation-period interpretation without supplied rules and facts.
+- Court deadline calculation without current rules, orders, and service facts.
+- Advice on what facts to plead or omit.
+- Public-record supplementation unless the user requests it and source tags are preserved.
+
+## Escalation
+
+Stop and route to the responsible lawyer when there is suspected privilege, irreconcilable source conflict on a key event, an unfamiliar jurisdiction or procedural regime, OCR/source quality too poor to support extraction, or a user asks for merits inference rather than chronology mapping.
 
 ## Example
 

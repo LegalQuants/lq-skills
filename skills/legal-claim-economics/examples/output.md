@@ -40,6 +40,7 @@ calculated_outputs:
     currency: GBP
     formula: "claim_count * damages_mean * win_probability"
     calculation: "1000 * 12000 * 0.58"
+    confidence: medium
   - metric: funder_entitlement_before_caps
     value: 3600000
     currency: GBP
@@ -50,6 +51,7 @@ calculated_outputs:
     currency: GBP
     formula: "expected_gross_recovery - funder_entitlement_before_caps"
     caveat: "Does not include solicitor fees, ATE, adverse costs, tax/VAT, or distribution waterfall beyond funder entitlement."
+    confidence: low
 
 not_modelled:
   - "Funding enforceability not assessed."

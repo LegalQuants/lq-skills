@@ -3,6 +3,7 @@ evals:
     prompt: >
       Model 1,000 claims, mean damages GBP 12,000, win probability 58%, funded costs GBP 1.8m, funder return 2x MOIC. No tax, ATE, costs budget, or stochastic distribution is supplied.
     must_include:
+      - confidence
       - assumptions register
       - expected gross recovery calculation
       - funder entitlement calculation
@@ -15,6 +16,7 @@ evals:
     prompt: >
       Build a litigation funding model, but I have not supplied claim count, damages, timing, costs, or funding terms.
     must_include:
+      - confidence
       - model specification
       - assumptions needed
       - no calculated outputs

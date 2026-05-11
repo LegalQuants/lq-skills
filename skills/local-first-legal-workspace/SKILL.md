@@ -2,6 +2,8 @@
 name: local-first-legal-workspace
 description: Use when users say "is this legal AI app local-first", "what leaves the machine", "BYOK privacy", "audit network calls", "where are documents stored", or need a legal AI workspace reviewed for local storage, credentials, model-provider calls, conversion, and privacy boundaries.
 author: AnonLQ
+version: 0.1.0
+last_reviewed: 2026-05
 jurisdiction: AG
 tags: [local-first, privacy, legal-ai, document-management, byok, security]
 ---
@@ -16,6 +18,18 @@ tags: [local-first, privacy, legal-ai, document-management, byok, security]
 - A workflow must explain exactly what leaves the machine.
 
 This skill is a design and audit checklist. It is not a claim that local-first equals risk-free.
+
+## Audience and Work Shape
+
+Audience: legal-technology counsel, privacy/security-aware lawyers, and legal engineers reviewing a legal AI workspace with technical input where needed.
+
+Work shape: pattern-matched audit when evidence exists; accretive design review when the user is designing a workflow. Keep those paths separate in the output.
+
+## Legal Failure Modes
+
+- Legal support, not legal advice: the skill maps data flows and uncertainty so a lawyer can assess risk; it does not certify privacy, security, privilege, or regulatory compliance.
+- Privilege/confidentiality: model calls, document conversion, logs, and external lookups can affect privilege/work-product treatment. Include privilege/work-product implications in the disclosure note when legal matter data is involved.
+- Accountability: the responsible lawyer, DPO, security lead, or system owner decides whether the workspace is acceptable for a matter or client.
 
 ## Access Modes
 
@@ -98,6 +112,16 @@ Output as:
 4. `user_disclosure_note` in plain English.
 5. `unknowns_and_verification_needed`.
 
+Add an overall confidence band to `user_disclosure_note`:
+
+- High: code, config, runtime, and provider evidence reviewed; material unknowns are closed.
+- Medium: architecture or documentation reviewed but runtime or provider evidence is incomplete.
+- Low: no-evidence or user-reported-only mode; output is an audit plan, not a conclusion.
+
+## Confidence Bands
+
+Apply the same High/Medium/Low band to the overall disclosure note and separately preserve row-level evidence states (`observed`, `user_reported`, `provider_documentation`, `unknown`, `not_observed_not_excluded`).
+
 ### 5. Review failure modes
 
 Flag:
@@ -108,6 +132,10 @@ Flag:
 - API keys stored in plaintext files.
 - Unbounded logs containing document text.
 - Local app exposing services beyond localhost.
+
+## Escalation
+
+Stop and route to privacy counsel, a security engineer, or the system owner when plaintext credentials are found, marketing/privacy claims contradict code or runtime evidence, unexpected outbound destinations appear, provider retention terms are missing for client data, or the user wants a client-facing assurance without runtime evidence.
 
 ## Example
 

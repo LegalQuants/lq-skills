@@ -2,6 +2,8 @@
 name: corporate-registry-investigation
 description: Use when users say "Companies House search", "investigate this UK company", "check officers/PSCs/charges", "registry snapshot", "group structure", "filing history", or need UK company profile, filings, risk leads, and registry evidence reviewed without unsupported allegations.
 author: AnonLQ
+version: 0.1.0
+last_reviewed: 2026-05
 jurisdiction: UK
 tags: [companies-house, corporate, investigation, registry, due-diligence, uk]
 ---
@@ -15,6 +17,18 @@ tags: [companies-house, corporate, investigation, registry, due-diligence, uk]
 - The user wants risk signals from public registry material.
 
 This skill reads registry evidence. It does not prove beneficial ownership beyond what the registry and supplied documents show.
+
+## Audience and Work Shape
+
+Audience: disputes, diligence, KYC, onboarding, conflicts, and in-house legal users doing first-pass UK registry review for lawyer or compliance review.
+
+Work shape: pattern-matched review of registry evidence. The skill extracts and labels public registry facts and risk leads; it does not conclude wrongdoing, beneficial ownership, or suitability.
+
+## Legal Failure Modes
+
+- Legal support, not legal advice: registry outputs are investigative leads, not legal findings or allegations.
+- Privilege/confidentiality: in litigation, enforcement, or internal-investigation contexts, outputs may form privileged or work-product material. Do not circulate outside the privilege group without lawyer approval.
+- Accountability: the skill tabulates evidence and inferences; the lawyer or responsible reviewer decides what the evidence means and whether follow-up is required.
 
 ## Access Modes
 
@@ -99,6 +113,25 @@ Produce:
 - Follow-up searches needed.
 
 Label red flags as investigative leads, not legal findings or allegations.
+
+## Confidence Bands
+
+- High: direct registry evidence from a live or user-supplied Companies House source.
+- Medium: inference from a registry pattern, such as officer churn or unresolved charges.
+- Low: possible identity match, group-role indicator, OCR-derived filing text, or unresolved ownership chain.
+
+## Not in Scope
+
+- Non-UK registry investigation.
+- Sanctions, PEP, or adverse-media screening.
+- KYC sign-off.
+- Beneficial-ownership confirmation beyond registry evidence.
+- Litigation or insolvency court-record searches unless separately sourced.
+- Substantive accounts analysis without filing text and qualified review.
+
+## Escalation
+
+Stop and ask the responsible lawyer or reviewer when identity match is uncertain, filings are unreadable or scanned without OCR, ownership cannot be resolved from registry material, or a pattern would need to be characterised as wrongdoing to be useful.
 
 ### 6. Keep evidence and uncertainty separate
 

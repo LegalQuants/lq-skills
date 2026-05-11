@@ -2,6 +2,8 @@
 name: proposition-checking
 description: Use when users say "does this authority support the point", "check propositions", "fact-check this argument", "verify record support", or need cited cases, statutes, exhibits, transcripts, emails, or pleadings checked against legal or factual propositions.
 author: AnonLQ
+version: 0.1.0
+last_reviewed: 2026-05
 jurisdiction: Agnostic
 tags: [briefs, citations, factual-record, proposition-checking, litigation, hallucination-detection]
 ---
@@ -16,6 +18,18 @@ tags: [briefs, citations, factual-record, proposition-checking, litigation, hall
 - The user asks whether a quotation, paraphrase, or record reference is accurate.
 
 This skill checks support. It does not predict who wins and does not replace legal judgment.
+
+## Audience and Work Shape
+
+Audience: litigators, legal researchers, trainees, and paralegals checking draft arguments or evidence summaries for lawyer review.
+
+Work shape: pattern-matched source checking with accretive judgment. The skill maps propositions to sources and grades support; it does not make the legal argument for the user.
+
+## Legal Failure Modes
+
+- Legal support, not legal advice: support classification is a verification aid, not a merits opinion.
+- Privilege/confidentiality: drafts, exhibits, transcripts, and advice notes may be privileged or confidential; use approved environments and mark source limitations.
+- Accountability: the responsible lawyer decides whether to keep, narrow, replace, or abandon the proposition.
 
 ## Access Modes
 
@@ -50,6 +64,12 @@ Use supplied source text first:
 If the source cannot be retrieved, classify the proposition as `unverified`, not unsupported.
 
 For every source used, record the source type, URL or document identifier, access date, and pinpoint. Do not assess support from model memory.
+
+## Confidence Bands
+
+- High: source text is available, pinpointed, and directly supports or contradicts the proposition.
+- Medium: source text is available but the proposition depends on interpretation, context, admissibility, or legal characterization.
+- Low: source unavailable, quote incomplete, conflicting sources, or `needs_review` / `unverified_source_unavailable`.
 
 ### 3. Compare proposition to source
 
@@ -100,6 +120,10 @@ After checking individual propositions, summarize:
 - Facts contradicted by the record.
 - Authorities that exist but are cited for the wrong doctrine.
 - Unverified sources that need manual research.
+
+## Escalation
+
+Stop and route to the responsible lawyer when a key proposition is contradicted, an authority appears fabricated, a quote is materially inaccurate, admissibility/privilege controls the answer, or the user asks for merits advice rather than source support.
 
 ## Example
 

@@ -2,6 +2,8 @@
 name: uk-court-of-appeal-judicial-preference-check
 description: Use when users say "check this Court of Appeal skeleton", "judicial preference check", "CoA style", "is this too factual", "commercial vs black letter", or need England and Wales appellate drafts tested against public-source Court of Appeal drafting and judicial preference signals.
 author: AnonLQ
+version: 0.1.0
+last_reviewed: 2026-05
 jurisdiction: England and Wales
 tags: [court-of-appeal, litigation, skeleton-arguments, grounds-of-appeal, judicial-preferences, legal-writing]
 ---
@@ -16,6 +18,18 @@ tags: [court-of-appeal, litigation, skeleton-arguments, grounds-of-appeal, judic
 - The user asks whether the draft reads too factual, too doctrinal, too aggressive, too long, too authority-heavy, too commercial, too black-letter, or insufficiently appellate.
 
 This skill identifies source-backed drafting tendencies and judicial preference signals visible in public decisions. It does not predict votes, infer private judicial psychology, or replace counsel's advocacy judgment.
+
+## Audience and Work Shape
+
+Audience: experienced appellate counsel, litigation solicitors, and supervised appellate teams drafting or reviewing England and Wales Court of Appeal materials.
+
+Work shape: pattern-matched review of a draft against a public-source corpus, producing accretive judgment for counsel. It is not a transactional output and not for unsupervised self-represented use.
+
+## Legal Failure Modes
+
+- Legal support, not legal advice: the output is drafting-signal analysis, not advocacy strategy or merits advice.
+- Privilege/confidentiality: the draft may be privileged work product; use only approved environments and avoid unnecessary client-identifying detail in public-source searches.
+- Accountability: counsel owns the final drafting choices and any decision to adopt, reject, or ignore a signal.
 
 ## Access Modes
 
@@ -93,6 +107,12 @@ Use:
 - `single-source-lead` - interesting but not enough to generalise.
 
 Judge-specific observations require multiple relevant public decisions. Frame them as public writing and reasoning signals, not personality traits or outcome predictions.
+
+## Confidence Bands
+
+- High: multiple closely comparable public decisions support the signal, with paragraph references and excerpts.
+- Medium: limited but relevant public corpus supports the signal.
+- Low: single-source lead, weak comparator fit, unknown panel, or conflicting corpus signals.
 
 ### 4. Profile the draft
 
@@ -197,6 +217,10 @@ legal_safety:
 - Treat absence of evidence as a research gap, not proof of tolerance or intolerance.
 - If a preference finding depends on a named judge, state the corpus size and dates.
 - Keep citation verification and proposition checking separate; invoke those skills if the issue is whether authorities exist or support propositions.
+
+## Escalation
+
+Stop and redirect when the target court is not the Court of Appeal of England and Wales, including UKSC, Privy Council, Inner House, NICA, tribunals, or foreign appellate courts. If public-source signals conflict across the corpus, report the split rather than averaging them. If the user asks for outcome prediction, refuse and reframe as drafting-signal analysis.
 
 ## Example
 

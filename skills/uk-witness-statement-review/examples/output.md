@@ -22,6 +22,7 @@ issues:
     classification: hearsay_or_reported_fact
     issue: "Central evidence was reported hearsay where the witness had not provided a statement or attended to give evidence."
     severity: major
+    confidence: high
     source_pinpoint: "W [2013] EWCA Civ 1374 at [9]-[13]"
     rule_or_source_checked: "Find Case Law public judgment"
     suggested_fix: "For a draft statement, identify whether the witness gives first-hand evidence; if relying on hearsay, explain source, availability, and why direct evidence is not provided."
@@ -30,6 +31,7 @@ issues:
     classification: source_quality
     issue: "Reported account passed through multiple hands and lacked supporting detail/context."
     severity: major
+    confidence: high
     source_pinpoint: "W [2013] EWCA Civ 1374 at [17]"
     rule_or_source_checked: "Find Case Law public judgment"
     suggested_fix: "For a draft statement, flag multiple-hearsay chains and ask for contemporaneous records or first-hand witness evidence."
@@ -38,6 +40,7 @@ issues:
     classification: weight_of_hearsay
     issue: "Where a witness statement or attendance is missing, reasons for that absence matter to weight."
     severity: major
+    confidence: medium
     source_pinpoint: "W [2013] EWCA Civ 1374 at [23]"
     rule_or_source_checked: "Find Case Law public judgment; Civil Evidence Act point to verify in current rules"
     suggested_fix: "In a live review, ask why direct evidence is unavailable and whether hearsay notice/rule compliance is needed."

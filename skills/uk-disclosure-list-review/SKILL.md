@@ -2,6 +2,8 @@
 name: uk-disclosure-list-review
 description: Use when users say "review this disclosure list", "QC disclosure", "check privilege descriptions", "inspection objections", "missing custodians", "adverse documents", or need England and Wales disclosure checked for issue coverage, gaps, privilege, redactions, and inspection risk.
 author: AnonLQ
+version: 0.1.0
+last_reviewed: 2026-05
 jurisdiction: England and Wales
 tags: [litigation, disclosure, cpr, privilege, england-and-wales, documents]
 ---
@@ -16,6 +18,18 @@ tags: [litigation, disclosure, cpr, privilege, england-and-wales, documents]
 - The matter is in England and Wales civil litigation.
 
 This skill is a quality-control workflow. It does not make final privilege calls or certify disclosure compliance.
+
+## Audience and Work Shape
+
+Audience: England and Wales litigation associates, paralegals, and disclosure-support teams preparing a disclosure list or QC report for solicitor/partner review.
+
+Work shape: pattern-matched review with accretive judgment elements. The skill maps coverage and flags privilege/adverse-document issues; it does not certify disclosure compliance.
+
+## Legal Failure Modes
+
+- Legal support, not legal advice: the report is a QC aid, not a certification of compliance or privilege.
+- Privilege/confidentiality: disclosure review may itself be privileged work product. Keep outputs inside the privilege group unless a responsible lawyer approves circulation.
+- Accountability: the responsible solicitor decides privilege, inspection, adverse-document significance, and whether the list is adequate.
 
 ## Access Modes
 
@@ -113,6 +127,16 @@ Recommended sections:
 5. Potentially adverse document flags.
 6. Rule/order points needing verification.
 7. Questions for the responsible lawyer or legal reviewer.
+
+## Confidence Bands
+
+- High: issue is directly supported by a list row, order term, pleading paragraph, or supplied document.
+- Medium: issue is inferred from a pleaded issue, chronology entry, or witness reference and needs source confirmation.
+- Low: source is missing, search record absent, privilege basis unclear, or inspection requires document-level review.
+
+## Escalation
+
+Stop and route to the responsible solicitor when the disclosure order conflicts with the list, foreign-law privilege is implicated, a custodian is also a key witness, an inspection challenge is imminent, privilege basis is uncertain on material documents, or the source/search record is too incomplete to assess coverage.
 
 ## Example
 

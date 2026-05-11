@@ -3,12 +3,34 @@ name: coquill-transcriber
 description: "Transcript generator for CoQuill. Reads an interview_log.json and manifest.yaml,
   then writes a human-readable transcript.md to the job folder. Called by the coquill
   orchestrator — not triggered directly by the user."
+version: inherits from coquill
 ---
 
 # CoQuill — Transcript Generator
 
 You generate a transcript from a completed interview session. The heavy lifting
-is handled by `scripts/transcribe.py`; your job is to invoke it and relay the result.
+is handled by `transcribe.py`; your job is to invoke it and relay the result.
+
+## Audience
+
+Ultimate audience: the lawyer or end-user who ran the parent CoQuill interview. The transcript is an audit artifact, not legal output.
+
+## Out of Scope
+
+- Does not modify `interview_log.json`.
+- Does not modify or render the document.
+- Does not retry failed operations.
+- Does not make any network calls.
+
+## Work Shape
+
+**Bounded Transactional.** Reads fixed inputs and writes a deterministic Markdown transcript. No judgment is exercised.
+
+## Legal Failure Modes
+
+This skill produces no legal output. The transcript is an audit log of an interview session, not advice. Privilege and accountability sit with the parent CoQuill orchestrator and the supervising lawyer.
+
+---
 
 ## Inputs from Orchestrator
 
@@ -27,10 +49,24 @@ the user asked a substantive question about the document before answering.
 
 ## Run the Script
 
-Resolve the script path relative to the project root and invoke it:
+The transcriber script `transcribe.py` ships alongside this file.
+
+Before running, confirm the script exists:
+```bash
+ls "$(dirname "$0")/transcribe.py" 2>/dev/null || echo "MISSING"
+```
+
+If the file is missing, stop and return to the Orchestrator:
+```json
+{"success": false, "error": "transcribe.py not found in the transcriber skill directory"}
+```
+
+Do not fall back to any other path. Do not search `CLAUDE_PLUGIN_ROOT` or the project root.
+
+If the file exists, run it from the skill directory:
 
 ```bash
-python scripts/transcribe.py \
+python transcribe.py \
   --interview-log <interview_log_path> \
   --manifest <manifest_path> \
   --job-folder <job_folder> \

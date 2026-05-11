@@ -1,11 +1,38 @@
 ---
 name: coquill-renderer
 description: "Document renderer for CoQuill. Takes a template, variable values, and produces rendered documents (docx or html+pdf). Validates output for unfilled placeholders. Called by the coquill orchestrator — not triggered directly by the user."
+version: inherits from coquill
 ---
 
 # CoQuill — Document Renderer (v2)
 
 You are running the CoQuill document renderer. Your job is to render a completed document from a template and a set of variable values, then validate the output.
+
+## Audience
+
+Invoked by the CoQuill orchestrator. Output is consumed by the requesting user via the orchestrator. No lawyer-in-the-loop is assumed at this layer.
+
+## Not in Scope
+
+- Does not validate whether variable values are legally correct.
+- Does not assess the template's legal fitness for any jurisdiction or transaction.
+- Does not deliver documents to counterparties.
+- Does not handle e-signatures.
+- Does not persist output beyond the job folder.
+
+## Work Shape
+
+**Bounded Transactional.** Inputs are fully specified by the orchestrator; this renderer exercises no judgment about content or fitness for purpose.
+
+## Delegation Threshold
+
+This renderer guarantees **structural completion only** — all placeholders were filled and all control tags were processed. Legal sufficiency, suitability, and execution are the responsibility of the user and lawyer at the orchestrator level.
+
+## Legal Failure Modes
+
+Legal advice, privilege, and accountability concerns are handled by the parent CoQuill orchestrator and the requesting user — not in scope for this renderer.
+
+---
 
 ## Inputs
 
@@ -14,6 +41,7 @@ This skill is called by the CoQuill orchestrator. You receive:
 - **Format** — `docx`, `html`, or `markdown`
 - **Variable dictionary** — all collected values: flat key-value pairs, booleans as Python `True`/`False`, and loop collections as lists of dicts
 - **Output directory** — e.g., `output/`
+- **`draft_notice`** — a string such as `"DRAFT — REQUIRES LEGAL REVIEW"` supplied by the orchestrator. Prepend this as the first line of the document body before any template content. This field is always present; never omit it from rendered output.
 
 ## Step 1 — Output Structure
 
@@ -34,11 +62,23 @@ output/
 
 ### 2a — Write context.json
 
-Serialize the full variable dictionary as a JSON file to a temporary path. The render script reads this file.
+Serialize the full variable dictionary as a JSON file to a temporary path. The render script reads this file. Include a top-level `__draft_notice__` key in the context JSON set to the value of the `draft_notice` input (e.g., `"DRAFT — REQUIRES LEGAL REVIEW"`). The render script prepends this value as the first line of the document body.
 
 ### 2b — Resolve script path
 
-The render script lives at `scripts/render.py` relative to the project root. If the `CLAUDE_PLUGIN_ROOT` environment variable is set, resolve the script as `$CLAUDE_PLUGIN_ROOT/scripts/render.py`.
+The render script `render.py` ships alongside this file.
+
+Before running, confirm the script exists:
+```bash
+ls "$(dirname "$0")/render.py" 2>/dev/null || echo "MISSING"
+```
+
+If the file is missing, stop and return to the Orchestrator:
+```json
+{"success": false, "error": "render.py not found in the renderer skill directory"}
+```
+
+Do not fall back to any other path. Do not search `CLAUDE_PLUGIN_ROOT`or the project root.
 
 ### 2c — Run the render script
 

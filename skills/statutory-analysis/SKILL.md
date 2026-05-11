@@ -1,5 +1,5 @@
 ---
-name: statute-guide
+name: statutory-analysis
 description: First-pass framework for reading, interpreting, and structuring statutory analysis of US federal, state, and local law. Produces draft analysis for attorney review — not legal advice. Use this skill whenever the user references a specific US statute, regulation, ordinance, or rule by citation, asks "what does [statute X] require," asks for compliance scoping, applicability thresholds, requirement extraction, exemption analysis, definitional analysis, federal preemption analysis, or multi-state comparison — even if they don't explicitly ask for "statutory analysis." Halts and asks for missing inputs rather than guessing. Out of scope for non-US law.
 version: 0.2.0
 author: Rafal Stanislaw Fryc

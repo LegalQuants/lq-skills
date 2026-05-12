@@ -4,7 +4,9 @@ description: Use when the user provides a client alert, regulatory bulletin, law
 lq_ai:
   title: Action Items from Client Alert
   version: 1.0.0
-  author: LegalQuants
+  author: Kevin Keller
+  last_reviewed: 2026-05
+  last_reviewed_by: LegalQuants (QA remediation)
   tags: [extraction, alerts, deadlines, regulatory, compliance]
   jurisdiction: agnostic
   trigger_examples:
@@ -40,6 +42,8 @@ lq_ai:
 Extract time-sensitive action items, deadlines, and obligations from a client alert, regulatory bulletin, law firm memo, or similar legal update. Produce a deadline-organized checklist that an in-house lawyer can act on without re-reading the source document.
 
 The skill is operational, not analytical. Action items are stated at the level of granularity the alert supports — typically high-level ("comply with new disclosure requirement by [date]"), not implementation-level ("update privacy policy section 4.2 by [date]"). The user knows their organization better than the skill does; the skill provides the trigger and deadline, not the implementation.
+
+**Audience.** In-house counsel or compliance analyst with regulatory-intake experience who can audit the extracted checklist against the source alert. Not suitable for unsupervised non-lawyer use; the output is a reviewed working draft, not a deliverable to non-legal stakeholders without lawyer sign-off. Outside counsel and smaller orgs without an in-house team structure should treat functional-owner suggestions ("Legal", "Compliance", "IT") as placeholders and reassign per their own staffing.
 
 ## When this skill applies
 
@@ -99,6 +103,11 @@ For each item, capture:
 - **Who within the organization:** typical functional owner if the alert suggests one (Legal, Compliance, IT, HR, etc.); otherwise marked "Owner: TBD."
 - **Why / source:** the underlying legal basis (statute, regulation, agency guidance), with citation to the alert's section.
 - **Conditions / applicability:** whether the item applies to all organizations or only specific ones.
+- **Extraction confidence:** tag each item per the linguistic patterns graded in `reference/extraction_patterns.md`.
+  - **High** — the alert states the action and deadline explicitly with mandatory language ("must", "shall", "is required to", a specified effective/compliance date).
+  - **Medium** — the alert implies the action or deadline but does not state it directly (e.g., "the rule takes effect for fiscal years ending on or after [date]" requires deriving the filing date from the user's fiscal year).
+  - **Low** — the alert is ambiguous, conditional on facts not in the document, or uses hedged language ("companies may need to consider…"). Item is extracted but explicitly flagged for lawyer judgment.
+- **Source-fidelity tag:** mark each line in the item as either **[Extracted]** — copied or directly paraphrased from the alert with section citation — or **[Inferred]** — derived by the skill (e.g., a specific filing deadline computed from an effective date and an assumed filer class, or a functional owner inferred from the topic). Inferred lines must state the assumption and ask the reviewer to confirm.
 
 ### Step 3: Apply filters and applicability flags
 
@@ -142,24 +151,26 @@ Produce the report in markdown with this structure:
 
 ## Mandatory action items
 
+Each item lists, in addition to the substantive fields: **Extraction confidence** (High / Medium / Low) and a per-line **[Extracted]** vs **[Inferred]** tag. Inferred lines state the assumption and request reviewer confirmation.
+
 ### Past-deadline items
-[If any. Each with: what, deadline (passed), source citation, applicability, recommended remediation.]
+[If any. Each with: what, deadline (passed), source citation, applicability, recommended remediation, extraction confidence, per-line Extracted/Inferred tags.]
 
 ### Imminent (within 30 days)
-[Each with: what, deadline (specific date), owner, source citation, applicability.]
+[Each with: what, deadline (specific date), owner, source citation, applicability, extraction confidence, per-line Extracted/Inferred tags.]
 
 ### Near-term (30 days to 6 months)
-[Each with: what, deadline, owner, source citation, applicability.]
+[Each with: what, deadline, owner, source citation, applicability, extraction confidence, per-line Extracted/Inferred tags.]
 
 ### Future (beyond 6 months)
-[Each with: what, deadline, owner, source citation, applicability.]
+[Each with: what, deadline, owner, source citation, applicability, extraction confidence, per-line Extracted/Inferred tags.]
 
 ### Ongoing obligations
-[Each with: what, periodicity if applicable, owner, source citation, applicability.]
+[Each with: what, periodicity if applicable, owner, source citation, applicability, extraction confidence, per-line Extracted/Inferred tags.]
 
 ## Recommended action items (no specific deadline)
 
-[Each with: what, why recommended, owner, source citation, applicability.]
+[Each with: what, why recommended, owner, source citation, applicability, extraction confidence, per-line Extracted/Inferred tags.]
 
 ## Informational items
 
@@ -209,3 +220,7 @@ The report should match the alert's substance, not pad. A brief alert (1-2 pages
 - `examples/example_clear_alert.md` — worked example: well-structured alert with clear deadlines.
 - `examples/example_vague_alert.md` — worked example: vague alert that produces few extractable items.
 - `examples/example_multi_jurisdiction.md` — worked example: alert covering multiple jurisdictions, demonstrating jurisdiction-filtering.
+
+## QA Remediation (LegalQuants, 2026-05)
+
+LegalQuants added a targeted remediation pass to address SOME CONCERN gaps surfaced in QA: reconciled the frontmatter `author` field with the registry (Kevin Keller, per README); added an explicit Audience line (in-house counsel / compliance analyst with regulatory-intake experience); surfaced per-item extraction-confidence bands (High / Medium / Low) tied to the linguistic patterns already graded in `reference/extraction_patterns.md`; and introduced per-line **[Extracted]** vs **[Inferred]** source-fidelity tagging so reviewers can distinguish text copied from the alert from outputs the skill computed (e.g., filing dates derived from effective dates and assumed filer class). Original technical content — workflow steps, applicability flags, edge cases, refusals, and non-goals — is unchanged.

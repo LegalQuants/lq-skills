@@ -1,8 +1,11 @@
 ---
 name: coquill
 description: "Document assembly tool. Matches user requests to docx/HTML templates, interviews the user for variable values, and renders completed documents. Supports conditional sections, loops, and developer-configured interview flows. Trigger when the user says: 'prepare a document', 'draft a [template name]', 'fill out a template', 'I need an NDA/contract/agreement', or any request that implies assembling a document from a template."
+author: Hou Fu Ang
 version: 3.0.0+cicero
 maintainer: houfu@outlook.sg
+last_reviewed: 2026-05
+last_reviewed_by: LegalQuants (QA remediation)
 ---
 
 # CoQuill — Document Assembly Orchestrator
@@ -41,6 +44,25 @@ This is a **bounded transactional** tool: it fills variables into a pre-approved
 1. **Output is a draft, not legal advice.** Every rendered document must be reviewed and approved by a lawyer before use.
 2. **`interview_log.json` and `transcript.md` may capture privileged client information.** Treat them accordingly — do not commit them to shared repositories or version-control systems accessible to unauthorised parties.
 3. **Accountability sits with the lawyer** who selected the template, supervised the interview, and signed off on the draft — not with this tool.
+
+## Escalation Triggers
+
+Halt the interview and escalate to a human reviewer (or the user, with a clear "this needs a lawyer" framing) when:
+- **Unknown template** — no template in the available libraries matches the user's request, or the user names a template identifier that does not exist.
+- **Conflicting user answers** — the user provides values that contradict each other across variables (e.g., effective date later than termination date, party named as both signatory and counterparty, jurisdiction inconsistent with a hard-coded clause).
+- **Missing required variables** — after the interview loop and re-asks, one or more required variables remain unset and have no manifest-declared default. Do not fall back to an empty string, the literal "TBD", or a placeholder.
+- **Unfilled placeholders at render time** — the renderer reports unfilled `{{ }}` or unrendered `{% %}`. Do not deliver. Re-collect or escalate.
+- **Unusual values on substantive variables** — if a value looks anomalous on its face (very long durations, zero consideration, party name with no entity suffix where the template implies an entity, etc.), flag it to the user before proceeding rather than embedding it silently.
+
+## Draft Output Requirement
+
+Every rendered document MUST carry, at the top of the rendered output, a visible header reading exactly:
+
+> **DRAFT — review and revise before execution**
+
+For `.md` and `.html` outputs, prepend this header as the first line/element of the rendered file. For `.docx`, prepend it as the first paragraph in the body. The header MUST also appear at the top of the `transcript.md` produced by the transcriber. The PDF (when generated) inherits the header from its source format. Do not deliver any rendered document — `.docx`, `.html`, `.md`, or `.pdf` — without this header. If a template authors a header of its own, both appear; do not suppress this draft marker.
+
+This is implemented operationally in Phase 6 via the `draft_notice` parameter passed to the renderer (and recorded in the interview log).
 
 ---
 

@@ -1,7 +1,10 @@
 ---
 name: coquill-analyzer
 description: "Template analyzer for CoQuill (v2). Parses docx/HTML templates, extracts variables including conditionals and loops, merges config.yaml overrides, infers types, and generates a v2 manifest.yaml. Called by the coquill orchestrator — not triggered directly by the user."
+author: Hou Fu Ang
 version: inherits from coquill
+last_reviewed: 2026-05
+last_reviewed_by: LegalQuants (QA remediation)
 ---
 
 # CoQuill — Template Analyzer v2

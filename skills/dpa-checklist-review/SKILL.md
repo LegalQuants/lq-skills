@@ -4,7 +4,9 @@ description: Use when the user provides a Data Processing Agreement, Data Proces
 lq_ai:
   title: DPA Checklist Review
   version: 1.0.0
-  author: LegalQuants
+  author: Kevin Keller
+  last_reviewed: 2026-05
+  last_reviewed_by: LegalQuants (QA remediation)
   tags: [contracts, dpa, privacy, gdpr, ccpa, hipaa, compliance, review]
   jurisdiction: regime-dependent
   trigger_examples:
@@ -52,6 +54,16 @@ Do not apply this skill to:
 - Standalone privacy schedules or security exhibits inside larger agreements where the privacy/security terms have not been collected into a DPA structure. Tell the user the substantive privacy and security terms need to be pulled into a DPA-shaped structure before this skill is useful.
 - Contractual privacy clauses inside MSAs that have not been broken out as a DPA addendum. Recommend the user request a separate DPA addendum from the counterparty, which is now industry standard.
 - Cross-regime analysis (e.g., "is this GDPR-compliant *and* HIPAA-compliant?"). Run the skill twice with different `regulatory_regime` values and compare outputs.
+
+## Privilege and confidentiality
+
+DPAs and BAAs frequently contain client-confidential information (data flows, security postures, vendor relationships, deal terms) and the resulting compliance review is plausibly attorney work product. Before running the skill, the user must confirm:
+
+- **Privileged work product.** The checklist produced by this skill is a draft work product intended to support legal advice. Treat the output as presumptively privileged where applicable, and do not distribute it outside the attorney-client circle without considering waiver consequences.
+- **External-model exposure.** If this skill is being executed in an environment that routes the document to a model or service outside the user's attorney-supervised workflow (e.g., a non-BAA-covered API, a non-enterprise consumer endpoint, a logged training surface), confirm with the user before proceeding. Run this skill only inside an attorney-supervised workflow where the routing and retention posture has been vetted.
+- **Legal-use posture.** Output is a draft for review by qualified privacy counsel — it is not a legal opinion, not a regulator-facing artifact, and not a substitute for a PIA, TIA, or other formal compliance assessment (see "What this skill does not do").
+
+If the user cannot confirm that the workflow is attorney-supervised and the model routing is acceptable for the document at hand, stop and surface the concern before running the review.
 
 ## Inputs
 
@@ -133,11 +145,13 @@ Produce the review as a structured checklist in markdown:
 
 ## Compliance checklist
 
-| # | Required term | Source | Status | Clause | Assessment |
-|---|---|---|---|---|---|
-| 1 | [Term name] | [Statute reference, e.g., "GDPR Art. 28(3)(a)"] | Present / Partial / Missing / Unclear / N/A | [§ ref or "—"] | [One-line assessment] |
-| 2 | [...] | [...] | [...] | [...] | [...] |
-| ... | | | | | |
+| # | Required term | Source | Status | Severity | Clause | Assessment |
+|---|---|---|---|---|---|---|
+| 1 | [Term name] | [Statute reference, e.g., "GDPR Art. 28(3)(a)"] | Present / Partial / Missing / Unclear / N/A | High / Medium / Low | [§ ref or "—"] | [One-line assessment] |
+| 2 | [...] | [...] | [...] | [...] | [...] | [...] |
+| ... | | | | | | |
+
+Every finding gets a severity rating. Calibrate severity using the Critical / Material / Minor bands in the regime reference file (`reference/gdpr_requirements.md`, `reference/us_state_privacy_requirements.md`, `reference/hipaa_baa_requirements.md`, `reference/general_commercial_requirements.md`), mapped as: **High** = Critical (regulator-facing requirement, missing it would render the document non-compliant); **Medium** = Material (gap creates real legal or operational risk but is not a per-se compliance failure); **Low** = Minor (drafting hygiene, commercial preference, or belt-and-braces). Severity is required even for Present items so the reader can see what the document gets right on the high-stakes terms at a glance.
 
 ## Detailed findings
 
@@ -191,3 +205,13 @@ The checklist table is the centerpiece. Detailed findings only cover non-Present
 - `reference/general_commercial_requirements.md` — Commercially-standard DPA terms when no specific regime is stated.
 - `examples/example_gdpr.md` — Worked example: GDPR DPA review from a controller perspective.
 - `examples/example_us_state.md` — Worked example: US state privacy DPA review from a service-provider/processor perspective.
+
+## QA Remediation (LegalQuants, 2026-05)
+
+LegalQuants QA evaluated this skill as SOME CONCERN against the Legal Skill Design Framework on 2026-05-11. Targeted remediation applied 2026-05:
+
+- **Privilege treatment strengthened.** Added an explicit "Privilege and confidentiality" section in Scope, requiring the user to confirm attorney-supervised workflow and acceptable model-routing posture before running the skill. Treats output as presumptively privileged work product and warns against external-model exposure of confidential client documents. Reinforced the "draft for review by qualified privacy counsel" framing already present in "What this skill does not do".
+- **Severity surfaced in headline checklist.** Added a `Severity` column (High / Medium / Low) to the mandated checklist table so the Critical / Material / Minor calibration from the regime reference files propagates into the headline artifact rather than being buried in prose. Severity is required for every row, including Present items, so a reader scanning the table can see the document's posture on high-stakes terms at a glance.
+- **Provenance reconciled.** `author` field set to Kevin Keller (matching the registry README). `last_reviewed` and `last_reviewed_by` fields added to surface the QA cadence on the artifact itself.
+
+Technical content (workflow passes, regime reference files, output structure, edge cases, refusal triggers) preserved unchanged. Substantive privacy-counsel judgment required to use this skill is unchanged.

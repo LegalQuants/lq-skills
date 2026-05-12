@@ -3,7 +3,10 @@ name: coquill-transcriber
 description: "Transcript generator for CoQuill. Reads an interview_log.json and manifest.yaml,
   then writes a human-readable transcript.md to the job folder. Called by the coquill
   orchestrator — not triggered directly by the user."
+author: Hou Fu Ang
 version: inherits from coquill
+last_reviewed: 2026-05
+last_reviewed_by: LegalQuants (QA remediation)
 ---
 
 # CoQuill — Transcript Generator

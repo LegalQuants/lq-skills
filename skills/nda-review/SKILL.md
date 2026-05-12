@@ -4,6 +4,9 @@ description: Use when reviewing one-way (unilateral) commercial NDAs, analyzing 
 author: Jamie Tso
 jurisdiction: AG (jurisdiction-agnostic)
 tags: [nda, contract-review, redlines, negotiation, legal-analysis]
+version: 1.0.0
+last_reviewed: 2026-05
+last_reviewed_by: LegalQuants (QA remediation)
 ---
 
 # NDA Review Playbook (Commercial, Jurisdiction-Agnostic)
@@ -11,6 +14,10 @@ tags: [nda, contract-review, redlines, negotiation, legal-analysis]
 Version 1.0 — December 2025
 
 > This skill is a structured review playbook. It is not legal advice. When the NDA is high-risk, high-value, cross-border, or otherwise sensitive, escalate to qualified counsel.
+
+> **DRAFT — qualified counsel review required before signing.**
+> Reviewer of record: __________________________ (named lawyer, required before send)
+> Every output produced by this skill MUST carry this header verbatim and MUST leave the reviewer-of-record line in place until a named qualified lawyer has signed off. Do not send any redline, issue log, or summary to a counterparty until this line is filled.
 
 ## Overview
 
@@ -60,6 +67,18 @@ Version 1.0 — December 2025
 | Remedies | One-way fees + automatic injunction | | | | | | |
 | Liability | Indemnity + unlimited consequential damages | | | | | | |
 | Boilerplate | Assignment prohibits change of control | | | | | | |
+
+### C. Risk Band Rubric (How to Score H / M / L)
+
+Every row in the Issue Log MUST carry one of the three bands below. Use the most-severe band that applies; do not average.
+
+| Band | Criteria (any one triggers the band) | Typical examples |
+|---|---|---|
+| **High (H)** | Forced or one-way arbitration imposed on Recipient; unlimited liability or uncapped consequential damages; non-mutual indemnity that survives termination; perpetual confidentiality on *all* information with no trade-secret distinction; one-way attorneys' fees + automatic injunction against Recipient; standstill / no-hire / no-contact bundled into the NDA; cross-border personal-data flow with no carve-out; assignment clause that triggers on change of control. | "Recipient indemnifies Discloser for any and all claims"; "Recipient waives right to a jury and consents to arbitration in [foreign seat]"; "obligations survive in perpetuity". |
+| **Medium (M)** | Ambiguity in a defined term that could be read against us in negotiation but is not catastrophic; onerous-but-bounded scope (e.g., 5-year confidentiality on non-trade-secret info); missing standard carve-outs (compelled disclosure, prior knowledge, independent development) where the omission is recoverable in redline; representative-liability language without a written-confidentiality limiter; return/destruction language with no backup carve-out. | "Confidential Information includes any information disclosed in connection with the Purpose" (no marking standard); "Recipient shall be liable for any breach by its Representatives". |
+| **Low (L)** | Minor drafting cleanup — typos, defined-term capitalisation, cross-reference errors, stylistic inconsistencies; boilerplate that is non-standard but commercially harmless; clarifying tweaks that improve readability without shifting risk. | Inconsistent defined-term casing; redundant recitals; severability/notice-address mechanics. |
+
+> **Scoring discipline:** if you can credibly explain to a deal lead in one sentence why a clause could materially damage the business or expose the firm, it is at least Medium. If the explanation requires "and then if X, and then if Y…", it is Low.
 
 ## 5-Step Workflow
 
@@ -141,3 +160,21 @@ For each issue:
 - High-risk, high-value, or cross-border deals require escalation
 - Does not cover mutual NDAs — those require separate review approach
 - All outputs must be reviewed by a qualified legal professional before use
+
+## QA Remediation (LegalQuants, 2026-05)
+
+This skill was QA'd by LegalQuants against the Legal Skill Design Framework on 2026-05-11 (verdict: SOME CONCERN) and remediated on 2026-05-12. The remediations target the two open gaps from that report — undefined H/M/L risk bands and an accountability gap not structurally enforced by the output shape — while leaving the technical content intact.
+
+**What changed**
+- **H/M/L risk bands now operationalised.** A new section "Risk Band Rubric (How to Score H / M / L)" was added immediately after the Clause-by-Clause Issue Log table, with explicit criteria and worked examples for each band. The rubric is mandatory for every Issue Log row.
+  - High = forced arbitration, unlimited or uncapped liability, non-mutual indemnity, perpetual confidentiality on all information, one-way fees + injunction, bundled standstill/no-hire, cross-border personal-data flow without carve-out, change-of-control assignment trigger.
+  - Medium = ambiguity in defined terms that is recoverable in redline, onerous-but-bounded scope, missing standard carve-outs, representative-liability without a written-confidentiality limiter, return/destruction without backup carve-out.
+  - Low = minor drafting cleanup (typos, defined-term casing, cross-reference errors, harmless boilerplate, readability tweaks that do not shift risk).
+- **Accountability gap closed by output shape.** A "DRAFT — qualified counsel review required before signing" banner with a named-reviewer placeholder is now part of the file header and is required on every output produced by the skill (Executive Summary, Issue Log, Redline package, Step 5 finalisation). The banner cannot be removed until a named qualified lawyer is written into the reviewer-of-record line; nothing leaves for the counterparty until that line is filled. This makes the lawyer-review requirement structurally enforced rather than purely a disclaimer the reader can skim past.
+- **Versioning metadata refreshed.** Frontmatter now carries `version: 1.0.0`, `last_reviewed: 2026-05`, and `last_reviewed_by: LegalQuants (QA remediation)`. Authorship remains with Jamie Tso.
+
+**What did not change**
+- Scope (one-way commercial NDAs only), jurisdiction-agnostic posture, inputs to collect, 5-step workflow, reference modules, perspective-specific checklists, variation callouts, and the existing limitations section are all preserved verbatim. The remediation is additive.
+
+**Open items deferred to a later pass**
+- Audience declaration, work-shape declaration, consolidated escalation section with named-role routing, and a "common failure modes" list (all flagged as ⚠️ in the QA report) are not addressed in this remediation. They are non-blocking for the two priority gaps and can be folded into the next minor version.

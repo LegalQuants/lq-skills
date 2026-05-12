@@ -14,7 +14,6 @@ Most legal AI tools are black boxes. LQ skills are transparent, version-controll
 |-------|--------|--------------|-------------|
 | [statutory-analysis](skills/statutory-analysis/) | Rafal Stanislaw Fryc | US | Guide for reading, interpreting, and applying statutes |
 | [customs-trade-law](skills/customs-trade-law/) | M. Onur Kafkas | US | HTS classification, CROSS ruling research, CIT/CAFC case mapping |
-| [cite-checker](skills/cite-checker/) | Rebecca Fordon | US | Verify legal citations against CourtListener API |
 | [us-state-privacy-navigator](skills/us-state-privacy-navigator/) | Zachary Brenner | US | Cross-jurisdictional analysis of the US state consumer privacy patchwork. Applicability triage, gap analysis, DSAR routing, conflict-of-laws synthesis, and federal sectoral overlay analysis across all 20 comprehensive state privacy laws. Includes structured precedent corpus (82 enforcement actions), per-state AG enforcement priorities, citation discipline auditor, and DOCX deliverable generation. |
 | [sgcite](skills/sgcite/) | Yu Chou Teo | SG | Verify Singapore court citations and detect hallucinated cases |
 | [license-comply](skills/license-comply/) | Sam Clearwater | US | Audit open-source dependency licenses in Python projects |
@@ -53,6 +52,8 @@ Most legal AI tools are black boxes. LQ skills are transparent, version-controll
 | [coquill](skills/coquill/) | Hou Fu Ang | Agnostic | Document assembly orchestrator — matches user requests to docx/HTML templates, interviews for variables, renders documents. Bundles three internal sub-skills (`coquill-analyzer`, `coquill-renderer`, `coquill-transcriber`) used by the orchestrator |
 | [foreign-law-research](skills/foreign-law-research/) | Chong Liu | Multi-jurisdiction | Researching foreign law questions with structured workflow, source authority hierarchy, timeliness grading, and smart navigation |
 | [legal-translation](skills/legal-translation/) | Arjun Singh Chouhan | Agnostic | Legal document translation that understands law, not just language — covers all language pairs, transliteration, bilingual documents, and legal terminology lookups |
+| [california-property-tax](skills/california-property-tax/) | Legal Quants community | US-CA | California property tax research workflow using BOE Property Tax Rules (462.* change of ownership) and PTLG annotations (220.*); rule/annotation synthesis applied to user facts |
+| [case-file-analyzer](skills/case-file-analyzer/) | Dennis G. Jansen | Agnostic | Stateless R.A.L.P.H.-pattern agent for adversarial case-file analysis — extracts facts/claims/legal views into XML metadata across large directories, then synthesizes contradictions and timeline. Proof of concept |
 
 See [ACCESS-MODES.md](ACCESS-MODES.md) for source-handling conventions, [PR-READINESS.md](PR-READINESS.md) for the AnonLQ-attributed contribution checklist, and [skills/CONTRIBUTING.md](skills/CONTRIBUTING.md) for the higher-bar process applied to skills carrying legal substance.
 

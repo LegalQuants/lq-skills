@@ -4,7 +4,9 @@ description: Use when the user has typed a short or vague prompt and the system 
 lq_ai:
   title: Enhance Prompt
   version: 1.0.0
-  author: LegalQuants
+  author: Kevin Keller
+  last_reviewed: 2026-05
+  last_reviewed_by: LegalQuants (QA remediation)
   tags: [meta, prompt-engineering, productivity]
   jurisdiction: agnostic
   trigger_examples:
@@ -149,3 +151,18 @@ Transparency is a feature, not a leak. The skill's instructions are not a trade 
 - `examples/example_short_prompt.md` — short prompt expanded to a full structured prompt.
 - `examples/example_skipped.md` — example of a prompt that should be skipped, with reasoning.
 - `examples/example_with_skill.md` — expansion when a skill is already attached, showing how the expansion respects the attached skill's scope.
+
+## Privilege treatment
+
+The user's `raw_input` and the resulting `expanded_prompt` may both contain privileged matter. The expanded prompt is a derivative of the user's input — it inherits whatever privilege status the original had. Treat the expansion as you would treat the original communication.
+
+Concretely:
+
+- **Both artifacts retain the original's privilege status.** If the `raw_input` was a privileged attorney-client communication or attorney work product, the `expanded_prompt` is too. Privilege does not strip away by virtue of the skill rewriting the surface form.
+- **Do not store the expanded prompt outside the privilege circle.** Hosts implementing this skill must not log, retain, transmit, or share the `expanded_prompt`, `preview_to_user`, or `reasoning` outside the same trust boundary that would apply to the user's original prompt. Analytics pipelines, training-data collection, third-party model endpoints, and shared review queues are common leak paths and must be inside-the-circle or excluded.
+- **The reasoning section is also derivative.** Even though the reasoning talks about structure rather than content, it can name the subject matter of the prompt and therefore carry the same privilege status. Do not treat `reasoning` as safe-to-log just because it does not quote the input verbatim.
+- **Host responsibility.** The user is responsible for not embedding privileged content in `raw_input` where the host application is not configured to handle it; the host application is responsible for not logging, retaining, or transmitting the expanded artifact outside the privilege circle. This skill itself writes nothing — but it produces an artifact that downstream systems will be tempted to log.
+
+## QA Remediation (LegalQuants, 2026-05)
+
+This skill was reviewed against the Legal Skill Design Framework on 2026-05-11 (verdict: SOME CONCERN). The substantive gap identified was that privilege implications of the expanded-prompt artifact were not addressed — every legal prompt this meta-skill touches becomes a rewritten artifact that the host application may log or retain, and the original SKILL.md addressed confidentiality only at the reasoning-section level. The "Privilege treatment" section above was added in remediation to make explicit that (a) the user's input prompt and the expanded version may both contain privileged matter, (b) both retain whatever privilege status the original had, and (c) the expanded prompt must not be stored, logged, or shared outside the privilege circle. Frontmatter was updated with `version`, `last_reviewed`, and `last_reviewed_by`, and authorship was reconciled to credit Kevin Keller (matching the registry README). The technical workflow, skip conditions, expansion patterns, and output schema were left intact.

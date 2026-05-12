@@ -37,6 +37,9 @@ lq_ai:
         description: Any earlier conversation context the user wants the skill to consider (e.g., "we discussed the IP assignment clause earlier; I'm now asking about the related warranty"). Useful when the skill is invoked mid-conversation rather than at the start.
   output_format: adaptive
   self_improvement: false
+version: 1.0.0
+last_reviewed: 2026-05
+last_reviewed_by: LegalQuants (QA remediation)
 ---
 
 # Contract QA
@@ -64,6 +67,14 @@ Do not apply when:
 - The user asks across multiple contracts ("compare this MSA with our standard form" or "find any of our SaaS agreements with unlimited liability"). This is multi-document Q&A; deferred to v2.
 
 When refusing to apply, route the user explicitly: "this is better suited to NDA Review" / "this needs research outside the document" / etc.
+
+## Privilege and legal use
+
+The contract you load into this skill may be privileged work product, attorney-client communication, or otherwise subject to confidentiality obligations (NDA, protective order, internal handling rule). The skill's outputs are processed via an external model and are not, on their own, privileged. Before querying this skill on a sensitive document:
+
+- **Confirm the document's privilege/confidentiality status.** If the document is privileged or restricted, the user must confirm — affirmatively — that routing it through an external model is consistent with the applicable privilege, retention, and confidentiality rules in their jurisdiction and engagement.
+- **Treat outputs as draft analysis, not work product.** The skill's answer is not a lawyer's work product until a reviewing attorney examines it, adopts it (in whole or in part), and takes accountability for the conclusion. Until that adoption step, the answer is research assistance — not legal advice and not privileged.
+- **Do not route privileged material without confirmation.** If the user has not confirmed privilege handling and the document appears privileged on its face (e.g., labelled "Privileged & Confidential", attorney-drafted memo, settlement communication), pause and ask before answering substantively.
 
 ## Inputs
 
@@ -149,6 +160,22 @@ Format the answer per the question type identified in Step 1.
 
 **Always identify what you cannot answer.** If part of the question is out of scope, or depends on facts not in the document, name that explicitly at the end: *"The skill cannot determine [X] from the document alone — that depends on [the user's facts / jurisdiction-specific law / counterparty's behavior]."*
 
+## Confidence bands (Type C / D / E)
+
+Type C (unusualness), Type D (scenario), and Type E (multi-issue) verdicts must carry an explicit confidence band. Type A (direct lookup) and Type B (interpretation) answers do not require a band — the lookup either matches or it doesn't — but a band may be added if the underlying clause is ambiguous.
+
+The bands are:
+
+- **High** — the clause language is unambiguous on its face *and* the comparator/consequence/issue framing rests on a well-established norm or a mechanical reading of the document. A reviewing attorney can typically validate the verdict by reading the cited clause(s) alone.
+- **Medium** — the clause language admits some interpretive room, *or* the comparator norm is contested across markets/sectors/counterparties, *or* the scenario depends on a contingency the document partially addresses. A reviewing attorney should validate both the reading and the comparator before relying on the verdict.
+- **Low** — the clause language is materially ambiguous, *or* the comparator practice is genuinely contested, *or* the scenario depends on facts/law outside the document. The verdict is provisional and a reviewing attorney must independently form a view before acting.
+
+Every Type C/D/E output ends with a uniform calibration footer:
+
+> *Calibration: [High / Medium / Low]. Reviewing attorney must verify [the specific quote(s), comparator claim(s), and/or scenario assumption(s)] before relying on this conclusion.*
+
+If a band cannot honestly be assigned (insufficient context, contested norm with no clear comparator, document quality issue), use **Low** and name the source of the uncertainty in the footer.
+
 ## Output formats by question type
 
 ### Type A — Direct lookup format
@@ -191,6 +218,8 @@ The clause says [§ ref]:
 [If perspective was specified: how this reads from the user's side specifically.]
 
 [If unusual / aggressive: what a more standard version would look like.]
+
+*Calibration: [High / Medium / Low]. Reviewing attorney must verify [the cited clause language and the comparator characterization] before relying on this conclusion.*
 ```
 
 ### Type D — Scenario format
@@ -207,6 +236,8 @@ The controlling provisions are:
 [If multiple clauses operate together, include each. Trace the chain of consequence: clause X triggers, which produces consequence Y, which interacts with clause Z, etc.]
 
 [Note any conditions, exceptions, or facts the answer depends on that are not in the document. Be specific: "This assumes [fact]; if [different fact], the answer changes to [different outcome]."]
+
+*Calibration: [High / Medium / Low]. Reviewing attorney must verify [the controlling clause(s), the scenario assumptions, and any factual/legal contingencies named above] before relying on this conclusion.*
 ```
 
 ### Type E — Multi-issue format
@@ -225,6 +256,8 @@ The controlling provisions are:
 [etc.]
 
 [If the issues interact: a brief closing paragraph identifying the interactions.]
+
+*Calibration: [High / Medium / Low] overall, with per-issue bands where they diverge ([Issue 1]: [band]; [Issue 2]: [band]; ...). Reviewing attorney must verify [the cited clauses for each issue and any cross-issue interactions named above] before relying on this conclusion.*
 ```
 
 ## Edge cases and refusals
@@ -262,3 +295,13 @@ The controlling provisions are:
 - `examples/example_type_c_unusualness.md` — worked example: comparison question with perspective.
 - `examples/example_type_d_scenario.md` — worked example: scenario walkthrough with conditional outcomes.
 - `examples/example_type_e_multi_issue.md` — worked example: multi-issue question producing structured findings.
+
+## QA Remediation (LegalQuants, 2026-05)
+
+This skill was reviewed against the Legal Skill Design Framework on 2026-05-11 (verdict: SOME CONCERN). The following targeted remediations were applied on 2026-05:
+
+- **Privilege treatment added.** The new "Privilege and legal use" section names the privilege/confidentiality risk on inbound contracts, requires the user to confirm the document's status before substantive querying via an external model, and clarifies that outputs are not work product until a reviewing attorney adopts them. Closes the load-bearing gap flagged in the QA report (legal failure mode: privilege implications, previously unaddressed).
+- **Confidence bands (H/M/L) operationalised for Type C/D/E.** The new "Confidence bands" section defines High/Medium/Low against three load-bearing variables (clause clarity, comparator strength, contingency on facts/law outside the document). The Type C, Type D, and Type E output formats now end with a uniform calibration footer naming the band and the specific items a reviewing attorney must verify. Closes the QA finding that verdicts like "aggressive", "auto-renews ... no equitable workaround", and "weak protection" were being produced as conclusions without exposing calibration.
+- **Frontmatter versioning fields added.** `version: 1.0.0`, `last_reviewed: 2026-05`, and `last_reviewed_by: LegalQuants (QA remediation)` declared at the top-level of the frontmatter for downstream provenance and review-cadence tracking.
+
+Out of scope for this remediation pass (logged for the next review cycle): explicit Audience declaration, escalation-up triggers for high-stakes calibration calls, alignment of the `lq_ai.version` field with the new top-level `version` field, and resolution of the missing `test-corpus/` and `test-results/` directories referenced by `test-plan.md`. Technical content (workflow, question classification, citation conventions, worked examples) was preserved without modification.

@@ -1,6 +1,11 @@
 ---
 name: ClassifyCCP
 description: Classifies the treatment of Competition Compliance Programmes (CCPs) in competition law enforcement documents. Converts PDF input, detects language, analyzes the full document, produces a scratchpad, and populates Output.xlsx. Use when classifying how a CCP is treated as an offence, defence, remedy, or irrelevant in a policy document or case/judgment.
+author: Leona Zhang (zjing7843-prog)
+license: MIT (see LICENSE)
+version: 1.0.0
+last_reviewed: 2026-05
+last_reviewed_by: LegalQuants (QA remediation)
 ---
 # CCP Classification
 
@@ -72,7 +77,23 @@ Consult `assets/examples.md` for calibration on edge cases. Note whether CCP tre
 
 ## Phase 4: Classify
 
-Assign one of the following categories based on the authority's/court's treatment:
+Assign one of the following categories based on the authority's/court's treatment.
+
+### Confidence Bands (required)
+
+Every classification MUST be tagged with one of the following confidence bands. Record the band in the scratchpad and surface it in the Phase 6 summary so a downstream researcher can triage which rows need re-review without re-reading each document.
+
+| Band | When to apply |
+|------|---------------|
+| **High** | Explicit ruling/decision language from the authority or court directly stating how the CCP is treated; multiple corroborating passages; no translation step or translation is from a closely related language with stable terminology. |
+| **Medium** | Authority/court treatment is clear from context but not stated in a single explicit sentence; reasoning required to bridge passages; or High-quality classification that depends on a translation from a non-English source. |
+| **Low** | Single ambiguous paragraph; treatment inferred from indirect language; translation fidelity uncertain; mixed signals across passages. Low confidence rows are candidates for `unsure` and must be re-reviewed before any downstream use. |
+
+If you cannot honestly justify at least **Medium**, prefer the `unsure` category over forcing a primary label.
+
+### Category Table
+
+
 
 | Category | When to use |
 |----------|-------------|
@@ -145,7 +166,9 @@ Wait for explicit user confirmation before proceeding.
 - Determine the correct sheet:
   - Document type is **Policy Document / Guidelines / Agency publication** → `AgencyDoc` sheet
   - Document type is **Case / Judgment / Decision** → the sheet matching the country (e.g., `UK`, `EU`, `France`, `Canada`, `USA`, `Sweden`, `Italy`, `Spain`)
-  - If the country does not match any sheet, default to `AgencyDoc` and flag to the user
+  - **Halt on novel jurisdiction**: if the country/authority does NOT match any of the nine listed sheets, **STOP**. Do NOT silently fall back to `AgencyDoc`. Report to the user:
+    > "Novel jurisdiction detected: [country/authority]. The configured sheets are: AgencyDoc, UK, Canada, USA, EU, France, Sweden, Italy, Spain. Output.xlsx will NOT be modified until you confirm one of the following: (a) route to AgencyDoc with a novel-jurisdiction flag in Column G; (b) add a new sheet for this jurisdiction and re-run; (c) abort this classification."
+    Wait for explicit user direction. Under no circumstances append the row before the user has chosen.
 - Append a new row at the bottom of the correct sheet, filling in **all columns**:
   - **Column A** (`Name of Document`): PDF basename without extension
   - **Column B** (`Country / Authority`): extracted in Phase 3a
@@ -165,3 +188,15 @@ Use openpyxl via Bash to perform the read and write. When appending, use `ws.app
 
 - `assets/examples.md` — Annotated classification examples for calibration
 - `assets/ScratchpadTemplate.md` — Template for scratchpad output files
+
+---
+
+## QA Remediation (LegalQuants, 2026-05)
+
+This skill was imported from Leona Zhang's MIT-licensed GitHub release and evaluated against the Legal Skill Design Framework on 2026-05-11. The original technical content (PDF→Markdown conversion, taxonomy, scratchpad workflow, Excel update logic) is preserved unchanged. The following targeted additions were made under a "SOME CONCERN" verdict:
+
+1. **Confidence Bands (High / Medium / Low)** added to Phase 4. Every classification must now carry a confidence band so that downstream researchers can triage rows for re-review. Low-confidence outputs should default to `unsure` rather than being forced into a primary label. This addresses the QA finding that the original `unsure`/`neutral` labels did not operationalise certainty against the *primary* classification.
+2. **Halt-on-novel-jurisdiction** behaviour added to Phase 7. The previous instruction silently fell back to the `AgencyDoc` sheet whenever a country/authority did not match one of the nine configured sheets. That silent fall-through could quietly corrupt `Output.xlsx` by routing (for example) a Japanese or Australian decision into the agency-document bucket. The remediated behaviour halts before any write, surfaces the novel jurisdiction explicitly, and requires the user to choose between flagged routing, adding a new sheet, or aborting.
+3. **Frontmatter versioning**: `version: 1.0.0`, `last_reviewed: 2026-05`, and `last_reviewed_by: LegalQuants (QA remediation)` added alongside the original `author:` and license attribution. Leona's authorship and the MIT LICENSE are preserved as required.
+
+Remaining QA observations not addressed in this pass (audience block, scope-boundary section, "limits / not legal advice" block, moving inline Python into `scripts/`, surfacing the PDF-date fallback in the scratchpad, halt-on-translation-confidence trigger) are flagged in `/tmp/qa-results/classify-ccp.md` for a future review cycle.

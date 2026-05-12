@@ -1,7 +1,10 @@
 ---
 name: lq-governance-playbook-benchmark
 description: "Use when benchmarking a board-level governance document against the LQ Governance Playbook — a Delegation of Authority policy, committee charter, related party transaction framework, or board terms of reference. Produces a classification table (Match / Partial Match / Below Fallback / Red Flag / Omitted) with specific gaps and tracked changes."
-author: Legal Quants Community
+author: Alexios vdSK (Legal Quants Community)
+version: 1.0.0
+last_reviewed: 2026-05
+last_reviewed_by: LegalQuants (QA remediation)
 jurisdiction: MULTI
 tags: [governance, board-documents, delegation-of-authority, benchmark, playbook, compliance, redlines]
 ---
@@ -16,6 +19,22 @@ You are benchmarking a target governance document against the LQ Governance Play
 2. **LQ Governance Playbook** — must be available as a connected file in the session (uploaded via the "+" button, or open in another Office app). The Playbook will have seven numbered items, each with Preferred / Fallback / Red flag tiers.
 
 > If the Playbook is not in the session, stop and ask the user to upload it. Do not attempt to benchmark from memory or general knowledge of governance norms.
+
+## Delegation Threshold
+
+This skill produces a **draft for legal counsel review**. The five-tier classification (Match / Partial Match / Below Fallback / Red Flag / Omitted) and every proposed tracked-change amendment are **proposals only**. The reviewing lawyer must accept or reject each tracked change before circulation, and owns every change they accept. Ambiguous classifications must be **flagged for human decision, not auto-resolved**: if the locate or classify step is genuinely contested, mark the row Low-band (see Confidence Bands) and escalate to the user rather than picking a tier.
+
+## Confidence Bands
+
+Every row of the classification table carries a confidence band on the locate-and-classify step (independent of the finding taxonomy itself):
+
+- **H (High)** — provision is unambiguously located, classification is uncontested against the Playbook tier definitions.
+- **M (Medium)** — provision located but classification involves judgement (e.g. partial overlap with two tiers, defined-term mismatch that does not change substance). Proceed but mark for lawyer attention.
+- **L (Low)** — locate step is ambiguous (provision arguably maps to two Playbook items, or target uses a governance model the Playbook does not contemplate), or classification is genuinely contested.
+
+**Halt rule on Low-band:** for any row classified L, do not auto-resolve. Insert the row with classification field set to "Escalate — see note" and append a short note describing the ambiguity. Stop and ask the user to decide before drafting an amendment for that row.
+
+Record the band in a dedicated Confidence column of the benchmark table.
 
 ## Operating Principles
 
@@ -49,7 +68,7 @@ For every classification other than Match:
 Produce a benchmark table in the target document:
 
 ```
-| # | Playbook Item | Target Reference | Classification | Specific Gap | Proposed Amendment |
+| # | Playbook Item | Target Reference | Classification | Confidence (H/M/L) | Specific Gap | Proposed Amendment |
 ```
 
 **Visual discipline:**
@@ -74,3 +93,14 @@ Produce a benchmark table in the target document:
 ## On Tone
 
 The reader is a Company Secretary, General Counsel, or Board member preparing for a meeting. They want the finding, the gap, and the fix. Keep every cell of the output table under thirty words.
+
+## QA Remediation (LegalQuants, 2026-05)
+
+This skill was reviewed by LegalQuants on 2026-05-11 and received a SOME CONCERN verdict against the Legal Skill Design Framework. The following additive remediation was applied without altering technical content:
+
+- **Delegation Threshold** added as an explicit section. Makes clear that the five-tier classification and every tracked change are a draft for legal counsel review, that the lawyer owns each accepted change, and that ambiguous classifications must be flagged for human decision rather than auto-resolved.
+- **Confidence Bands (H/M/L)** added for the locate-and-classify step, distinct from the finding taxonomy. Includes a halt rule on Low-band rows: do not auto-resolve, mark "Escalate — see note", and stop for user decision before drafting an amendment.
+- **Benchmark table schema** extended with a Confidence column to carry the band on each row.
+- **Frontmatter** updated to add `version: 1.0.0`, `last_reviewed: 2026-05`, and `last_reviewed_by: LegalQuants (QA remediation)`. Authorship attribution preserved to Alexios vdSK (Legal Quants Community).
+
+Original benchmark protocol, operating principles, cross-app behaviour, and "What Not to Do" guardrails are unchanged.

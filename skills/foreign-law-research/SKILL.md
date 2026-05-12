@@ -1,5 +1,10 @@
 ---
 name: foreign-law-research
+author: Chong Liu (imchongliu)
+license: MIT
+version: 1.0.0
+last_reviewed: 2026-05
+last_reviewed_by: LegalQuants (QA remediation)
 description: >
   Structured workflow for researching foreign law questions across Chinese, English, and local-language resources.
   Guides users through a tiered research approach: Chinese secondary sources, English legal guides (free and paid),
@@ -145,13 +150,28 @@ For hot-topic issues or recent legislative changes, local firms often publish de
 
 ### Tier 4: AI-Assisted Research (L4 — leads only)
 
+> ⚠️ **PRIVILEGE & CONFIDENTIALITY WARNING — READ BEFORE USING THIS TIER**
+>
+> **DO NOT paste privileged, client-identifying, or matter-identifying material into public AI tools** (Perplexity, ChatGPT, Gemini, or any consumer-grade chatbot). Doing so can:
+> - Waive attorney-client privilege and work-product protection (inputs may be logged, used for training, or accessed by third parties)
+> - Breach client confidentiality obligations and engagement-letter terms
+> - Violate data-protection rules (GDPR, PIPL, sector-specific regimes) where client facts contain personal data
+> - Trigger conflicts and disclosure issues in regulated practice areas (sanctions, criminal, M&A)
+>
+> **Before using any public AI tool:**
+> 1. **Sanitize the question.** Strip out client names, counterparty names, deal identifiers, transaction amounts, dates that fingerprint the matter, jurisdictions-of-incorporation when paired with other facts, and any document text. Abstract to a generic legal question (e.g., not "Does Acme's $50M acquisition of Beta in Vietnam trigger MOFCOM filing?" but "What are MOFCOM filing thresholds for outbound M&A by PRC acquirers into Vietnam?").
+> 2. **Never paste client documents, draft contracts, term sheets, due-diligence findings, or correspondence.**
+> 3. **If the question cannot be meaningfully abstracted, do not use a public AI tool.** Use firm-approved internal tooling (enterprise ChatGPT with no-training contract, on-premise LLM, vetted legal-research AI with confidentiality terms) or proceed with L1-L3 sources only.
+> 4. **Document your sanitization step** if firm policy requires it.
+
 Recommend AI tools that provide **citation links** so answers can be cross-validated:
 
-- **Perplexity** (https://www.perplexity.ai/) — Best for getting quick answers with source links; ask specific legal questions and click through to verify cited sources
-- **ChatGPT with browsing** — Can search the web and cite sources, but verify carefully
-- Other AI tools with citation support (e.g., Google Gemini)
+- **Perplexity** (https://www.perplexity.ai/) — Best for getting quick answers with source links; ask specific legal questions and click through to verify cited sources. **Public tier — sanitize first.**
+- **ChatGPT with browsing** — Can search the web and cite sources, but verify carefully. **Public tier — sanitize first;** enterprise/Team tiers with a no-training agreement are preferred for any matter-adjacent question.
+- Other AI tools with citation support (e.g., Google Gemini) — same warning applies.
+- **Firm-approved internal tooling** — if your firm has provisioned an enterprise legal-research AI (Harvey, CoCounsel, internal RAG over a vetted corpus, etc.) under a confidentiality-preserving contract, prefer it over public tools for any question that touches a live matter.
 
-Emphasize: AI answers are a starting point, not a final answer. Always verify through the cited sources. AI is especially useful for quickly scoping which resources or jurisdictions are relevant before diving into formal guides.
+Emphasize: AI answers are a starting point, not a final answer. Always verify through the cited sources. AI is especially useful for quickly scoping which resources or jurisdictions are relevant before diving into formal guides — but only after the question has been abstracted away from the underlying matter.
 
 ### Tier 5: Local-Language Sources
 
@@ -252,3 +272,20 @@ Output should focus on **substantive legal research findings** — what the law 
 ## Language
 
 Respond in the same language the user uses. If the user writes in Chinese, respond in Chinese. If in English, respond in English. Resource names and URLs should be kept in their original language/form.
+
+## QA Remediation (LegalQuants, 2026-05)
+
+This skill was authored by **Chong Liu** (`imchongliu`) and is incorporated under its original MIT license — see the unchanged `LICENSE` file in this directory. All copyright and authorship remain with Chong Liu. LegalQuants's role is limited to QA review and a targeted patch.
+
+**Source:** imported from `imchongliu/foreign-law-research`.
+
+**QA verdict (pre-remediation):** SOME CONCERN, per `legal-builder-hub:skills-qa` evaluation on 2026-05-11. The substantive Source Authority / Certainty / Timeliness systems were rated unusually disciplined for a community legal-research skill; the gap was in the legal-failure-mode axis.
+
+**What LegalQuants changed in this version:**
+
+1. **Tier 4 privilege & confidentiality warning (primary fix).** Added a prominent privilege/confidentiality block at the head of "Tier 4: AI-Assisted Research" instructing users to sanitize questions before pasting into public AI tools (Perplexity, ChatGPT, Gemini), never to paste client documents or matter-identifying facts, and to prefer firm-approved internal tooling for any matter-adjacent question. This addresses the "Privilege implications: not addressed" finding in the QA report's Legal Failure Mode Check.
+2. **Frontmatter metadata.** Added `author`, `license`, `version: 1.0.0`, `last_reviewed: 2026-05`, and `last_reviewed_by: LegalQuants (QA remediation)`. Author is preserved as Chong Liu / imchongliu; license is preserved as MIT.
+
+**What LegalQuants did NOT change:** all substantive technical content — the Source Authority Hierarchy (L1-L4), Certainty Labels, Timeliness Sensitivity matrix, Steps 1 through 4, Smart Navigation rules, output formats, Word styling, and the `references/resources.md` companion file — is intact and unmodified. The remaining QA-report items (named Audience block, explicit Out-of-scope and Escalate-when subsections, ask-once-then-halt input behaviour) are deferred and may be addressed in a future remediation; they did not block the SOME CONCERN → patched transition because the privilege gap was the only Legal Failure Mode finding.
+
+**Re-review cadence:** next scheduled QA review by 2026-11. Earlier review is warranted if (a) AI-tool recommendations are expanded, (b) the skill is bundled into a higher-trust workflow, or (c) the Legal Skill Design Framework is updated.

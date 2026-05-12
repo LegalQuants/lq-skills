@@ -1,6 +1,10 @@
 ---
 name: skill-creator
 description: Use when the user wants to create a new LQ.AI skill, turn a chat into a reusable skill, improve an existing skill, or asks "how do I build a skill that does X." Conducts a focused conversation to elicit what the skill should do, when it should trigger, what inputs and outputs it needs, and what edge cases matter, then produces a complete skill folder ready to save.
+version: 1.0.0
+author: Kevin Keller
+last_reviewed: 2026-05
+last_reviewed_by: LegalQuants (QA remediation)
 ---
 
 # Skill Creator
@@ -159,6 +163,20 @@ If the user opted into self-improvement (`self_improvement: true`), also remind 
 - **Do not use jargon the user did not use.** If the user calls them "knock-out issues," don't rename them "critical deviations" in the skill. Match their vocabulary.
 - **Do not generate skills that exceed the user's ethical authority.** A skill that "automatically signs contracts under $X" is out of scope. A skill that "drafts a recommendation for human review" is fine. When in doubt, position the skill output as a draft for human attorney review.
 
+## Propagate Privilege Guidance
+
+Every skill produced by skill-creator must include privilege and confidentiality treatment in a "Scope and Legal Use" section of the generated SKILL.md. This is non-negotiable: skill-creator itself does not produce work product, but most skills it generates will. Privilege guardrails must be inherited downstream, not left implicit.
+
+Before producing the final skill folder, walk through this checklist as part of the skill-generation flow:
+
+1. **Ask about client matter.** "Will this skill process client communications, work product, or matter-specific facts?" If yes, the generated skill must surface privilege handling explicitly.
+2. **Ask about output destination.** "Will the skill's output travel outside the privilege circle — to a client, a counterparty, a vendor, or a non-lawyer colleague?" The answer determines whether the generated skill needs a redaction or labelling step.
+3. **Confirm confidentiality posture.** "Should the skill treat its inputs as confidential by default? Should it refuse to log or echo identifiers (client names, matter numbers, deal codes) into external surfaces?"
+4. **Insert the "Scope and Legal Use" section into the generated SKILL.md.** At minimum it must state: (a) whether the skill is intended for use on privileged material, (b) whether the output is presumptively privileged work product or shareable, (c) any redaction or labelling requirements before external sharing, and (d) the standard reminder that the skill produces a draft for human attorney review and does not itself provide legal advice.
+5. **Mirror the user's risk posture, do not invent one.** If the user has not stated a privilege position, ask. Do not fabricate a confidentiality regime the user has not chosen.
+
+If the user declines to engage with privilege questions, still include a conservative default "Scope and Legal Use" section in the generated skill stating that the output should be treated as privileged work product unless the user has affirmatively decided otherwise.
+
 ## Reference materials
 
 For deeper guidance on specific aspects of skill authoring, consult:
@@ -167,3 +185,12 @@ For deeper guidance on specific aspects of skill authoring, consult:
 - `reference/wizard_mode.md` — the structured fallback sequence for stuck users
 - `reference/self_improvement.md` — the standard self-improvement instruction template
 - `examples/example_session.md` — a full transcript of a Skill Creator session producing a real skill
+
+## QA Remediation (LegalQuants, 2026-05)
+
+LegalQuants applied targeted remediation against the SOME CONCERN QA verdict dated 2026-05-11 (see `/tmp/qa-results/skill-creator.md`). Two gaps were addressed:
+
+1. **Meta-skill versioning.** Skill-creator now carries its own `version: 1.0.0`, `author: Kevin Keller`, `last_reviewed: 2026-05`, and `last_reviewed_by: LegalQuants (QA remediation)` in the SKILL.md frontmatter. The meta-skill required versioning of generated skills via `reference/self_improvement.md` but did not version itself; this aligns the meta-skill with the discipline it imposes on its output.
+2. **Privilege propagation.** A new "Propagate Privilege Guidance" section requires every generated skill to include a "Scope and Legal Use" section addressing privilege, confidentiality, output destination, and the draft-for-attorney-review reminder. A five-step checklist is now part of the skill-generation flow so privilege guardrails inherit downstream rather than being left implicit. Conservative default applies when the user declines to specify a posture.
+
+Kevin Keller remains the substantive author of skill-creator. LegalQuants's role is limited to QA remediation of the framing layer; the technical content of the conversation flow, the eight elements, the SKILL.md format, the supporting-files conventions, and the "what you do not do" guardrails are unchanged.

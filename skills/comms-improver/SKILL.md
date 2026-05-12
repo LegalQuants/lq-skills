@@ -5,6 +5,8 @@ lq_ai:
   title: Comms Improver
   version: 1.0.0
   author: LegalQuants
+  last_reviewed: 2026-05
+  last_reviewed_by: LegalQuants (QA remediation)
   tags: [communications, plain-language, transformation, drafting]
   jurisdiction: agnostic
   trigger_examples:
@@ -63,6 +65,20 @@ Do not apply when:
 - **The user wants legal review of someone else's plain-language rewrite.** Out of scope; that's review, not rewriting. The user can paste both versions and ask whether the rewrite preserves meaning, but the skill is calibrated for the rewriting task.
 - **The text is already plain language and the user wants a different style.** Out of scope; that's editing for style, not rewriting for accessibility.
 - **The user wants to "make this sound more legal" or "add legal weight."** Out of scope — the skill goes from legal to plain, not the other direction. Adding legal precision to plain text is a different task with different risks (introducing meaning the original didn't carry).
+
+## Privilege
+
+Rewriting a privileged legal memo (e.g., in-house counsel advice, outside-counsel work product, attorney-client communication) for a non-lawyer audience can break privilege. Privilege generally protects confidential lawyer-client communications made for the purpose of giving or receiving legal advice; circulating the substance of that advice to people outside the privileged circle — or reformatting it into a deliverable that will be distributed beyond that circle (executive readouts, sales briefings, customer-facing copy) — may waive the protection. Waiver rules vary by jurisdiction and by the specific scope of any "common interest" or work-product doctrine; loss of privilege can have downstream litigation and disclosure consequences.
+
+Before invoking this skill on a privileged source, the user must confirm that the intended audience falls within the privilege scope (i.e., the recipients are within the privileged circle — typically the client organization's personnel with a need to know for the purpose of receiving legal advice — and the communication will remain confidential within that circle). If the audience falls outside that scope, the responsible attorney must approve the rewrite and the contemplated circulation before the rewrite is produced or shared.
+
+When the source text appears to be a privileged legal memo, attorney work product, or confidential lawyer-client communication, the skill:
+
+- Asks the user to confirm the rewrite's audience is within the privilege scope.
+- If the user cannot confirm, routes back to the responsible attorney rather than producing a rewrite that may be shared outside the privileged circle.
+- Notes in the output that the rewrite, once circulated to a non-privileged audience, will not retain privilege over the underlying advice and that the original memo should not be attached or quoted verbatim in the distribution.
+
+This treatment is the privilege complement to the "substantive review" disclaimer below: the skill does not assess whether privilege actually exists or whether the proposed circulation waives it — those are substantive legal questions for the responsible attorney. The skill's role is to flag the risk and require user confirmation before transforming privileged content for downstream distribution.
 
 ## Inputs
 
@@ -166,6 +182,7 @@ The output should be proportional to the input. A one-paragraph original produce
 - **Original text contains specific legal language the user is going to send to a lawyer counterparty.** Plain-language rewrite may be inappropriate; the original may have been drafted with that audience in mind. The skill notes this concern and asks the user to confirm the audience.
 - **Original text contains text the user shouldn't be sending at all** (legally inadvisable, factually inaccurate, or exposing the user's organization to risk). The skill rewrites for plain language but flags substantive concerns separately. The skill is not a substantive review; if substantive concerns are visible, they're flagged but the user is responsible for substantive review.
 - **Audience is hostile or adversarial** (counterparty in a dispute, regulator, opposing counsel). Plain-language rewrites for adversarial audiences require careful handling — simplification can lose hedging that's protective. The skill notes this consideration and recommends user verification.
+- **Source text is a privileged legal memo, attorney work product, or confidential lawyer-client communication.** Rewriting privileged content for a non-lawyer audience may waive privilege depending on jurisdiction and on whether the audience falls within the privileged circle. The skill asks the user to confirm the intended audience falls within privilege scope; if the user cannot confirm, the skill routes back to the responsible attorney rather than producing the rewrite. See the "Privilege" section above for the full treatment.
 
 ## What this skill does not do
 
@@ -183,3 +200,17 @@ The output should be proportional to the input. A one-paragraph original produce
 - `examples/example_executive_briefing.md` — worked example: contract concern translated for CEO/CFO.
 - `examples/example_sales_team.md` — worked example: regulatory restriction translated for sales team.
 - `examples/example_customer_disclaimer.md` — worked example: legal disclaimer rewritten for customer-facing page.
+
+## QA Remediation (LegalQuants, 2026-05)
+
+This skill was reviewed against the Legal Skill Design Framework on 2026-05-11 (verdict: SOME CONCERN). The principal gap identified was that the skill did not address privilege risk when rewriting privileged legal memos for non-lawyer audiences — a textbook waiver scenario for the executive-briefing, sales-team, and customer-disclaimer worked examples.
+
+This remediation adds:
+
+- A "Privilege" section to scope and legal use, requiring the user to confirm the intended audience falls within the privilege scope before the skill is invoked on a privileged source. When the source appears to be a privileged legal memo, attorney work product, or confidential lawyer-client communication, the skill routes back to the responsible attorney if the user cannot confirm audience scope.
+- A privilege failure-mode bullet in "Edge cases and refusals" cross-referencing the Privilege section.
+- `version`, `last_reviewed`, and `last_reviewed_by` fields in the frontmatter to surface the review cadence for forks and downstream users.
+
+Technical content (inputs, workflow, output format, transformations, audience calibration) is unchanged. The skill remains a bounded text-in / text-out transformation; the remediation tightens the legal-use scope rather than the technical surface.
+
+Other QA observations (work-shape labelling, confidence bands, consolidated escalation triggers, delegation-threshold tightening) are recorded for a future revision and are not addressed in this targeted remediation.

@@ -1,7 +1,10 @@
 ---
 name: coquill-renderer
 description: "Document renderer for CoQuill. Takes a template, variable values, and produces rendered documents (docx or html+pdf). Validates output for unfilled placeholders. Called by the coquill orchestrator — not triggered directly by the user."
+author: Hou Fu Ang
 version: inherits from coquill
+last_reviewed: 2026-05
+last_reviewed_by: LegalQuants (QA remediation)
 ---
 
 # CoQuill — Document Renderer (v2)

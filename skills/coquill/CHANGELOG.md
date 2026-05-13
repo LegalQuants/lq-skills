@@ -3,6 +3,16 @@
 This tracks the current version mainatained in the lq-skills repository.
 For the latest developed version of coquill, refer to https://github.com/houfu/coquill
 
+## 2026-05-13 — Add: bundled example templates
+
+Three starter templates shipped under `skills/coquill/templates/_examples/`:
+
+- `Bonterms_Mutual_NDA/` — docx, real-world legal template (Bonterms Mutual NDA v1.0, CC BY 4.0). Exercises the docx pipeline and signing-block fields.
+- `invoice/` — HTML, simple typed-variable example covering the html→pdf pipeline.
+- `meeting_notes/` — Markdown, full v2 feature surface: choice variables, boolean conditionals, loops, interview groups, cross-field validation, and a developer `config.yaml`.
+
+Each template ships with its own `manifest.yaml` so the analyzer hits a cache on first use and the renderer can be exercised end-to-end without any pre-processing. `coquill/SKILL.md` Phase 1 template discovery now lists `${CLAUDE_PLUGIN_ROOT}/skills/coquill/templates/_examples/` as the bundled lookup path for this distribution, alongside the existing `${CLAUDE_PLUGIN_ROOT}/templates/_examples/` for the standalone `houfu/coquill` plugin layout.
+
 ## 2026-05-13 — Merge: upstream QA remediation (LegalQuants, 2026-05)
 
 Merged LegalQuants' QA remediation pass (upstream commit `9684c5a`) into the reorganized skill structure introduced by the PR.

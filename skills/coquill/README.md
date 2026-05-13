@@ -39,10 +39,25 @@ coquill/
 ├── renderer/
 │   ├── SKILL.md          # Renders variables into the template and validates output
 │   └── render.py
-└── transcriber/
-    ├── SKILL.md          # Writes a human-readable transcript.md from the interview log
-    └── transcribe.py
+├── transcriber/
+│   ├── SKILL.md          # Writes a human-readable transcript.md from the interview log
+│   └── transcribe.py
+└── templates/_examples/  # Bundled starter templates (see below)
 ```
+
+---
+
+## Bundled example templates
+
+Three ready-to-use templates ship inside `templates/_examples/`. Each one demonstrates a different combination of CoQuill features and renders to a different output format, so you have a working reference for each pipeline.
+
+| Template | Format | Demonstrates |
+|---|---|---|
+| `Bonterms_Mutual_NDA/` | `.docx` | Real-world legal template (Bonterms Mutual NDA v1.0, CC BY 4.0). Variable substitution into a docx via `docxtpl`; signing-block fields. |
+| `invoice/` | `.html` | Simple HTML template rendered via Jinja2; basic typed variables (`text`, `date`, `number`). |
+| `meeting_notes/` | `.md` | Full v2 feature surface: choice variables, boolean conditionals, loops, interview groups, cross-field validation, and a developer `config.yaml`. |
+
+Trigger CoQuill and ask for "an NDA", "an invoice", or "meeting notes" to exercise each one.
 
 ---
 

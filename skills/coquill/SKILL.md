@@ -68,7 +68,13 @@ This is implemented operationally in Phase 6 via the `draft_notice` parameter pa
 
 ## Phase 1 — Template Discovery
 
-1. Search for templates in priority order: `templates/` (user templates, highest priority), `${CLAUDE_PLUGIN_ROOT}/templates/_examples/` (bundled plugin templates, when `CLAUDE_PLUGIN_ROOT` is set), `templates/_examples/` (bundled Cowork templates, fallback). Each subdirectory name is a template identifier. When `CLAUDE_PLUGIN_ROOT` is set, label bundled templates "(built-in)".
+1. Search for templates in priority order:
+   - `templates/` — user templates in the current working directory (highest priority).
+   - `${CLAUDE_PLUGIN_ROOT}/skills/coquill/templates/_examples/` — bundled examples that ship with the lq-skills distribution of this skill (used when `CLAUDE_PLUGIN_ROOT` is set).
+   - `${CLAUDE_PLUGIN_ROOT}/templates/_examples/` — bundled examples for the standalone `houfu/coquill` plugin distribution (used when `CLAUDE_PLUGIN_ROOT` is set).
+   - `templates/_examples/` — fallback for legacy/standalone Cowork layouts.
+
+   Each subdirectory name is a template identifier. When `CLAUDE_PLUGIN_ROOT` is set, label bundled templates "(built-in)".
 2. **Template matching — three outcomes only:**
    - **Clear match**: the user's request maps unambiguously to one template. Select it automatically and confirm the selection to the user (e.g., "I'll use the *Mutual NDA* template — let me ask you a few questions.").
    - **Ambiguous match**: two or more templates are plausible. Present the options and ask the user to choose. Do not select on their behalf.

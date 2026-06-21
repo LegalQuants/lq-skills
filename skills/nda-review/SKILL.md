@@ -178,3 +178,4 @@ This skill was QA'd by LegalQuants against the Legal Skill Design Framework on 2
 
 **Open items deferred to a later pass**
 - Audience declaration, work-shape declaration, consolidated escalation section with named-role routing, and a "common failure modes" list (all flagged as ⚠️ in the QA report) are not addressed in this remediation. They are non-blocking for the two priority gaps and can be folded into the next minor version.
+<!-- ci gate verification: no-op -->

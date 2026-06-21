@@ -202,7 +202,7 @@ Evaluating → No role yet — use this assessment to inform procurement decisio
 | Priority | Top Obligations | Article |
 |----------|----------------|---------|
 | Immediate | AI competence measures | Art. 4 |
-| OVERDUE since Aug 2025 | Transparency disclosure(s) | Art. 50(1)-(4) |
+| From 2 Aug 2026 (50(2) legacy marking: 2 Dec 2026) | Transparency disclosure(s) | Art. 50(1)-(4) |
 
 ### If Likely MINIMAL RISK
 
@@ -251,7 +251,7 @@ URGENCY LEVELS:
 For Art. 5 (prohibited practices): OVERDUE since 2 Feb 2025
 For Art. 4 (AI competence): OVERDUE since 2 Feb 2025
 For GPAI obligations: OVERDUE since 2 Aug 2025
-For Art. 50 (transparency): OVERDUE since 2 Aug 2025
+For Art. 50 (transparency): Deadline 2 Aug 2026 — 50(1)/(3)/(4) + 50(2) new systems; legacy generative-AI 50(2) marking 2 Dec 2026 (Omnibus grace). NOT overdue, NOT postponed with high-risk.
 For Annex III high-risk: Deadline 2 Dec 2027 (Omnibus-postponed from 2 Aug 2026)
 For Annex I high-risk: Deadline 2 Aug 2028 (Omnibus-postponed from 2 Aug 2027)
 ```

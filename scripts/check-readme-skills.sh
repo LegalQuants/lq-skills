@@ -33,3 +33,5 @@ if [ "$status" -eq 0 ]; then
   echo "✅ README skill list matches disk ($(echo "$fs_slugs" | wc -l | tr -d ' ') skills)."
 fi
 exit "$status"
+
+# CI verification: no-op trigger (revert before merge)

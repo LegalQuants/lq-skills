@@ -1,0 +1,23 @@
+{
+  "skill_name": "gs-classifier",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Classify these goods for a trademark application: moisturizing creams, shampoo, shower gel and perfumes.",
+      "expected_output": "Detailed mode. All four items are classified in Nice class 3 (cosmetics). The output lists harmonised-database term wording for each (e.g. cosmetic creams, shampoos, shower gels, perfumes), validated via the connector, with any unconfirmed term flagged [?]. Includes the legal notice and a reviewing-attorney line. Does not invent terms or add unrelated classes.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "We're an online language academy. Which Nice classes should we file our trademark in?",
+      "expected_output": "General mode. The skill first asks 1-2 scoping questions (e.g. do you deliver the courses yourselves; do you provide downloadable materials or your own software/platform). It then proposes class 41 (education/training) as a priority class, with class 9 (downloadable educational materials/software) and class 42 (online platform/SaaS) as classes to consider, each with a brief plain-language rationale and suggested terms. Ends with next steps and the legal notice. Does not state a final filing decision.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We make artisan chocolate and sell it through our own online shop. What do we need to register?",
+      "expected_output": "Correctly distinguishes the product from the retail service: class 30 (chocolate, confectionery) as a priority class for the goods, and class 35 (online retail store services) as a class to consider for the shop, explaining that selling a product and the retail service of selling it are different rights. Flags the per-class fee trade-off. Includes the legal notice. Leaves the final class choice to counsel.",
+      "files": []
+    }
+  ]
+}

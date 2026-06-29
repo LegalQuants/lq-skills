@@ -1,0 +1,23 @@
+{
+  "skill_name": "euipo-trademark-clearance",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Check if AURORA is available in class 32 (beverages) before we file at the EUIPO.",
+      "expected_output": "Runs an EUTM register search via the connector, identifies earlier AURORA-formative marks in class 32, and produces a draft clearance report: per-conflict sign similarity (visual/aural/conceptual), goods similarity (Canon factors), distinctiveness of the earlier mark, and an overall traffic-light rating (High/Medium/Low) framed as conflict-signal strength. Surfaces factors for counsel and open unknowns (genuine use, etc.) rather than a file/don't-file recommendation. Cites SABEL/Canon/Lloyd where relevant. Includes the DRAFT header and reviewing-attorney line.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "A client wants to register ROLEX for clothing in class 25. Analyse the risk.",
+      "expected_output": "Identifies ROLEX as a likely reputed/highly distinctive earlier mark, flags the elevated risk that its protection extends beyond its core goods, and distinguishes the Art. 8(1)(b) confusion analysis from an Art. 8(5) reputation analysis (citing Marca Mode for the point that reputation does not presume confusion). Surfaces the factors and open unknowns and leaves the filing decision to counsel. Does not give a filing recommendation.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Run a clearance search for the coined mark NOVARETTI in classes 9 and 42.",
+      "expected_output": "Searches the register; with few or no close conflicts, returns an overall Low risk rating, but still produces the full draft report and states the limitations explicitly — register-only coverage (no national registers), genuine-use of any earlier marks not established, and that a Low rating is not a guarantee of registrability. Recommends the attorney confirm scope before relying on it.",
+      "files": []
+    }
+  ]
+}

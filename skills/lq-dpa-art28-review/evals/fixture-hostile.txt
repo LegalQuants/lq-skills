@@ -1,0 +1,62 @@
+DATA PROCESSING AGREEMENT (syn-041)
+
+
+between Northwind Ltd ("Controller") and Solaris Data BV ("Processor"),
+
+made pursuant to Article 28 of Regulation (EU) 2016/679 (GDPR).
+
+
+This Agreement governs the processing of Personal Data by the Processor on behalf of the Controller in connection with the Services.
+
+
+1. Processing on Documented Instructions
+The Processor may process Personal Data as reasonably necessary to provide the Services and for its
+own legitimate business purposes.
+
+2. Confidentiality of Authorised Persons
+The Processor shall ensure that persons authorised to process the Personal Data have committed
+themselves to confidentiality or are under an appropriate statutory obligation of confidentiality.
+
+3. Security of Processing (Art. 32)
+The Processor shall implement the technical and organisational measures set out in Annex II to
+ensure a level of security appropriate to the risk, in accordance with Article 32.
+
+4. Assistance with Data-Subject Rights
+Taking into account the nature of the processing, the Processor shall assist the Controller by
+appropriate technical and organisational measures for the fulfilment of the Controller's obligation
+to respond to requests for exercising the data subject's rights under Chapter III.
+
+5. Assistance with Arts. 32-36
+The Processor shall assist the Controller in ensuring compliance with the obligations pursuant to
+Articles 32 to 36, taking into account the nature of processing and information available to the
+Processor.
+
+6. Deletion or Return of Data
+At the choice of the Controller, the Processor shall delete or return all Personal Data after the
+end of the provision of Services and delete existing copies, unless storage is required by law.
+
+7. Audits and Information
+The Processor shall make available to the Controller all information necessary to demonstrate
+compliance with Article 28 and allow for and contribute to audits, including inspections, conducted
+by the Controller or an auditor mandated by the Controller.
+
+8. International Transfers
+The Processor may transfer Personal Data internationally within its group as needed to provide the
+Services.
+
+9. Personal Data Breach Notification
+The Processor shall notify the Controller of any Personal Data Breach without undue delay.
+
+10. Audit Frequency and Scope
+Audits are limited to one remote questionnaire every two years.
+
+11. Data Return Format
+On return, Personal Data shall be provided in a structured, commonly used, machine-readable format
+within 30 days.
+
+12. Sub-processor List and Changes
+Annex I lists current sub-processors. The Processor shall give 30 days' prior notice of any intended
+change, during which the Controller may object.
+
+
+Signed for and on behalf of the parties as of the Effective Date.

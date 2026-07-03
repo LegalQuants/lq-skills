@@ -1,0 +1,33 @@
+{
+  "dpa_id": "syn-041",
+  "profile": "hostile",
+  "controller": "Northwind Ltd",
+  "processor": "Solaris Data BV",
+  "graded_by": "synthetic-generator",
+  "graded_at": "2026-07-02",
+  "verdicts": {
+    "a28_1": "deficient",
+    "a28_2": "present",
+    "a28_3": "present",
+    "a28_4": "absent",
+    "a28_5": "present",
+    "a28_6": "present",
+    "a28_7": "present",
+    "a28_8": "present",
+    "c_transfer": "deficient",
+    "c_breach_window": "deficient",
+    "c_audit": "deficient",
+    "c_liability": "absent",
+    "c_return": "present",
+    "c_subproc_list": "present"
+  },
+  "notes": {
+    "a28_1": "Permits processing for the Processor's 'own legitimate business purposes' \u2014 breaches the Art.28(3)(a) 'documented instructions only' limit.",
+    "a28_4": "No sub-processor clause \u2014 Art.28(3)(d)/28(4) unaddressed.",
+    "c_transfer": "International transfers permitted with no SCCs or Chapter V mechanism identified.",
+    "c_breach_window": "'Without undue delay' with no fixed hours \u2014 negotiate a <=72h window to support the Controller's Art.33 duty.",
+    "c_audit": "Audit right limited to a biennial questionnaire; no for-cause or on-site audit.",
+    "c_liability": "No liability clause \u2014 allocation unaddressed."
+  },
+  "reference_redline_hint": "Remediate: Processing on Documented Instructions, Sub-processors, International Transfers, Personal Data Breach Notification, Audit Frequency and Scope, Liability."
+}

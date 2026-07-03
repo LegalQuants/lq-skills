@@ -1,0 +1,23 @@
+{
+  "skill_name": "lq-dpa-art28-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review this DPA — we are the controller. [Attach fixture-hostile.txt]",
+      "expected_output": "A 14-row findings table. Per the gold file (fixture-hostile.gold.json) it MUST flag at minimum: a28_1 deficient (quotes 'own legitimate business purposes' — breaks documented-instructions-only); a28_4 absent (no sub-processor clause/flow-down); c_transfer deficient (intra-group transfers with no SCCs/Chapter V mechanism); c_breach_window deficient ('without undue delay', no fixed hours); c_audit deficient (biennial questionnaire only); c_liability absent. Every present/deficient verdict carries a verbatim quote copied exactly from the document; absent items carry none. Redlines proposed controller-side; statutory vs commercial items labelled; 3-point negotiation summary present.",
+      "files": ["fixture-hostile.txt"]
+    },
+    {
+      "id": 2,
+      "prompt": "We are the processor. Score this data processing agreement against Article 28. [Attach fixture-clean.txt]",
+      "expected_output": "All 14 items marked present, each with a verbatim supporting quote — ZERO false alarms (this fixture is fully compliant by construction). The skill does not invent deficiencies to appear useful; the negotiation summary may note processor-side commercial preferences but clearly labels them as craft, not Art. 28 requirements.",
+      "files": ["fixture-clean.txt"]
+    },
+    {
+      "id": 3,
+      "prompt": "Can you check this DPA for GDPR compliance?",
+      "expected_output": "No verdicts are produced. The skill asks (a) which party the user represents (controller or processor) and (b) for the document if none is attached, then halts — per the 'party lens first' operating principle. It does not guess a lens or fabricate an assessment.",
+      "files": []
+    }
+  ]
+}

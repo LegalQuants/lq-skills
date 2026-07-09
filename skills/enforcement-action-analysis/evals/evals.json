@@ -1,0 +1,23 @@
+{
+  "skill_name": "enforcement-action-summary",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Summarize this OFAC settlement agreement into a structured read — I want the parties, the conduct, the penalty terms, and whether they self-disclosed.",
+      "expected_output": "A markdown summary with the eight standard sections. 'At a Glance' names the entity, OFAC, the instrument type (settlement), the date, and the headline dollar penalty. 'Statutory & Regulatory Basis' identifies the sanctions program/regulation cited and characterizes the conduct as apparent violations. 'Penalties & Resolution' states the settlement amount and any egregious/non-egregious and voluntary-self-disclosure determinations that affected the penalty. 'Aggravating / Mitigating Factors' captures the self-disclosure and any remediation. Every bullet carries a page citation. Items the document does not state (e.g., pre-mitigation base penalty) appear under 'Open Questions / Not Addressed' rather than being guessed.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Pull the key facts, statutory violations, and resolution terms out of this DOJ deferred prosecution agreement.",
+      "expected_output": "A markdown summary identifying the subject entity and the instrument as a DPA. 'Conduct & Allegations' distinguishes admitted conduct (per the statement of facts) from any un-adjudicated allegations, with the timeframe and jurisdictions. 'Statutory & Regulatory Basis' lists each statute cited (e.g., FCPA anti-bribery / books-and-records) with the provision, civil vs. criminal, and charged/admitted status. 'Penalties & Resolution' captures the monetary penalty with any component breakdown or cross-agency credit, monitor or self-reporting obligations, mandated compliance enhancements, and the DPA term and termination conditions. Page citations throughout; no facts introduced from outside the document.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "This is an SEC administrative order — give me a structured summary and flag anything the order doesn't resolve.",
+      "expected_output": "A markdown summary naming the respondent, the SEC, and the instrument as an administrative order. 'Conduct & Allegations' reflects the SEC's findings, distinguishing findings the respondent admitted from those resolved without admission. 'Penalties & Resolution' captures disgorgement, prejudgment interest, civil penalties, and any undertakings or industry bars. 'Compliance Observations' reflects only what the order states about control failures. 'Open Questions / Not Addressed' surfaces unresolved items such as the status of related individuals or parallel proceedings not described in the order. All items cited to page.",
+      "files": []
+    }
+  ]
+}

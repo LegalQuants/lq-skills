@@ -18,7 +18,7 @@ Save the skill folder into your LQ.AI skills directory:
 
 ```
 skills/
-└── enforcement-action-summary/
+└── enforcement-action-analysis/
     ├── SKILL.md
     ├── README.md
     ├── LICENSE

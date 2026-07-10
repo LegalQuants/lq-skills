@@ -1,9 +1,26 @@
 ---
 name: enforcement-action-analysis
 description: Use when you have a U.S. government enforcement document (such as DOJ, SEC, OFAC, BIS, or FinCEN) and need a structured, citation-backed summary of the parties, conduct, statutory basis, penalties, and resolution. Reads one enforcement document and produces a consistent extraction for compliance and investigations work.
-author: Andrea Ren
-jurisdiction: US
-tags: [enforcement, compliance, investigations, regulatory, settlement]
+license: Apache-2.0
+lq_ai:
+  title: Enforcement Action Analysis — U.S. Regulatory & Criminal Enforcement Summaries
+  version: 1.0.0
+  author: Andrea Ren
+  tags: [enforcement, compliance, investigations, regulatory, settlement, doj, sec, ofac, bis, fincen]
+  jurisdiction: us
+  trigger_examples:
+    - "Summarize this enforcement action."
+    - "Pull the key facts, statutes, and penalty terms out of this DPA."
+    - "What did the company do and what did it pay?"
+    - "Give me a structured read of this OFAC settlement."
+    - "Extract the statutory violations and penalty terms from this order."
+  inputs:
+    required:
+      - "One enforcement document, as text or a machine-readable PDF"
+    optional:
+      - "A perspective note (e.g., 'focus on the export-control angle') to bias emphasis"
+  output_format: report
+  self_improvement: false
 ---
 
 # Enforcement Action Summary

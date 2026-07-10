@@ -1,4 +1,4 @@
-# Enforcement Action Summary
+# Enforcement Action Analysis
 
 A reusable LQ.AI skill that reads a single U.S. government enforcement document and produces a structured, citation-backed summary — parties, conduct, statutory basis, penalties, and resolution — in a consistent format for compliance and investigations work.
 

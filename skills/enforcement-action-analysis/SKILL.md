@@ -23,7 +23,7 @@ lq_ai:
   self_improvement: false
 ---
 
-# Enforcement Action Summary
+# Enforcement Action Analysis
 
 Turns a single U.S. regulatory or criminal enforcement document into a structured, citation-backed summary. It reads what the document actually says — parties, conduct, statutes cited, penalty, and resolution terms — and lays it out in a consistent format a compliance or investigations professional can scan in under a minute.
 

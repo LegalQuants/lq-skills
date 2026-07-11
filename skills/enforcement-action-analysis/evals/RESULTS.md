@@ -61,18 +61,6 @@ skill's own commitments. No privileged or internal material is used.
 
 ---
 
-### Run 3 — [document title]
-
-- **Source:** [agency] · [URL] · [instrument type]
-- **Date run:** [YYYY-MM-DD] · **Skill version:** 1.0.0
-- **Model / harness:** [...]
-
-| C1 | C2 | C3 | C4 | C5 | C6 | Overall |
-|----|----|----|----|----|----|---------|
-| ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | PASS / FAIL |
-
-**Notes:** [...]
-
 ## Summary
 
 - **Documents run:** 2 · **Pass:** 2 · **Fail:** 0

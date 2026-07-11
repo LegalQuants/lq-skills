@@ -39,17 +39,25 @@ skill's own commitments. No privileged or internal material is used.
 
 ---
 
-### Run 2 — [document title]
+### Run 2 — Non-Prosecution Agreement, Alibaba Group Holding Limited et al.
 
-- **Source:** [agency] · [URL] · [instrument type]
-- **Date run:** [YYYY-MM-DD] · **Skill version:** 1.0.0
-- **Model / harness:** [...]
+- **Source:** DOJ · U.S. Attorney's Office, District of Rhode Island (with DOJ Enforcement & Affirmative Litigation Branch and Money Laundering, Narcotics and Forfeiture Section) · public Non-Prosecution Agreement + Statement of Facts + Corporate Compliance Program attachment · 29-page PDF
+- **Instrument type:** Non-Prosecution Agreement (NPA) — misdemeanor FDCA violation + civil forfeiture (first DOJ/NPA instrument in this corpus; Run 1 was a BIS administrative settlement)
+- **Date run:** 2026-07-10 · **Skill version:** 1.0.0
+- **Model / harness:** Claude Code, Sonnet 5
 
 | C1 | C2 | C3 | C4 | C5 | C6 | Overall |
 |----|----|----|----|----|----|---------|
-| ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | PASS / FAIL |
+| ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | **PASS** |
 
-**Notes:** [suggest a different instrument type — e.g., an OFAC settlement or DOJ DPA — to test the template across agencies]
+**Notes:**
+- Produced all eight sections; every bullet cited to a page.
+- **C3:** correctly held the line between the Statement of Facts, which Alibaba *admits* is true and accurate (p. 18), and the absence of any adjudicated finding — the NPA structure means no court ever reaches the conduct unless Alibaba breaches.
+- **C4:** flagged the CSA's role as Medium confidence — it is folded into the "Drug, Device, and Importation Laws" definition and drives the forward-looking compliance program, but the document does not state Alibaba admitted a CSA violation the way it does for the FDCA misdemeanor. Also flagged the Section D aggravating-factors paragraph (lack of voluntary-disclosure credit run together with post-remediation compliance failures) as ambiguously drafted rather than picking one reading.
+- **C5 (notable catch):** the letter names four Alibaba entities as parties represented by counsel (p. 2), but the signature pages provided show execution only by Alibaba Group Holding Limited and Alibaba.com Singapore E-Commerce Pte. Ltd. (p. 17) — no signature blocks for AliExpress E-Commerce One Pte. Ltd. or Alibaba.com U.S. LLC appear in the material reviewed. The skill flagged this as an open question about execution rather than assuming all four entities signed. Also routed the undefined "Effective Date" trigger and the unprovided Attachments D/E to Open Questions rather than guessing their contents.
+- Figures ($125M penalty, $200M forfeiture, $325M total — reconciled against the Board Minutes' independent $325M reference on p. 21) and statutes (FDCA 21 U.S.C. § 301; 18 U.S.C. § 545; 18 U.S.C. § 981(a)(1)(C)) all traced to the source.
+- **Limitation of this run:** self-assessment by the same model that produced the output — a demonstration of the skill's behavior, not an independent audit.
+- **Skill edits prompted:** none. Output shape and disciplines held on a second, structurally different instrument type (NPA vs. Run 1's administrative settlement), including catching a signature-page inconsistency the skill was never explicitly instructed to look for.
 
 ---
 
@@ -67,6 +75,7 @@ skill's own commitments. No privileged or internal material is used.
 
 ## Summary
 
-- **Documents run:** 1 · **Pass:** 1 · **Fail:** 0
-- **Patterns observed:** On a complex real BIS export-control matter, the skill held its core disciplines — page citations, the alleged/admitted/adjudicated distinction, and (critically) refusing to invent mitigating factors that a typical enforcement action would contain but this one did not.
+- **Documents run:** 2 · **Pass:** 2 · **Fail:** 0
+- **Patterns observed:** Across a BIS export-control settlement and a DOJ Non-Prosecution Agreement — two structurally different instrument types — the skill held its core disciplines: page citations, the alleged/admitted/adjudicated distinction, and refusing to invent mitigating factors or resolve genuine gaps (missing signatures, undefined terms, unprovided attachments) by guessing.
+- **Eval variable — model:** Run 1 used Opus 4.8; Run 2 used Sonnet 5. Holding the disciplines across two different models (including a smaller one) strengthens the robustness read, but it is an uncontrolled variable — cross-run differences could be model- as well as skill-driven. Future runs should record the model and, where possible, hold it constant to isolate skill behavior.
 - **Skill edits prompted by this eval:** none.

@@ -29,6 +29,12 @@ Turns a single U.S. regulatory or criminal enforcement document into a structure
 
 This skill extracts and organizes. It does not draw legal conclusions beyond what the source supports, and it does not pull in outside facts.
 
+## Audience and Work Shape
+
+**Audience:** in-house compliance, ethics, and investigations professionals — and the outside counsel who support them — who read a steady stream of enforcement actions and want a consistent structured read instead of re-deriving one by hand each time.
+
+**Work shape:** *Pattern-Matched Review.* The skill applies a fixed extraction template to a single document, escalates on out-of-pattern input rather than improvising, and makes no recommendations. It surfaces what the source says in a standard shape; the reader supplies the judgment.
+
 ## When to Use
 
 Use this skill when you have **one** enforcement document and want a clean structured read of it. Typical inputs:
@@ -65,6 +71,14 @@ Work through the document in this order. Cite the source page for every extracte
 8. **Flag what is unresolved.** Anything material the document does not address — the size of a component penalty, the identity of a monitor, the scope of a foreign parallel proceeding — goes in *Open Questions*.
 
 Throughout, hold to three disciplines: (a) cite pages, (b) distinguish what the evidence shows from what it suggests, and (c) flag uncertainty explicitly rather than papering over it.
+
+## Confidence Bands
+
+Every extracted item carries an implicit confidence level. Handle the three bands distinctly — do not collapse the middle into a silent guess:
+
+- **High** — the document states the item expressly. Report it with a page citation.
+- **Medium** — the document supports the item but ambiguously (e.g., the instrument reads like a DPA by structure but is never labeled one; a penalty figure is stated but its components are not). Surface it *with the rationale and the ambiguity flagged* — "likely X because Y; not stated expressly" — rather than silently picking one reading.
+- **Low / not addressed** — the document does not resolve the item. Route it to *Open Questions*; never infer to fill the gap.
 
 ## Output
 
@@ -120,6 +134,14 @@ Every bullet carries a page citation, e.g. `(p. 4)` or `(pp. 12–14)`.
 - This skill is designed for **public** government enforcement documents. A summary based solely on such documents is non-privileged and shareable.
 - If it is applied to internal, draft, or matter-specific material, the output **inherits the confidentiality and privilege of its inputs** — label it accordingly before any external sharing.
 - The output is a **draft for attorney review**. It extracts and organizes; it does not provide legal advice and does not reach legal conclusions beyond what the source document states. Escalate anything consequential to counsel and read the underlying order.
+
+## Characteristic Risks
+
+Beyond the legal-use boundaries above, watch for model-side failure patterns specific to this extraction:
+
+- **Instrument misclassification** — unusual or hybrid formats (a combined order, a novel resolution vehicle) can be mislabeled. When the type is not stated expressly, treat it as Medium confidence per *Confidence Bands* rather than asserting a label.
+- **Garbled or OCR'd text** — a poorly extracted PDF can silently corrupt figures, dates, or party names. If the text looks garbled, flag it rather than reporting suspect values as fact.
+- **Characterization vs. adjudicated fact** — an agency's narrative framing of conduct is not the same as an admitted or adjudicated finding. Preserve the *alleged / admitted / adjudicated* distinction; do not upgrade characterization to fact.
 
 ## Limitations
 

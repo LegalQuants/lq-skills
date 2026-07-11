@@ -151,4 +151,4 @@ Beyond the legal-use boundaries above, watch for model-side failure patterns spe
 
 ## Versioning and Review
 
-Maintained by the author (see frontmatter `version` and `author`). Reviewed at least annually, and sooner after any material shift in U.S. enforcement doctrine, agency resolution practice, or the instrument types in scope. Changes that alter scope, the extraction template, or the confidence-band thresholds bump the `version` field per semver and are noted in the commit history; downstream users should track the version they rely on.
+Maintained by the author. Reviewed at least annually or sooner as needed.

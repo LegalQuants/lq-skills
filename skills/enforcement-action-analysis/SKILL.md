@@ -148,3 +148,7 @@ Beyond the legal-use boundaries above, watch for model-side failure patterns spe
 - The summary is only as good as the source. It does not pull in related dockets, prior actions, parallel foreign proceedings, or any fact outside the document provided.
 - Model training cutoffs and jurisdiction-specific nuance mean substantive points should be verified against the primary source and, where warranted, local counsel.
 - It is not a substitute for reading the underlying order or agreement for any decision that matters.
+
+## Versioning and Review
+
+Maintained by the author (see frontmatter `version` and `author`). Reviewed at least annually, and sooner after any material shift in U.S. enforcement doctrine, agency resolution practice, or the instrument types in scope. Changes that alter scope, the extraction template, or the confidence-band thresholds bump the `version` field per semver and are noted in the commit history; downstream users should track the version they rely on.

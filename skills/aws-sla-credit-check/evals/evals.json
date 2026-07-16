@@ -1,0 +1,26 @@
+{
+  "skill_name": "aws-sla-credit-check",
+  "evals": [
+    {
+      "id": 0,
+      "name": "single-incident-ec2-ebs-deadline",
+      "prompt": "AWS had an incident in us-east-1 yesterday affecting EC2 and EBS. Check whether we might be owed SLA credits and what the deadline is.",
+      "expected_output": "Fetches the AWS Health Dashboard status history to establish scope and duration for the us-east-1 EC2/EBS event, citing the source URL and fetch date. Fetches the current published EC2 SLA (noting it contains both a region-level and an instance-level commitment with different tiers) and the current EBS SLA from https://aws.amazon.com/legal/service-level-agreements/, each with URL and fetch date. Builds a per-service credit-mechanics table with a citation on every value (commitment metric and threshold, credit tiers, what the credit applies to, architectural preconditions such as multi-AZ, exclusions, claim procedure, deadline quoted verbatim). Computes potential eligibility by converting incident duration into Monthly Uptime Percentage with the arithmetic shown, and maps it to a tier as a conditional ('IF you ran EC2/EBS in us-east-1 during the window and meet the preconditions, the tiers indicate a potential credit of X%'). Produces an action-item memo stating the claim deadline as a concrete date computed from the SLA's deadline language, a checklist of internal usage facts to verify (who verifies them), and a standing not-legal-advice disclaimer. Never asserts credits are actually owed. If public duration is uncertain, flags it and shows tier sensitivity.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "name": "lookback-sweep-ranked-by-deadline",
+      "prompt": "Sweep the last 45 days of AWS incidents for anything potentially claimable, ranked by how soon the claim window closes.",
+      "expected_output": "Enumerates incidents from the AWS Health Dashboard status history within the 45-day window, with sources. Triages out incidents too short to cross any published SLA threshold, showing the threshold math used for each triage decision rather than discarding silently. Runs the full extract/compute/memo workflow on the survivors, each with citation-per-value SLA extraction fetched fresh. Ranks the potentially-claimable events by proximity of the claim deadline (soonest first), each deadline stated as a concrete date. Keeps every conclusion conditional on the customer's usage and architecture, and includes the not-legal-advice disclaimer. Does not guess durations or thresholds; records 'not specified' where the public record is silent.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "explain-s3-credit-tiers-with-citations",
+      "prompt": "Explain the current S3 SLA credit tiers with citations.",
+      "expected_output": "Fetches the current published Amazon S3 SLA from the AWS service-level-agreements index at analysis time (not from memory), recording the URL and fetch date. Extracts the Monthly Uptime Percentage commitment and the credit-tier bands (which percentage band triggers which service-credit percentage) into a structured table, with each row citing the SLA section it came from and the defined-term basis (e.g., how the SLA defines 'Error Rate' / 'Unavailable'). States what the credit applies to (monthly S3 charges in the affected region) and quotes the claim procedure and deadline verbatim. Notes that a negotiated enterprise agreement may modify or supersede the published SLA, and that the output describes the published document only and is not legal advice. Does not state that any credit is owed.",
+      "files": []
+    }
+  ]
+}

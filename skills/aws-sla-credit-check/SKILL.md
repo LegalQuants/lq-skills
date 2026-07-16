@@ -31,9 +31,11 @@ Identify from public sources:
 
 - Affected service(s) and region(s)
 - Incident start and end time (or best public approximation)
-- Nature of the event (increased error rates, elevated latency, full unavailability)
+- Nature of the event, capturing AWS's exact event label verbatim (for example, "Increased Launch Template API Error Rates" versus "Increased Error Rate and Latency" versus a connectivity/power loss). The label matters: an API-error event is not the same as instances losing external connectivity, and it determines whether the event can meet an SLA's defined "Unavailable" threshold in Step 3.
 
 Sources: the AWS Health Dashboard public status history (https://health.aws.amazon.com/health/status), AWS post-event summaries when published, and reputable secondary reporting only to corroborate timing. Record which source supports each fact. If the public record does not establish duration, say so; duration drives everything downstream.
+
+**Reading the Health Dashboard correctly.** The status page is a JavaScript-rendered application: a plain URL fetch returns an essentially empty page and will silently miss every event. Use a browser tool that executes JavaScript. Once it loads, the default **"Open and recent issues"** view shows only currently open or very recent events — it will not show a resolved incident from days or weeks ago. Resolved incidents live under the separate **"Service history"** tab, a running 12-month log of interruptions listed by service, region, and start/last-update time (all times in Pacific Time). Open Service history, then locate the specific event by region and date. Do not rely on the default view, and do not rely on web search alone — search surfaces news coverage of large outages but misses smaller resolved events (and can mislead you with a dashboard page's current-day header date). When an event's detail page or duration cannot be read from public sources, record that explicitly rather than inferring a duration.
 
 ### Step 2: Fetch the current published SLA for each affected service
 

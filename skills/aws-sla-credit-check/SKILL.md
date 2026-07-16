@@ -2,6 +2,9 @@
 name: aws-sla-credit-check
 description: Analyze AWS operational incidents against AWS's published Service Level Agreements to identify potential service credit eligibility, calculate the applicable credit tier, and generate an action-item memo with claim deadlines. Use when an AWS incident has occurred or when doing a periodic sweep for unclaimed credits.
 author: Erin Crum
+version: 1.0.0
+last_reviewed: 2026-07-15
+review_cadence: At least every 6 months, and on any structural change to AWS's SLA index or claim-window language.
 jurisdiction: Agnostic
 tags: [cloud-infrastructure, sla-review, incident-response, contract-review]
 ---
@@ -73,6 +76,25 @@ Produce a short memo containing:
 5. Concrete next steps: what internal usage facts must be verified, who verifies them (FinOps or the cloud platform team), and what goes in the support case
 6. A standing disclaimer: this analysis reads published documents only, is not legal advice, and must be verified against current source documents and the customer's own agreement, which may replace or modify the published SLA
 
+## Confidence bands
+
+Every output states its confidence, and low confidence is never suppressed to make the memo look finished.
+
+- **High** — the incident facts (service, region, window) and the current SLA text are each read directly from the cited public sources, and the duration clears or misses a tier threshold by a wide margin. Proceed and present the memo as described above.
+- **Medium** — a material fact is only partially established: duration is an event *envelope* rather than confirmed continuous unavailability, or a service's impact comes only from secondary reporting. Proceed, but flag the fact, show tier sensitivity across the plausible range, and state in the memo exactly what verification would move it to High.
+- **Low** — a value required for the tier call cannot be located, the SLA has been restructured so the mapping is unclear, or the event label does not map to the SLA's defined "Unavailable." Do **not** compute a tier. Name the uncertainty explicitly and hand the question back to the human. A blank is a valid, useful answer; a guessed tier is not.
+
+## Escalation triggers
+
+Stop the affected branch cleanly, state which trigger fired and why, and route the open question to the named human owner (FinOps, cloud platform, or counsel) when any of these fire — rather than proceeding past the skill's limits:
+
+- **No published SLA** for an affected service, or the SLA index no longer resolves to a per-service page. Record the finding; never substitute a remembered value.
+- **Event label does not map** to the SLA's defined "Unavailable" (for example, an API-error-rate event measured against a connectivity-based commitment). Surface the mismatch instead of forcing the mapping.
+- **Duration cannot be established** from the public record. Flag it; do not infer a duration to complete the arithmetic.
+- **Negotiated or enterprise agreement suspected** (EDP, PPA, custom MSA). The published SLA may be modified or superseded — route to counsel with the full contract before any reliance.
+- **Non-AWS provider, or an AWS service outside the tested set.** Out of scope for v1; say so and stop rather than generalizing the methodology silently.
+- **Conflicting signals** across the Health Dashboard, an AWS post-event summary, and secondary reporting. Present the conflict; do not silently select one source.
+
 ## Examples
 
 Example prompt:
@@ -97,6 +119,13 @@ A complete worked example — the full memo produced for the May 7–8 2026 us-e
 - **Deadlines are the point of the tool but the SLA's language controls.** Claim deadline language varies (for example, by the end of the second billing cycle after the incident month). Quote it exactly and compute the date, but tell the reader to confirm against the current SLA.
 - **Not legal advice.** The output describes what published documents say and what arithmetic they imply. The decision to claim, and any dispute about eligibility, belongs to counsel with the full facts.
 - **AWS-scoped for v1.** The methodology generalizes to other providers' published SLAs (Azure, GCP, GPU clouds), but the source registry in this skill covers AWS. Extending it is a welcome follow-on contribution.
+- **Handling of the output.** When this memo is prepared by or at the direction of counsel, it may constitute attorney work product; store and share it accordingly. The skill does not manage privilege — it flags the consideration and leaves the call to counsel.
+
+## Maintenance and ownership
+
+- **Owner:** Erin Crum (author). Substantive review of the credit-mechanics framework and the conservative "potential eligibility only / not legal advice" posture rests with the owner.
+- **Version:** 1.0.0. Material changes — to the delegation threshold, the escalation triggers, or the AWS-scope boundary — are versioned and called out in the PR/changelog so downstream users can see what moved.
+- **Review cadence:** re-review at least every six months, and on any of these triggers: AWS restructures its SLA index, changes claim-window language, or adds or removes a per-service SLA. Because the skill fetches SLA text live at run time, it does not go stale on the numbers; this cadence covers the methodology and the source map.
 
 ## Testing
 

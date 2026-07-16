@@ -87,6 +87,8 @@ Example prompt:
 
 Expected agent behavior: enumerate incidents from the status history in the window; triage out incidents too short to cross any published threshold (showing the threshold math for the triage decision); run Steps 2 through 5 on the survivors; rank by claim deadline proximity.
 
+A complete worked example — the full memo produced for the May 7–8 2026 us-east-1 EC2 event, with the credit-tier ladder, the deadline computation, and a contrasting non-qualifying event — is in [examples/output.md](examples/output.md).
+
 ## Limitations
 
 - **Public data only.** The skill cannot see the customer's usage, spend, architecture, or negotiated agreement. Everything it produces is conditional on facts the customer must verify. Enterprise agreements may modify or supersede published SLAs entirely.

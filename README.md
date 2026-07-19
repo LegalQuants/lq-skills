@@ -59,6 +59,7 @@ Most legal AI tools are black boxes. LQ skills are transparent, version-controll
 | [nis2-navigator](skills/nis2-navigator/) | Oliver Schmidt-Prietz | EU | NIS2 scope classification, Art. 21 gap analysis (0–4 maturity scoring), and compliance roadmap under Directive 2022/2555 — deep German BSIG coverage plus IT/FR/NL/AT/ES profiles |
 | [privacy-notice-eu](skills/privacy-notice-eu/) | Oliver Schmidt-Prietz | EU | Draft GDPR/DSGVO-compliant privacy notices as .docx for any EU/EEA jurisdiction — five notice types, Art. 13/14 disclosures, AI Act transparency, cookie policy |
 | [redfern-schedule](skills/redfern-schedule/) | Alexios vdSK | MULTI | Build and maintain Redfern Schedules for document production in international arbitration — IBA Rules (2020) Art. 3.3 admissibility and Art. 9.2 objection checks |
+| [ear-crypto-scan](skills/ear-crypto-scan/) | Ben Richter | US | Scan Go, Python, and JavaScript/TypeScript codebases for export-controlled cryptographic API invocations under U.S. EAR. Classifies findings as STRONG 5D002 INDICATOR, BORDERLINE, or LIKELY EAR99 using a structured decision tree. Produces a privileged report for legal counsel review. |
 
 See [ACCESS-MODES.md](ACCESS-MODES.md) for source-handling conventions, [PR-READINESS.md](PR-READINESS.md) for the AnonLQ-attributed contribution checklist, and [skills/CONTRIBUTING.md](skills/CONTRIBUTING.md) for the higher-bar process applied to skills carrying legal substance.
 

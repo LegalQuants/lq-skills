@@ -21,7 +21,7 @@ counsel review.
 
 ## Testing
 
-- Validated against a 20-file synthetic Go/Python test suite: 20/20 (100%)
+- Validated against a 31-file synthetic Go/Python test suite: 31/31 (100%)
 - Test suite covers STRONG 5D002, BORDERLINE, LIKELY EAR99, and EXCLUDE patterns
 - Edge cases tested: JWT sign vs. verify, mixed files, SDK-mediated crypto, OAuth PKCE,
   TLS cipher control vs. defaults, non-security hash usage

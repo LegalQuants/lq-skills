@@ -26,7 +26,7 @@ Produces a privileged consolidated report for legal counsel.
 
 ```bash
 # Option 1: Clone directly
-git clone https://github.com/[REPO_ORG]/ear-crypto-scan.git
+git clone https://github.com/LegalQuants/lq-skills.git
 
 # Option 2: Install via clawhub (if registered)
 clawhub install ear-crypto-scan

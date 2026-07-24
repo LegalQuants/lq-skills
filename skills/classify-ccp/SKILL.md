@@ -1,5 +1,5 @@
 ---
-name: ClassifyCCP
+name: classify-ccp
 description: Classifies the treatment of Competition Compliance Programmes (CCPs) in competition law enforcement documents. Converts PDF input, detects language, analyzes the full document, produces a scratchpad, and populates Output.xlsx. Use when classifying how a CCP is treated as an offence, defence, remedy, or irrelevant in a policy document or case/judgment.
 author: Leona Zhang (zjing7843-prog)
 license: MIT (see LICENSE)

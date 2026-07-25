@@ -38,7 +38,7 @@ Regimes supported: IBA 2020 (default), Prague 2018, ICC, LCIA, ICSID. See `refer
 
 ## Quality assurance
 
-This skill went through four independent gates plus a live functional test. Each is summarised below.
+This skill went through four independent gates, a live functional test, and an ongoing multi-model benchmark. Each is summarised below.
 
 ### 1. Citation provenance (byte-verified)
 
@@ -62,3 +62,12 @@ Run past Anthropic's `skill-creator` guide. Two parts:
 ### 5. Live functional test
 
 Run end to end on a real chat platform across all three roles on a fictional investor-State dispute: the privilege gate fires first, weak requests are correctly flagged (a fishing-expedition sweep fails Article 3.3, a document the requesting party already holds is flagged under Gate C, a non-party document is routed to Article 3.9), and the Article 9.2(f) prompt fires only on genuinely governmental content, not on a state-owned party's ordinary commercial documents.
+
+### 6. Model viability (ongoing multi-model benchmark)
+
+The skill is under a continuing, controlled evaluation programme that measures how reliably different models execute it. This matters because the privilege case for running an arbitration skill on-premises depends on which models can be trusted to hold its disciplines.
+
+**Phase 1, completed 21 June 2026.** The skill was run on five models, changing only the model: Anthropic Opus 4.8, Anthropic Sonnet 4.6, the open-weight K2 Think V2, and two genuinely local models served on-device (Qwen2.5 3B and Llama 3.2 3B). One frozen ICC construction-megaproject case with a vetted answer key, scored on two layers: deterministic code checks that anyone can re-run, and a blind cross-family panel of model judges that never saw which model produced which output. 200 completions and 80 blind verdicts, self-audited by an independent coordinator pass. Finding: the skill's core disciplines (the privilege gate, byte-exact reproduction of the other party's columns, the tribunal no-decision rule, the flags memo, the no-invention rule) hold cleanly on a capable model (Opus, 7.3 out of 10) and degrade with model capability, while the small local models a 16 GB laptop can host today collapse (about 0.9 out of 10). The gap is model capability (long-instruction-following and structured output), not legal knowledge: even the failing local models never invent citations.
+
+**Phase 2, in progress, scheduled August 2026.** The same benchmark is being extended to mid-size local models that a 128 GB workstation can host (Llama 3.3 70B, Qwen 72B, Mistral Large 2 123B, gpt-oss 120B), to locate the capability threshold at which a self-hosted, privilege-safe deployment becomes viable. Results will be recorded here as they land.
+

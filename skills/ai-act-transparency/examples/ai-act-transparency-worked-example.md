@@ -2,7 +2,7 @@
 
 An end-to-end **Full assessment** run: mode pick → intake → role → per-duty triggers → implementation →
 dated roadmap → bottom line + portable block. Inputs are illustrative. Every material statement carries
-an uncertainty marker (**[Settled law] / [Draft guidance] / [Best practice] / [Open issue]**); nothing
+an uncertainty marker (**[Settled law] / [Official guidance] / [Best practice] / [Open issue]**); nothing
 here is legal advice.
 
 ---
@@ -18,7 +18,7 @@ here is legal advice.
 ## Mode
 
 Full assessment (the user wants duties + implementation + deadline + exposure). *Source status (checked
-2026-07-05): Guidelines draft · Omnibus adopted, awaiting OJ · CoP adequacy pending · icons published.*
+2026-08-04): Guidelines final (20 Jul 2026) · Omnibus in force (Reg. (EU) 2026/1744) · CoP adequacy-assessed · icons published.*
 
 ## Phase 1 — Facts I'm relying on
 
@@ -39,8 +39,8 @@ Full assessment (the user wants duties + implementation + deadline + exposure). 
 
 | Duty | Binds | Triggered? | Trigger basis | Obviousness / Exception verdict |
 |------|-------|-----------|---------------|---------------------------------|
-| 50(1) | Provider | **Yes** | Chatbot interacts directly with natural persons | Not "obvious" for a general-audience support bot — disclose proactively **[Draft guidance]** para. 35 |
-| 50(2) | Provider | **Yes** | Image generator produces synthetic images | No assistive-function exemption — it *generates*, not trivially edits **[Draft guidance]** |
+| 50(1) | Provider | **Yes** | Chatbot interacts directly with natural persons | Not "obvious" for a general-audience support bot — disclose proactively **[Official guidance]** para. 38 |
+| 50(2) | Provider | **Yes** | Image generator produces synthetic images | No assistive-function exemption — it *generates*, not trivially edits **[Official guidance]** |
 | 50(3) | Deployer | No | No emotion/biometric categorisation | — |
 | 50(4) | Deployer | No | Provider role; no deployer deepfake publication here | — |
 | 50(5) | Provider | **Yes** | Delivery-quality rules attach to every triggered duty | Clear, distinguishable, timely, accessible |
@@ -49,7 +49,7 @@ Full assessment (the user wants duties + implementation + deadline + exposure). 
 
 **Art. 50(1) — chatbot disclosure.** Disclose, at or before the first interaction, that the user is
 interacting with an AI system. A generic "assistant" label, "this uses LLMs", or a line buried in the
-T&Cs does **not** satisfy 50(1) (**[Draft guidance]** para. 35). Machine-readable signals alone are not
+T&Cs does **not** satisfy 50(1) (**[Official guidance]** para. 38). Machine-readable signals alone are not
 enough for the human-facing duty.
 
 **Art. 50(2) — image marking.** Separate the tiers:
@@ -85,7 +85,7 @@ enough for the human-facing duty.
 - **Biggest gap:** a compliant 50(2) marking pipeline (machine-readable mark + detectability) for the
   image generator.
 - **Load-bearing uncertainty:** the *layered* two-technique expectation is the **Code route [Best
-  practice]**, not the statutory floor — do not present it as the black-letter mandate. **[Draft guidance]**
+  practice]**, not the statutory floor — do not present it as the black-letter mandate. **[Official guidance]**
 - **Exposure:** Tier 2 — up to **EUR 15,000,000 or 3%** of worldwide annual turnover (Art. 99(4)(g)).
   **Not** the €35M / 7% band (that is Art. 5 prohibited practices). **[Settled law]**
 
@@ -94,7 +94,7 @@ enough for the human-facing duty.
 `Counsel review needed: yes`
 
 ### 6.6 Source status
-`Source status (checked 2026-07-05): Guidelines draft · Omnibus adopted, awaiting OJ · CoP adequacy pending · icons published.`
+`Source status (checked 2026-08-04): Guidelines final (20 Jul 2026) · Omnibus in force (Reg. (EU) 2026/1744) · CoP adequacy-assessed · icons published.`
 
 ### (c) Portable compliance block
 

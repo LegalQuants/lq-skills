@@ -34,7 +34,7 @@ for breadth-first "does the AI Act apply and at what tier?" triage, that is a di
    one-line source-status; then, on request, the mini-report, the per-obligation checklist, and a
    portable compliance block.
 
-Every material statement is tagged **[Settled law] / [Draft guidance] / [Best practice] / [Open issue]**
+Every material statement is tagged **[Settled law] / [Official guidance] / [Best practice] / [Open issue]**
 so you can see how firm it is. It prompts a quiet web-check on activation because the Art. 50 Guidelines
 are still draft and the Digital Omnibus legacy-marking grace is awaiting Official Journal publication.
 
@@ -52,8 +52,8 @@ for a full run: an EU SaaS **provider** launching a support chatbot plus a marke
 In [`references/`](references/), loaded on demand: `art50-duties.md` (the five duties + penalty band),
 `obviousness-and-exceptions.md` (the trigger/exception tests), `code-of-practice-final.md` (the June
 2026 Code and the three marking tiers), `eu-labelling-icons.md` (the official EU icon set + the "AI"
-acronym rules), `commission-guidelines-art50.md` (the draft Guidelines paragraphs),
-`timeline-and-grace.md` (dates + the Digital Omnibus grace), `implementation-checklists.md` (per-role
+acronym rules), `commission-guidelines-art50.md` (the final Guidelines paragraphs),
+`timeline-and-grace.md` (dates + the Digital Omnibus as enacted), `implementation-checklists.md` (per-role
 action items), `report-template-art50.md` (the mini-report / checklist / portable-block formats), and
 `sources.md` (the live source manifest + uncertainty tiers).
 
@@ -70,8 +70,8 @@ This is **structured analysis, not legal advice and not a compliance decision**.
 full risk-tier or role analysis (it takes them as given and flags Art. 5 / high-risk / Art. 25 edge
 cases rather than deciding them), does not invent citations (thin inputs are marked `[UNCLEAR]` or
 `[Open issue]`), does not certify compliance, and reports the Art. 99 statutory **maxima** (Tier 2 —
-€15M / 3%) for context, not a prediction of actual fines. Because the Art. 50 Guidelines are draft and
-the Digital Omnibus grace is awaiting OJ publication, it prompts a live web-check on activation. See the
+€15M / 3%) for context, not a prediction of actual fines. Because the Commission may revise the final Guidelines and
+enforcement practice is only now developing, it prompts a live web-check on activation. See the
 **"What this skill does not do"** section in `SKILL.md`.
 
 ## License

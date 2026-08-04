@@ -16,7 +16,7 @@ checklist). Priorities: **Immediate** = needed by the applicable date with no tr
 |---|--------|-------|----------|
 | 1 | Inventory all AI systems that interact with persons or generate synthetic content | — | Prerequisite |
 | 2 | Implement proactive AI-interaction disclosure at first interaction (not buried in ToS) | 50(1) | Immediate |
-| 3 | For agentic systems: self-disclose in every reasonably-foreseeable human interaction | 50(1); Guidelines para. 28 | Immediate |
+| 3 | For AI agents: disclose the artificial nature **and the person on whose behalf the agent acts** — at key steps and at every new interaction | 50(1); Guidelines para. 31 | Immediate |
 | 4 | Integrate digitally signed + time-stamped provenance metadata (C2PA de-facto / IPTC) into the generation pipeline | 50(2); Code Sec. 1 | Immediate |
 | 5 | Apply an imperceptible, robust watermark to image/audio/video **and to free-form text > 200 tokens** (the old "provenance certificate" text route is gone; single-layer only for closed physical products or free-form text) | 50(2); Code Sec. 1 M1.1 | Immediate |
 | 6 | Deploy a **free-of-charge** detection/verification mechanism (presence + confidence + provider identity), one per marking technique, results signed/downloadable; always free for authorities/researchers/media/civil society; backward-compatible on retirement (< 1m-MAU providers may charge a limited fee) | 50(2); Code Sec. 1 C2 | Immediate |
@@ -51,8 +51,8 @@ checklist). Priorities: **Immediate** = needed by the applicable date with no tr
 - Disclosures are **clear, distinguishable, timely** (at the latest at first interaction/exposure) and
   **accessible** — conform to the *applicable* accessibility requirements (Art. 50(5)); assess whether the
   European Accessibility Act (Directive (EU) 2019/882) applies, and use WCAG AA as the design benchmark.
-- Decide and record **Code signatory intent** (deadline **22 Jul 2026**).
-- Do **not** retrospectively mark/label content already public before 2 Aug 2026 (voluntary only).
+- Decide and record **Code signatory intent** (the 22 Jul 2026 *initial*-signatory deadline has passed; signing remains open — check the published signatory list).
+- Do **not** retrospectively mark/label content **generated** before 2 Aug 2026 (voluntary only) — but public-interest **text** generated before and **published on/after** 2 Aug 2026 **must** be labelled (Guidelines para. 154).
 
 ---
 

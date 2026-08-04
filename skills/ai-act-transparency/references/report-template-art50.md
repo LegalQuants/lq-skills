@@ -3,7 +3,7 @@
 The Phase 6 deliverables. **Lead with the light §0 blocks below**; produce the heavy artifacts — (a) the
 mini-report, (b) the checklist, (c) the portable compliance block — only in **Full** mode or on request.
 Fill every bracket; delete rows that are N/A; never leave a determination without a basis. Tag material
-statements with an **uncertainty marker** — *[Settled law] / [Draft guidance] / [Best practice] / [Open issue]*.
+statements with an **uncertainty marker** — *[Settled law] / [Official guidance] / [Best practice] / [Open issue]*.
 
 ---
 
@@ -33,9 +33,9 @@ triage** mode these are the *entire* output (then offer to escalate to Full).
 - EU market-placement date: [date] → [new system / legacy]
 - [any assumption I had to make]
 
-Source status (checked [date]): Regulation [Settled law] · Art. 50 Guidelines [Draft guidance, 8 May 2026] ·
-Code of Practice [final 10 Jun 2026, Best practice; adequacy assessment pending] · Digital Omnibus 2 Dec 2026
-grace [adopted 29 Jun 2026, awaiting OJ] · EU icons [published].
+Source status (checked [date]): Regulation incl. Art. 111(4) as amended by Reg. (EU) 2026/1744 [Settled law] ·
+Art. 50 Guidelines [Official guidance, final 20 Jul 2026] · Code of Practice [final 10 Jun 2026, Best practice;
+assessed as adequate, still voluntary] · EU icons [published] · no CJEU ruling on Art. 50 [Open issue].
 ```
 
 > **Readiness is an operational triage heuristic, not a legal conclusion.** It flags where work and counsel
@@ -91,12 +91,15 @@ notice content, placement, timing. Reference the relevant implementation file.]
 [Each exception relied on + documented reasoning. "None claimed" if so.]
 
 ### 6. Dated Roadmap
-- **22 Jul 2026** — Code initial-signatory form deadline (if signing; later signing possible).
-- **2 Aug 2026** — 50(1)/(3)/(4) + 50(2) for newly-placed systems (no transition).
-- **2 Dec 2026** — legacy 50(2) marking — Digital Omnibus grace **[Open issue → adopted, awaiting OJ]**
-  (EP + Council 29 Jun 2026; in force 3rd day after OJ). Until published, 2 Aug 2026 formally governs legacy
-  systems; verify the OJ status.
+- **2 Aug 2026 — already applicable** — 50(1)/(3)/(4) + 50(2) for newly-placed systems (no transition).
+  Anything outstanding here is a live exposure, not a plan item.
+- **2 Dec 2026** — legacy 50(2) marking **and detection** — **[Settled law]**, Art. 111(4) AI Act as inserted
+  by Reg. (EU) 2026/1744 (in force 27 Jul 2026). A partly-interactive legacy system still owed **50(1) from
+  2 Aug 2026** (Guidelines para. 153).
+- **2 Dec 2026** — new Art. 5(1)(ba)/(bb) prohibitions (non-consensual intimate imagery; CSAM) — a
+  stop-shipping check, not a labelling one.
 - **2 Feb 2027** — Code watermark-detection interoperability obligation.
+- **Code signing** — open on a rolling basis; the 22 Jul 2026 initial-signatory deadline has passed.
 
 ### 7. Gaps & Recommendations
 | # | Gap | Required action | Priority | Owner |
@@ -113,12 +116,13 @@ annual turnover** (Art. 99(4)). *(Not the €35M/7% Art. 5 band.)*
 
 [ART. 50 TRANSPARENCY COMPLIANCE BLOCK — see (c)]
 
-**Disclaimer:** Structured guidance on Art. 50 transparency under Regulation (EU) 2024/1689, the final
-Code of Practice on Transparency of AI-Generated Content (10 Jun 2026), and the Commission's draft Art. 50
-Guidelines (8 May 2026). Not legal advice; the Code is voluntary and adherence is not conclusive evidence
-of compliance; only the CJEU can authoritatively interpret Art. 50. The Digital Omnibus grace period is
-adopted (Council 29 Jun 2026) and awaiting OJ publication. Reassess as the Guidelines are finalised, the
-Omnibus text is published, and the Code's adequacy assessment concludes.
+**Disclaimer:** Structured guidance on Art. 50 transparency under Regulation (EU) 2024/1689 (as amended by
+Regulation (EU) 2026/1744), the final Code of Practice on Transparency of AI-Generated Content (10 Jun 2026),
+and the Commission's final Art. 50 Guidelines (20 Jul 2026). Not legal advice; the Guidelines are non-binding,
+the Code is voluntary and adherence is neither conclusive evidence of compliance nor a presumption of
+conformity; only the CJEU can authoritatively interpret Art. 50, and it has not yet ruled. Several tests
+(appreciable resemblance, "evidently" artistic, substantiality of alteration) are expressly case-by-case.
+Reassess if the Commission revises the Guidelines (para. 155) or enforcement practice develops.
 ```
 
 > **Optional document export:** if the user wants a formatted document (Word / PDF / Markdown), offer to
@@ -146,7 +150,7 @@ Emulates the obligations-matrix style. Output as a fenced block.
 
 Gap-flag legend: ✓ in place · ◐ partial · ✗ GAP · N/A not triggered
 SUMMARY: [X] duties triggered · [Y] GAPs · earliest deadline [date]
-*2 Dec 2026 legacy-marking grace is ADOPTED (Council 29 Jun 2026), awaiting OJ publication; until published, 2 Aug 2026 formally governs legacy systems.
+*2 Dec 2026 legacy 50(2) marking+detection deadline is SETTLED LAW: Art. 111(4) AI Act, inserted by Reg. (EU) 2026/1744 (in force 27 Jul 2026). Covers the 50(2) limb only — 50(1) was owed from 2 Aug 2026.
 ```
 
 ---
@@ -165,7 +169,7 @@ Role(s): [provider / deployer / both]
 50(4) deepfake/PI-text labelling: [Required / Exception:<which> / N/A]
 50(5) delivery quality: [applies to <list> / N/A]
 Any 50 trigger active: [true / false]
-Earliest deadline: [date] (50(2) legacy grace 2 Dec 2026 — adopted 29 Jun 2026, awaiting OJ)
+Earliest deadline: [date] (50(2) legacy transition 2 Dec 2026 — Art. 111(4), settled law)
 Code of Practice signatory intent: [yes / no / undecided]
 Source: ai-act-transparency v<X.Y>
 ```

@@ -21,8 +21,8 @@ and the **Art. 50(5)** cross-cutting information requirement. It does **not** co
 | Published | 10 June 2026 (final) |
 | Mechanism | Art. 50(7) codes of practice |
 | Binding? | **No — voluntary.** The Art. 50 obligations themselves remain legal obligations regardless |
-| Commission status | Undergoing **adequacy assessment** by the Commission and the AI Board (30 Jun 2026) |
-| Signing | A signature form (DOCX) must be submitted to the AI Office by **22 July 2026, 18:00 CEST**; signing is **encouraged, not mandatory** |
+| Commission status | **Assessed as adequate** by the Commission and the AI Board — a recognised means to *demonstrate* compliance (Art. 50(7)), but still voluntary and **not** a presumption of conformity |
+| Signing | Open on a rolling basis via a signature form (DOCX) to the AI Office; signing is **encouraged, not mandatory**. The **22 Jul 2026 *initial*-signatory deadline has passed** (~190 signatories by end-Jul 2026) |
 | Evidentiary weight | **Adherence "does not constitute conclusive evidence of compliance"** (point (a) "Objectives", in both Section 1 and Section 2) |
 
 > **Important nuance.** Do **not** describe Code adherence as a "presumption of conformity". The
@@ -109,8 +109,10 @@ The two-layer expectation relaxes to **a single layer** in exactly two cases (Me
 ### Detection is half the duty (Commitment 2)
 
 **Marking and detection are two obligations, not one** — read with Art. 50(5), the detection means must be
-available to third parties **at the latest at the point of exposure** to the content (draft Guidelines
-para. 65). A compliance story that covers only the marking leg misses half of 50(2). Concretely, the Code
+available to third parties **at the latest at the point of exposure** to the content. The final Guidelines
+put this beyond doubt: marking and detection are two "distinct but inherently interlinked" elements and
+fulfilling only one "**will not suffice**" (paras. 69–70). A compliance story that covers only the marking
+leg is not partial compliance — it is non-compliance. Concretely, the Code
 asks providers to:
 
 - offer a **detection solution free of charge**, covering **every marking technique** the provider uses
@@ -191,7 +193,7 @@ sandboxes (Art. 57–62) are available to test compliance approaches with reduce
 
 ## What this skill must get right about the Code
 
-1. It is **final (10 Jun 2026)** and **voluntary**, under **adequacy assessment** (still pending; a positive
+1. It is **final (10 Jun 2026)**, **voluntary**, and **has been assessed as adequate** (a positive
    Commission/AI-Board opinion is what gives signing its evidentiary value).
 2. It covers **only 50(2), 50(4), 50(5)** — not 50(1)/50(3).
 3. Adherence is **not conclusive evidence** of compliance (not a "presumption of conformity").
@@ -204,4 +206,4 @@ sandboxes (Art. 57–62) are available to test compliance approaches with reduce
    for authorities/researchers/media/civil society.
 7. The **labelling duty stays with the deployer**; model-level marking is **encouraged best practice**, not
    an Art. 53 duty.
-8. **Initial-signatory deadline 22 Jul 2026**; **watermark-detection interoperability from 2 Feb 2027**.
+8. **Initial-signatory deadline 22 Jul 2026 has passed** — signing remains open; **watermark-detection interoperability from 2 Feb 2027**.

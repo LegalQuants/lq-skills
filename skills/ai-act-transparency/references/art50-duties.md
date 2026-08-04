@@ -44,11 +44,11 @@ from the circumstances and context of use.
 **Design requirement:** disclosure must be proactive and precede substantive interaction. Burying the
 disclosure in terms of service or a privacy policy does **not** satisfy 50(1).
 
-**Agentic AI (draft Guidelines para. 28):** where a provider cannot reliably determine in advance
+**AI agents (final Guidelines para. 31):** where a provider cannot reliably determine in advance
 whether an autonomous agent will interact with a natural person, the agent must self-disclose its
 artificial nature in **every situation where human interaction is reasonably foreseeable** — a shift
 from "disclose where certain" to "disclose where plausible". The Act itself does not use the word
-"agent"; this is an interpretive move in the draft Guidelines (non-binding — see
+"agent"; this is an interpretive move in the final Guidelines (non-binding — see
 [commission-guidelines-art50.md](commission-guidelines-art50.md)).
 
 ---
@@ -63,7 +63,7 @@ generated or manipulated. The marking must be **effective, interoperable, robust
 | Element | Detail |
 |---------|--------|
 | Who it binds | Provider (Anbieter) |
-| Trigger | AI system generates synthetic audio, image, video, or text — **not GPAI-specific**; single-purpose tools (e.g. a **translation engine**) are captured (draft Guidelines para. 54) |
+| Trigger | AI system generates synthetic audio, image, video, or text — **not GPAI-specific**; narrow single-purpose generators, multi-purpose systems, **GPAI systems** and **agentic systems** are all captured (final Guidelines paras. 57–58). **Note:** plain **machine translation is now OUT** via the standard-editing exception (para. 92) — this reversed between draft and final |
 | Statutory floor | Marked **machine-readable** + **detectable**; effective/interoperable/robust/reliable **"as far as technically feasible"** given content type, cost, and state of the art. **No specific technique or "two layers" is mandated by the statute.** |
 | Code route | The **Code** operationalises this as a **layered** solution (signed metadata + imperceptible watermark) — voluntary best practice, not the floor (see [code-of-practice-final.md](code-of-practice-final.md)) |
 | Standard | Marking must survive reasonably foreseeable transformations |
@@ -87,7 +87,7 @@ applicable Union law.
 | Trigger | System performs emotion recognition (Emotionserkennung) or biometric categorisation |
 | Implementation | Clear disclosure of the system's operation to affected persons |
 | **Art. 5 gate** | Emotion recognition in the **workplace / education** is *prohibited* (Art. 5(1)(f)); biometric categorisation for sensitive characteristics is *prohibited* (Art. 5(1)(g)). 50(3) applies **only to permitted uses** (e.g. medical, safety, security, entertainment / age-estimation) |
-| **Additive & broad** | 50(3) applies **in addition to** any Annex III high-risk or Art. 5 analysis — on its own terms — and covers **all** biometric categorisation, **including systems outside the high-risk classification** (draft Guidelines para. 98). Inferring **age range or gender** for advertising, store analytics or content adaptation still owes a 50(3) notice, even where the system was screened out of the high-risk catalogue. **Race/ethnicity inference is *not* a 50(3) example — it is a prohibited Art. 5(1)(g) categorisation; the Art. 5 gate above governs** |
+| **Additive & broad** | 50(3) applies **in addition to** any Annex III high-risk or Art. 5 analysis — on its own terms — and covers **all** biometric categorisation, **including systems outside the high-risk classification** (final Guidelines para. 104). Inferring **age range or gender** for advertising, store analytics or content adaptation still owes a 50(3) notice, even where the system was screened out of the high-risk catalogue. **Race/ethnicity inference is *not* a 50(3) example — it is a prohibited Art. 5(1)(g) categorisation; the Art. 5 gate above governs** |
 
 **GDPR coordination:** 50(3) explicitly requires compliance with applicable data-protection law.
 Deployers must also satisfy GDPR Art. 13/14 information duties and, where applicable, Art. 35 DPIA.
@@ -107,7 +107,7 @@ public interest**.
 | Element | Detail |
 |---------|--------|
 | Who it binds | Deployer (Betreiber) |
-| Trigger | AI-generated / AI-manipulated content that constitutes a **deepfake** — **Art. 3(60)** (verbatim): image, audio or video content that "**resembles existing persons, objects, places, entities or events and would falsely appear to a person to be authentic or truthful**". The draft Guidelines add a four-element gloss (**appreciable** resemblance · **capable of existing** · the listed subjects · false authenticity **judged by the actual audience**) — apply that test, see [obviousness-and-exceptions.md](obviousness-and-exceptions.md) §3 |
+| Trigger | AI-generated / AI-manipulated content that constitutes a **deepfake** — **Art. 3(60)** (verbatim): image, audio or video content that "**resembles existing persons, objects, places, entities or events and would falsely appear to a person to be authentic or truthful**". The final Guidelines add a **four cumulative criteria** gloss (para. 113: **appreciable** resemblance · **existing or plausibly could exist** · the listed subjects · false appearance of authenticity, judged objectively against the **intended and reasonably foreseeable audience**, no intent required, para. 114) — apply that test, see [obviousness-and-exceptions.md](obviousness-and-exceptions.md) §3 |
 | Implementation | Clear, human-perceptible labelling — mandatory core is the capitalised **"AI"** acronym; use the official **EU icon set** (see [eu-labelling-icons.md](eu-labelling-icons.md)) |
 | Exceptions | (1) authorised law enforcement; (2) **evidently** artistic / creative / satirical / fictional works → *proportionate* disclosure (form only; **primarily-commercial** content gets no pass); (3) public-interest **text** under human editorial review/control — see [obviousness-and-exceptions.md](obviousness-and-exceptions.md) |
 
@@ -152,8 +152,8 @@ Two official instruments sit beneath Art. 50. They are **not** the same thing an
 
 | Instrument | Legal basis | Scope | Status (30 Jun 2026) |
 |------------|-------------|-------|----------------------|
-| **Commission Guidelines on Art. 50** | Art. 96(1)(d) | *All* of 50(1)–(5) — broad interpretive guidance | **Draft** (8 May 2026; consultation closed 3 Jun 2026); non-binding, CJEU authoritative — see [commission-guidelines-art50.md](commission-guidelines-art50.md) |
-| **Code of Practice on Transparency of AI-Generated Content** | Art. 50(7) | *Only* 50(2), 50(4), and the 50(5) info requirement | **Final** (10 Jun 2026); voluntary; under adequacy assessment — see [code-of-practice-final.md](code-of-practice-final.md) |
+| **Commission Guidelines on Art. 50** | Art. 96(1)(d) | *All* of 50(1)–(5) — broad interpretive guidance | **Final** (20 Jul 2026, 155 paras.); non-binding, CJEU authoritative — see [commission-guidelines-art50.md](commission-guidelines-art50.md) |
+| **Code of Practice on Transparency of AI-Generated Content** | Art. 50(7) | *Only* 50(2), 50(4), and the 50(5) info requirement | **Final** (10 Jun 2026); voluntary; **assessed as adequate** by the Commission + AI Board — see [code-of-practice-final.md](code-of-practice-final.md) |
 
 There is **no separate "Code of Conduct"** for Art. 50. "Codes of conduct" in the AI Act (Art. 95) are
 a different, voluntary-high-risk-application mechanism. Art. 50(7) uses the term *codes of practice*.

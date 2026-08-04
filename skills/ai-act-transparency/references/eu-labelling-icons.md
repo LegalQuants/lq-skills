@@ -121,6 +121,6 @@ Deployer labelling (50(4), human-perceptible, **this file**) is **distinct** fro
 need **both**: the provider marks the output machine-readably, and the deployer labels it visibly. An
 upstream 50(2) watermark does **not** discharge the deployer's 50(4) duty, and vice versa. The labelling
 duty stays with the **deployer** — the actor with authority over the AI's use; a platform that merely passes
-on third-party content is **not** a deployer (draft Guidelines para. 12). Where several agencies feed one
+on third-party content is **not** a deployer (final Guidelines para. 16). Where several agencies feed one
 brand (or many sellers one marketplace), uniformity is a **contractual** matter: standardise on the EU icon,
 require conformity with the Code's design/placement rules, and agree who preserves the label down the chain.

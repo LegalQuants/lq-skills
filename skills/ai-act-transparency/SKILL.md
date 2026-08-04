@@ -4,7 +4,8 @@ description: |
   EU AI Act Article 50 Transparency Obligations Assessor — identifies which of the Art. 50(1)–(5)
   transparency duties apply to a provider or deployer and produces both a formal mini-report and a
   per-obligation compliance checklist with gap flags, grounded in the final Code of Practice on
-  Transparency of AI-Generated Content (June 2026) and the Commission's draft Art. 50 Guidelines.
+  Transparency of AI-Generated Content (June 2026) and the Commission's final Art. 50 Guidelines
+  (20 July 2026).
   This skill should be used when the user asks to "check Art. 50 transparency obligations", "do we need
   to label AI content or deepfakes", "AI chatbot disclosure", "synthetic content marking / watermarking",
   "emotion-recognition notice", "what must we implement under Art. 50 and by when", or mentions
@@ -43,22 +44,21 @@ compliance checklist. Works standalone, or ingests a prior AI Act triage's `ASSE
 ## Disclaimer (show at session start, do not block)
 
 > **Important:** This skill provides structured Art. 50 transparency guidance based on the EU AI Act
-> (Regulation (EU) 2024/1689), the final **Code of Practice on Transparency of AI-Generated Content**
-> (10 Jun 2026), and the Commission's **draft** Art. 50 Guidelines (8 May 2026). It is **not legal
-> advice**; final decisions need qualified counsel, and only the **CJEU** can authoritatively interpret
-> Art. 50.
+> (Regulation (EU) 2024/1689, as amended by Regulation (EU) 2026/1744), the final **Code of Practice on
+> Transparency of AI-Generated Content** (10 Jun 2026), and the Commission's **final** Art. 50 Guidelines
+> (20 Jul 2026). It is **not legal advice**; final decisions need qualified counsel, and only the **CJEU**
+> can authoritatively interpret Art. 50.
 > • **Penalty band:** non-compliance is **Tier 2 — up to EUR 15,000,000 or 3% of worldwide annual
-> turnover** (Art. 99(4)(g); €750k for EU bodies). *Not* the €35M / 7% band (that is Art. 5 prohibited practices).
+> turnover** (Art. 99(4)(g); €750k for EU bodies; for SMEs the *lower* of the two). *Not* the €35M / 7%
+> band (that is Art. 5 prohibited practices). Guidelines para. 152.
 > • **Dates:** Art. 50 applies from **2 August 2026** (Chapter IV general application — *not* the 2 Aug
-> 2025 tranche). The 50(2) **legacy-system marking grace to 2 December 2026** is now **adopted** — the Digital
-> Omnibus cleared the European Parliament (Jun 2026) and the **Council (final green light, 29 Jun 2026)** and
-> is **awaiting OJ publication** ("shortly"; in force the 3rd day after). Treat 2 Dec 2026 as near-settled;
-> only until the OJ text appears does the statutory 2 Aug 2026 date formally still govern legacy systems.
-> Recommend a quick live OJ / law-tracker check.
-> • **Soft law:** the Code of Practice is **final but voluntary** and under adequacy assessment (still
-> pending) — adherence is **not conclusive evidence** of compliance. The Commission Guidelines are still
-> **draft** (8 May 2026; consultation closed 3 Jun 2026). See [references/sources.md](references/sources.md)
-> for the live source manifest and uncertainty tiers.
+> 2025 tranche). The 50(2) **legacy-system marking deadline of 2 December 2026 is settled law**:
+> **Regulation (EU) 2026/1744** (Digital Omnibus on AI) was published in the OJ on **24 Jul 2026** and
+> entered into force on **27 Jul 2026**, inserting **Art. 111(4)** AI Act. No OJ caveat is needed any more.
+> • **Soft law:** the Code of Practice is **final and has been assessed as adequate** by the Commission and
+> the AI Board — but it remains **voluntary**, is **not** a presumption of conformity, and adherence is
+> **not conclusive evidence** of compliance. The Commission Guidelines are **final** but **non-binding**.
+> See [references/sources.md](references/sources.md) for the live source manifest and uncertainty tiers.
 
 ---
 
@@ -84,13 +84,17 @@ If the user doesn't choose, assume **Quick triage** and offer to go deeper — l
 Tag each material statement so the user can see how firm it is (this is the user-facing view of the
 statute / soft-law / open-issue strata — see [references/sources.md](references/sources.md)):
 
-- **[Settled law]** — the Regulation (Art. 50, 3(60), 99(4)(g)); in force.
-- **[Draft guidance]** — the Commission Art. 50 Guidelines (draft, 8 May 2026); persuasive, non-binding.
-- **[Best practice]** — the voluntary Code of Practice / EU icon set; adherence ≠ conclusive evidence.
-- **[Open issue]** — adopted-but-unpublished (Omnibus/OJ), pending (CoP adequacy assessment), or un-litigated
-  (no CJEU ruling on Art. 50).
+- **[Settled law]** — the Regulation (Art. 50, 3(60), 99(4)(g), 111(4)); in force.
+- **[Official guidance]** — the Commission Art. 50 Guidelines (final, 20 Jul 2026); authoritative-in-practice
+  but **non-binding**; the Commission has said it will revise them as experience accrues (para. 155).
+- **[Best practice]** — the Code of Practice (adequacy-assessed but voluntary) / EU icon set; adherence
+  ≠ conclusive evidence.
+- **[Open issue]** — un-litigated: **no CJEU ruling on Art. 50**, and several tests the Guidelines leave to
+  a "case-by-case assessment by the deployer" (appreciable resemblance, evidently-artistic, substantiality).
 
-State the **most load-bearing** uncertainty explicitly (e.g. "the 2 Dec 2026 grace is **[Open issue]** until OJ").
+State the **most load-bearing** uncertainty explicitly. Since the Omnibus and the Guidelines both landed in
+July 2026, the residual uncertainty is now **interpretive**, not legislative — do not manufacture doubt about
+dates that are settled.
 
 ---
 
@@ -98,23 +102,25 @@ State the **most load-bearing** uncertainty explicitly (e.g. "the 2 Dec 2026 gra
 
 Do these checks **without narrating the research**. Collapse the result into a single **Source status** line
 in the output (Phase 6.0), e.g.:
-`Source status (checked <date>): Guidelines draft · Omnibus adopted, awaiting OJ · CoP adequacy pending · icons published.`
+`Source status (checked <date>): Guidelines final (20 Jul 2026) · Omnibus in force (Reg. 2026/1744) · CoP adequacy-assessed · icons published.`
 
-**On activation — always search for (these change month to month):**
+The three big 2026 status questions (Guidelines finalisation, Omnibus OJ publication, CoP adequacy) are all
+**now resolved** — so the searches below are for *movement since*, not for re-establishing the baseline.
+
+**On activation — always search for:**
 ```
-EU AI Act Article 50 Commission guidelines final adopted 2026
-Code of Practice transparency AI-generated content adequacy assessment AI Board 2026
+EU AI Act Article 50 Commission guidelines revised update 2026 2027
+Code of Practice transparency AI-generated content signatories enforcement 2026
 ```
 
-**Digital Omnibus OJ check — always (the 2 Dec 2026 grace is adopted, awaiting OJ publication):**
+**For any first CJEU / national enforcement movement (the remaining real uncertainty):**
 ```
-Digital Omnibus AI Act Article 50 watermarking grace 2 December 2026 Official Journal published
+AI Act Article 50 enforcement decision market surveillance authority deepfake labelling
 ```
 
 **For 50(2) marking / standards:**
 ```
-EU AI Act Art 50(2) machine-readable marking C2PA implementing act standard 2026
-AI Office transparency code signatories list 22 July 2026
+EU AI Act Art 50(2) machine-readable marking C2PA implementing act harmonised standard 2026
 ```
 
 **For 50(4) labelling / icons:**
@@ -187,18 +193,31 @@ For each duty: apply the **trigger test**, then the **obviousness / exception te
 Trigger: the system interacts directly with natural persons. Then test **obviousness** against the
 **average-consumer** multi-factor standard (context, vulnerable groups, AI literacy, realism); dev-only
 code assistants and in-game NPCs are plausibly "obvious", but for general-audience systems and **AI
-companions** the exemption is largely closed. **What does *not* satisfy 50(1)** (draft Guidelines para. 35):
-disclosure buried in **T&Cs**, **machine-readable signals alone**, a generic "**assistant**" label, or
-"this system uses LLMs". **Agentic AI** must self-disclose in every reasonably-foreseeable human interaction
-(para. 28). Authorised law-enforcement use is the only statutory exception.
+companions** the exemption is largely closed — the Guidelines say the exception "should be interpreted
+**restrictively**", and general public awareness that chatbots exist does **not** make a given interaction
+obvious (para. 45). **What does *not* satisfy 50(1)** (para. 38): disclosure buried in **T&Cs, URLs or
+documentation**, **machine-readable signals alone**, a generic "**assistant**" label, **platform-wide generic
+notices** ("services on this website use AI"), or "this system uses LLMs". **AI agents** must disclose **both
+their artificial nature *and* the person on whose behalf they act**, at key steps (authorisation, reporting,
+validation) and **at every new interaction**; where the provider cannot determine in advance whether the agent
+will meet a natural person, it must self-disclose in every reasonably-likely interaction (para. 31).
+Authorised law-enforcement use is the only statutory exception.
 
 **3.2 — Art. 50(2) synthetic-content marking (provider).**
-Trigger: the system generates synthetic audio/image/video/text — **not GPAI-specific**; single-purpose
-tools count, and **machine translation is IN scope** (a translation engine generates new text; draft
-Guidelines para. 54). Test the **assistive-function** exemption (trivial in-place editing that preserves
-meaning → out; generation → in). Note the Guidelines' carve-outs: **source code** (para. 64), narrow
-**cumulative B2B/industrial** (para. 81), **in-game generation** (para. 82). **Flag the market-placement
-date** — it decides whether the legacy grace applies (Phase 5).
+Trigger: the system generates synthetic audio/image/video/text — **not GPAI-specific**; single-purpose tools,
+multi-purpose systems, GPAI systems and **agentic** systems all count (paras. 57–58). Test the
+**assistive-function / no-substantial-alteration** exemptions (paras. 90–92): standard editing prepares
+existing content for publication without generating new content; editing that changes meaning, style or
+intent goes beyond it. **⚠ Machine translation is now OUT of scope** — the final Guidelines list
+"**AI-generated translations of text**" among the standard-editing examples (para. 92), **reversing the draft**.
+Note the scope exclusions: **source code** in the broad sense — programming/scripting/markup/query/config
+languages plus SDKs, SQL, IaC, YAML, JSON config, schemas, APIs and libraries, and NL comments integral to the
+code (para. 68); **short sequences** (single words, captions, alt-text, UI labels); **machine-to-machine-only
+outputs**; **mere reproduction/arrangement** of existing content, e.g. recommenders (para. 65); narrow
+**cumulative B2B/industrial** (para. 87); **ephemeral real-time in-game/VR generation** (para. 88).
+**Detection is a co-equal element, not an add-on** — marking without available detection means does **not**
+comply (paras. 69–70). **Flag the market-placement date** — it decides whether the legacy grace applies
+(Phase 5).
 
 **3.3 — Art. 50(3) emotion-recognition / biometric-categorisation notice (deployer).**
 Trigger: the system performs emotion recognition or biometric categorisation. **First check Art. 5:** if
@@ -206,19 +225,28 @@ the use is in the workplace/education (5(1)(f)) or targets sensitive characteris
 **prohibited** — 50(3) does not apply and the Art. 5 violation governs. Otherwise the 50(3) notice is owed
 **in addition to** any high-risk/Art. 5 analysis and **regardless of risk tier** — it covers **all**
 biometric categorisation, *including non-high-risk* age- or gender-inference for ads or analytics
-(para. 98). **Race/ethnicity inference is not a 50(3) example — it is a *prohibited* 5(1)(g)
-categorisation; see the Art. 5 gate above.** Coordinate with GDPR Art. 13/14.
+(para. 104). **Race/ethnicity inference is not a 50(3) example — it is a *prohibited* 5(1)(g)
+categorisation; see the Art. 5 gate above.** Note the scope limit on the *content* of the notice: 50(3)
+requires telling people they are **exposed to** such a system — it does **not** require explaining the
+system's reasons or other processing purposes; those come from **GDPR Art. 13/14** (para. 105). Coordinate
+the two notices.
 
 **3.4 — Art. 50(4) deepfake & public-interest-text labelling (deployer).**
-Two steps, not one categorical rule. **Step 1 — is it a deepfake?** Apply the Art. 3(60) four-element test
-(draft Guidelines para. 107): *appreciable resemblance · capable of existing in reality · existing persons/
-objects/places/**entities**/events · false authenticity judged by the **actual audience** (para. 108)*. A
-photorealistic **invented** person is IN (plausibly could exist); dragons/impossible content are OUT; a
-substantive AI edit of a journalistic image can be IN. **Step 2 — exception?** law enforcement; **evidently**
-artistic/creative/fictional → *proportionate* disclosure (form only); public-interest **text** under human
-editorial review. **Marketing has no blanket pass** — *primarily-commercial* content gets **full disclosure**
-(para. 114); don't say marketing categorically qualifies, nor that it never can. (Or the AI-text limb:
-public-interest text without human editorial control.)
+Two steps, not one categorical rule. **Step 1 — is it a deepfake?** Apply the Art. 3(60) **four cumulative
+criteria** (para. 113 — the final Guidelines expressly keep four; the Commission FAQ's "three" merely merges
+criteria (ii) and (iii)): *(i) appreciable resemblance · (ii) existing — or plausibly could exist ·
+(iii) persons/objects/places/**entities**/events · (iv) false appearance of authenticity or truthfulness*.
+Criterion (iv) is assessed **objectively and as a whole** against the **intended and reasonably foreseeable
+audience** and deployment context — **no intent to deceive is required** (para. 114). A photorealistic
+**invented** person is IN (plausibly could exist); dragons/impossible content are OUT; **substantive** AI
+editing of a journalistic image beyond standard editorial practice can be IN, while cosmetic edits
+(backgrounds, lighting, colour, compression) generally are not (para. 116). **Step 2 — exception?** law
+enforcement; **evidently** artistic/creative/satirical/fictional → *attenuated* disclosure that does not hamper
+display or enjoyment (form only — the duty itself survives, para. 123); public-interest **text** under human
+review or editorial control. **Marketing has no blanket pass** — content whose nature is **exclusively
+informative or commercial and recognisable as such** is excluded from the artistic limb (para. 122); don't say
+marketing categorically qualifies, nor that it never can. (Or the AI-text limb: public-interest text without
+human editorial control.)
 
 **3.5 — Art. 50(5) delivery quality (cross-cutting).**
 For every triggered duty, disclosure must be clear, distinguishable, timely (≤ first interaction/exposure)
@@ -244,9 +272,12 @@ For each **triggered** duty, explain what to build. Load the matching reference:
   criteria *"as far as technically feasible"* (no technique and no "two layers" mandated); (2) **Code route**
   *[Best practice]* — **≥ 2 layers** (signed metadata + imperceptible watermark), detection is **half the
   duty** (free-of-charge, per-technique), text **> 200 tokens must be watermarked**; (3) robust best practice.
-  Adherence to the Code is **not conclusive evidence** of compliance. If the system uses a GPAI model:
-  Art. 50(2) binds it at the **system** layer; model-level marking is **encouraged best practice** (Guidelines
-  paras. 24/70; Code Measure 1.1.2) — **not** an Art. 53(1)(d) duty (53(1)(d) is the training-data summary).
+  The Code has been **assessed as adequate**, so signing is a recognised way to *demonstrate* compliance
+  (Art. 50(7); Guidelines §8.1) — but it is still **voluntary**, and adherence is **not conclusive evidence**
+  and **not a presumption of conformity**. Non-signatories must show an equally effective route. If the system
+  uses a GPAI model: Art. 50(2) binds it at the **system** layer; model-level marking is **encouraged best
+  practice** (Guidelines para. 27; Code Measure 1.1.2) — **not** an Art. 53(1)(d) duty (53(1)(d) is the
+  training-data summary).
 - **50(4) labelling** → [references/eu-labelling-icons.md](references/eu-labelling-icons.md): the **three
   official EU icons** (**Basic**, **Fully AI-Generated**, **Partially AI-Modified**) — icons **optional**, the
   mandatory core is the capitalised **"AI"** acronym; **GENERATED/MODIFIED** is optional and copyright-
@@ -262,16 +293,24 @@ Concrete action items per role are in
 
 Read [references/timeline-and-grace.md](references/timeline-and-grace.md). Anchor the roadmap on:
 
-- **22 Jul 2026** — Code **initial-signatory** form deadline (to appear on the list published before 2 Aug
-  2026; signing is encouraged, not mandatory, and possible later too).
+- **22 Jul 2026 — PASSED.** This was the *initial*-signatory form deadline for the list published before
+  2 Aug 2026. **Signing remains open** and is still encouraged; ~190 organisations had signed by end-July 2026.
+  Do **not** present this as a live deadline — point the user at the published signatory list instead.
 - **2 Aug 2026** — 50(1)/(3)/(4) and 50(2) for newly-placed systems apply, **no transition**.
-- **2 Dec 2026** — legacy 50(2) marking — **[Open issue → near-settled]**: the Digital Omnibus grace is
-  **adopted** (EP Jun 2026; Council final green light **29 Jun 2026**) and **awaiting OJ publication** (in
-  force the 3rd day after). Until the OJ text appears, 2 Aug 2026 formally still governs legacy systems.
-  **Recommend a quick live OJ / law-tracker check** — but do not overstate the residual risk.
+- **2 Dec 2026** — legacy 50(2) marking — **[Settled law]**: **Art. 111(4)** AI Act, inserted by
+  **Regulation (EU) 2026/1744** (OJ 24 Jul 2026, in force 27 Jul 2026). Systems that are **partly interactive
+  and partly generative** get this transition **only** for the 50(2) marking limb — 50(1) disclosure is still
+  owed from 2 Aug 2026 (Guidelines para. 153).
+- **2 Dec 2026** — new **Art. 5(1)(ba)/(bb)** prohibitions (non-consensual intimate imagery; CSAM) begin to
+  apply. Art. 5 **prohibition**, not a transparency duty — a 50(4) label cannot cure it.
 - **2 Feb 2027** — the Code's watermark-detection **interoperability** obligation (distinct from the
   superseded original legacy-marking proposal of the same date).
-- Content already public **before 2 Aug 2026** needs **no retrospective** marking/labelling.
+- **No retrospective marking — but the trigger is the date of *generation*, not publication** (para. 154):
+  50(2) outputs and 50(4) first-subparagraph **deepfakes generated or manipulated before 2 Aug 2026** need no
+  retroactive marking/labelling. **Public-interest text is the exception**: it escapes only if it was **both
+  generated and published** before 2 Aug 2026 — text generated before but **published on or after** that date
+  **must be labelled**. Holders of pre-existing unlabelled deepfakes are *encouraged* (not required) to label,
+  without disproportionate effort such as auditing back-catalogues or reprinting packaging.
 
 ### Phase 6: Output (lead light, then the formal artifacts)
 
@@ -315,30 +354,49 @@ notes an edge case that wants more depth, those companion skills cover it:
 
 ## Critical Reminders
 
-1. **Penalty is €15M / 3% (Tier 2, Art. 99(4)(g); €750k EU bodies)** — never the €35M / 7% Art. 5 band.
-2. **The 2 Dec 2026 legacy-marking grace is ADOPTED, awaiting OJ** — the Digital Omnibus cleared EP (Jun 2026)
-   and Council (final green light 29 Jun 2026); treat 2 Dec 2026 as near-settled, recommend a live OJ check,
-   and note 2 Aug 2026 formally governs only until the OJ text appears. **Do not** call it "politically agreed"
-   or "conditional / may not happen".
-3. **The Code of Practice is voluntary and adherence is not conclusive evidence of compliance** — it is a
-   strong evidentiary anchor, not a safe harbour; do **not** call it a "presumption of conformity". Separate
-   the **statutory floor** from the **Code's layered architecture**.
-4. **The Commission Art. 50 Guidelines are draft (8 May 2026)** — non-binding; only the CJEU is authoritative.
-5. **Agentic AI self-discloses** in every reasonably-foreseeable human interaction (Guidelines para. 28).
-   50(1) is **not** satisfied by T&Cs, machine-readable signals alone, "assistant", or "uses LLMs" (para. 35).
+1. **Penalty is €15M / 3% (Tier 2, Art. 99(4)(g); €750k EU bodies; the *lower* figure for SMEs)** — never the
+   €35M / 7% Art. 5 band (Guidelines para. 152).
+2. **The 2 Dec 2026 legacy-marking deadline is SETTLED LAW** — **Art. 111(4)** AI Act, inserted by
+   **Regulation (EU) 2026/1744** (OJ 24 Jul 2026, in force 27 Jul 2026). **Do not** call it "politically
+   agreed", "awaiting OJ", "conditional", or an open issue. It covers **only** the 50(2) marking limb.
+3. **The Code of Practice has been assessed as adequate, but is still voluntary** — signing is a recognised
+   way to *demonstrate* compliance (Art. 50(7)), **not** a presumption of conformity and **not** conclusive
+   evidence. Separate the **statutory floor** from the **Code's layered architecture**. Do **not** say the
+   adequacy assessment is pending.
+4. **The Commission Art. 50 Guidelines are FINAL (20 Jul 2026)** — authoritative in practice but still
+   **non-binding**; only the CJEU can interpret Art. 50 authoritatively. Paragraph numbers in this skill are
+   **final-Guidelines** numbers; draft (8 May 2026) numbering is superseded and must not be re-cited.
+5. **AI agents disclose their artificial nature *and* who they act for**, at key steps and every new
+   interaction (para. 31). 50(1) is **not** satisfied by T&Cs/URLs/documentation, machine-readable signals
+   alone, "assistant", platform-wide generic notices, or "uses LLMs" (para. 38); the obviousness exception is
+   read **restrictively** (para. 45).
 6. **50(3) is gated by Art. 5** (workplace/education emotion recognition and sensitive biometric
    categorisation are prohibited — a notice cannot cure it), but otherwise applies **additively and to all
-   biometric categorisation, incl. non-high-risk** age- or gender-inference (para. 98) — race/ethnicity
+   biometric categorisation, incl. non-high-risk** age- or gender-inference (para. 104) — race/ethnicity
    inference is itself *prohibited* under 5(1)(g), not a 50(3) case.
-7. **Deepfake = Art. 3(60)** — apply the **four-element test** (para. 107); a photorealistic **invented**
-   person is IN. **Marketing has no blanket pass**: primarily-commercial content gets full disclosure — but
-   don't say marketing can *never* be artistic. **Machine translation is IN scope** (para. 54).
-8. **Model-level GPAI marking is encouraged best practice — NOT an Art. 53(1)(d) duty** (53(1)(d) is the
-   training-data summary). Art. 50(2) binds the **AI-system** layer, including GPAI systems.
-9. **50(2): no single technique** satisfies all four criteria; **text > 200 tokens must be watermarked**;
-   **detection is half the duty**. **No retrospective marking** of content already public before 2 Aug 2026.
-10. **Provider 50(2) marking ≠ deployer 50(4) labelling** — distinct duties on distinct parties; a deepfake
-    can require both. A platform **merely passing on** third-party content is **not a deployer** (para. 12).
+7. **Deepfake = Art. 3(60)** — apply the **four cumulative criteria** (para. 113; the FAQ's "three" just merges
+   (ii)+(iii) — do not drop an element); no intent to deceive is needed, and the audience test is the
+   **intended and reasonably foreseeable** audience (para. 114). A photorealistic **invented** person is IN.
+   **Marketing has no blanket pass**: exclusively informative/commercial content is outside the artistic limb
+   (para. 122) — but don't say marketing can *never* be artistic.
+8. **⚠ Machine translation is OUT of 50(2) scope under the final Guidelines** — "AI-generated translations of
+   text" is listed as **standard editing** (para. 92). This **reverses the draft**. Do not tell a user a
+   translation engine owes 50(2) marking on that basis alone; a translation that materially changes meaning,
+   style or intent can still fall back in.
+9. **Model-level GPAI marking is encouraged best practice — NOT an Art. 53(1)(d) duty** (53(1)(d) is the
+   training-data summary). Art. 50(2) binds the **AI-system** layer, including GPAI systems (para. 27).
+10. **50(2) statutory floor vs Code route — keep them apart.** *Statutory* **[Settled law]**: machine-readable
+    marking **and** available detection, both required — one without the other does not comply (paras. 69–70);
+    four criteria "as far as technically feasible"; **no technique and no "two layers" are mandated**.
+    *Code route* **[Best practice]**, and only for signatories/those relying on it: ≥ 2 layers, free per-technique
+    detection, **text > 200 tokens watermarked**. Never state the 200-token rule or the two-layer architecture
+    as the statutory minimum.
+11. **No retrospective marking keys on the date of GENERATION, not publication** (para. 154) — except
+    public-interest **text**, which must be **both generated and published** before 2 Aug 2026 to escape;
+    text generated before but published on/after that date **must be labelled**.
+12. **Provider 50(2) marking ≠ deployer 50(4) labelling** — distinct duties on distinct parties; a deepfake
+    can require both. Hosting services, online platforms and broadcasters **merely disseminating** third-party
+    content are **not deployers** (para. 16) — but a VLOP creating its own marketing visuals **is**.
 
 ---
 
@@ -350,7 +408,7 @@ This section is a feature, not a disclaimer reflex — it tells you when to esca
 - **It does not run the full risk-tier or role analysis.** It takes the provider/deployer role and the risk tier as given; prohibited-practice (Art. 5) and high-risk (Annex I/III) questions are flagged, not decided. Art. 25 quasi-provider edge cases are flagged for a full role analysis, not resolved here.
 - **It does not invent legal substance or citations.** Article, paragraph, and Guidelines/Code references come from the reference files; where the inputs are too thin, the skill marks the field `[UNCLEAR]` or tags it `[Open issue]` and proceeds on stated cautious assumptions rather than guessing.
 - **It does not certify compliance or quantify actual fines.** Penalty figures are the Art. 99 statutory maxima for context, not a prediction of exposure in a given case.
-- **It does not track live enforcement or guideline status for you.** The Art. 50 Guidelines are still draft and the Digital Omnibus legacy-marking grace is awaiting Official Journal publication, so the skill prompts a quick web-check on activation and calibrates to the picture at authoring time.
+- **It does not track live enforcement or guideline status for you.** The Art. 50 Guidelines were adopted in final form on 20 July 2026 and the Digital Omnibus is in force as Regulation (EU) 2026/1744, so the picture is settled as at authoring time; the skill still prompts a quick web-check on activation for any later revision or enforcement practice.
 - **It is self-contained at LegalQuants.** Where it mentions a companion skill (roles, report), that is a pointer to the author's wider suite — not a dependency; the assessment runs fully on its own.
 
 ## Liability

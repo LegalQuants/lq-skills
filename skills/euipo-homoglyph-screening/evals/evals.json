@@ -1,0 +1,23 @@
+{
+  "skill_name": "euipo-homoglyph-screening",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Watch mode: has anyone registered a look-alike of our mark AURORA in class 32?",
+      "expected_output": "Generates confusable variants of AURORA (Cyrillic А/О/Р, 0-for-O, etc.), searches the EUTM register for each via the connector, and reports any look-alike found with how it diverges (which character/script). For each hit, assesses Art. 8(1)(b) visual + phonetic similarity, bad-faith signals, and (if AURORA is reputed) Art. 8(5) unfair advantage. Ends with factors for counsel and leaves the enforcement decision (oppose / invalidity / demand / monitor) to the attorney. Lists any variant the connector could not search.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Clearance mode: run a homoglyph blind-spot check on NOVARETTI in classes 9 and 42 before we file.",
+      "expected_output": "Generates the confusable set, searches the register scoped to classes 9 and 42, and surfaces any earlier confusable marks a standard exact/fuzzy search would miss. Reports the divergence per hit, rates Art. 8(1)(b) risk, and frames the result as a blind-spot complement to a standard clearance — not a substitute. States limitations (register-only, non-Latin handling).",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "This look-alike of our reputed brand is already registered — what's the angle?",
+      "expected_output": "Recognises that for a reputed earlier mark, Art. 8(5) applies and likelihood of confusion is not required (unfair advantage / detriment suffices), and that a registered character-swap copy also supports a declaration of invalidity on bad faith. Presents both grounds as options to weigh and leaves the choice to counsel. Does not assert a single enforcement decision.",
+      "files": []
+    }
+  ]
+}

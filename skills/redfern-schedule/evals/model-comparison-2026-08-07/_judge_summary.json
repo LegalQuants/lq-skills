@@ -1,0 +1,157 @@
+{
+  "composite": {
+    "opus5": {
+      "opus5": 8.475,
+      "sonnet5": 8.058333333333334,
+      "haiku45": 6.8,
+      "geminipro": 7.0,
+      "local": 5.825
+    },
+    "sonnet5": {
+      "opus5": 7.891666666666667,
+      "sonnet5": 7.441666666666666,
+      "haiku45": 7.125,
+      "geminipro": 5.883333333333333,
+      "local": 5.575
+    }
+  },
+  "dimensions": {
+    "opus5": {
+      "privilege_gate": {
+        "opus5": 5.333333333333333,
+        "sonnet5": 8.0,
+        "haiku45": 7.333333333333333,
+        "geminipro": 6.333333333333333,
+        "local": 5.0
+      },
+      "intake_calibration": {
+        "opus5": 8.333333333333334,
+        "sonnet5": 7.333333333333333,
+        "haiku45": 7.0,
+        "geminipro": 4.666666666666667,
+        "local": 6.0
+      },
+      "art92_mapping_f_discrimination": {
+        "opus5": 9.0,
+        "sonnet5": 8.0,
+        "haiku45": 6.333333333333333,
+        "geminipro": 7.333333333333333,
+        "local": 3.6666666666666665
+      },
+      "protective_measures": {
+        "opus5": 10.0,
+        "sonnet5": 9.0,
+        "haiku45": 7.666666666666667,
+        "geminipro": 8.333333333333334,
+        "local": 6.666666666666667
+      },
+      "column_role_discipline": {
+        "opus5": 9.0,
+        "sonnet5": 8.666666666666666,
+        "haiku45": 8.0,
+        "geminipro": 8.0,
+        "local": 7.666666666666667
+      },
+      "flags_memo": {
+        "opus5": 10.0,
+        "sonnet5": 8.333333333333334,
+        "haiku45": 7.333333333333333,
+        "geminipro": 7.0,
+        "local": 6.666666666666667
+      },
+      "no_invention": {
+        "opus5": 9.0,
+        "sonnet5": 7.666666666666667,
+        "haiku45": 4.666666666666667,
+        "geminipro": 7.0,
+        "local": 5.0
+      },
+      "id_version_discipline": {
+        "opus5": 10.0,
+        "sonnet5": 8.666666666666666,
+        "haiku45": 8.666666666666666,
+        "geminipro": 7.333333333333333,
+        "local": 7.0
+      },
+      "output_form": {
+        "opus5": 6.333333333333333,
+        "sonnet5": 6.333333333333333,
+        "haiku45": 4.333333333333333,
+        "geminipro": 6.0,
+        "local": 6.0
+      }
+    },
+    "sonnet5": {
+      "privilege_gate": {
+        "opus5": 5.0,
+        "sonnet5": 7.0,
+        "haiku45": 6.333333333333333,
+        "geminipro": 5.666666666666667,
+        "local": 4.333333333333333
+      },
+      "intake_calibration": {
+        "opus5": 7.333333333333333,
+        "sonnet5": 8.333333333333334,
+        "haiku45": 8.0,
+        "geminipro": 4.333333333333333,
+        "local": 6.333333333333333
+      },
+      "art92_mapping_f_discrimination": {
+        "opus5": 8.666666666666666,
+        "sonnet5": 8.0,
+        "haiku45": 7.333333333333333,
+        "geminipro": 8.0,
+        "local": 5.666666666666667
+      },
+      "protective_measures": {
+        "opus5": 9.0,
+        "sonnet5": 8.0,
+        "haiku45": 8.0,
+        "geminipro": 8.0,
+        "local": 7.666666666666667
+      },
+      "column_role_discipline": {
+        "opus5": 8.333333333333334,
+        "sonnet5": 6.666666666666667,
+        "haiku45": 7.0,
+        "geminipro": 2.3333333333333335,
+        "local": 2.6666666666666665
+      },
+      "flags_memo": {
+        "opus5": 10.0,
+        "sonnet5": 8.0,
+        "haiku45": 7.666666666666667,
+        "geminipro": 7.0,
+        "local": 7.333333333333333
+      },
+      "no_invention": {
+        "opus5": 8.0,
+        "sonnet5": 7.0,
+        "haiku45": 7.0,
+        "geminipro": 5.666666666666667,
+        "local": 5.333333333333333
+      },
+      "id_version_discipline": {
+        "opus5": 9.333333333333334,
+        "sonnet5": 9.333333333333334,
+        "haiku45": 9.333333333333334,
+        "geminipro": 7.0,
+        "local": 8.0
+      },
+      "output_form": {
+        "opus5": 5.666666666666667,
+        "sonnet5": 5.666666666666667,
+        "haiku45": 4.333333333333333,
+        "geminipro": 5.666666666666667,
+        "local": 6.0
+      }
+    }
+  },
+  "errors": [],
+  "spearman_between_judges": 0.9,
+  "self_favouring": {
+    "opus_arm_gap": 0.583,
+    "other_arms_mean_gap": 0.415,
+    "excess": 0.169
+  }
+}

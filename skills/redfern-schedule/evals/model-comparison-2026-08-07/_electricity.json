@@ -1,0 +1,24 @@
+{
+  "idle_w": 9.2,
+  "load_w": 100.7,
+  "marginal_w": 91.6,
+  "samples": {
+    "idle": 20,
+    "load": 30
+  },
+  "probe_seconds": 34.8,
+  "probe_usage": {
+    "prompt_tokens": 105,
+    "completion_tokens": 2715,
+    "total_tokens": 2820
+  },
+  "benchmark_wall_seconds": {
+    "A": 376,
+    "B": 190
+  },
+  "cost": {
+    "FR domestic 0.2516 EUR/kWh": 0.003623,
+    "UAE 0.30 AED/kWh (~0.0817 USD)": 0.001176
+  },
+  "kwh_marginal_total": 0.014398
+}

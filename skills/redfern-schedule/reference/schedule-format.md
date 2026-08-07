@@ -25,6 +25,62 @@ This six-column split, with Relevance and Materiality in its own column, is the 
 - If a request is withdrawn, keep its row and mark its status withdrawn. Do not reuse its ID.
 - If a request is split, give the parts new IDs (R4 becomes R4a and R4b) and note the split.
 
+## The table shape is fixed: every row carries every column
+
+The schedule always has the same six columns, in the same order, in every round and for every
+role: `No.`, `Document(s) or Category Requested`, `Relevance and Materiality`, `Objections`,
+`Reply`, `Tribunal's Decision`.
+
+**Every data row carries a cell for every column, including the columns that are not yours and
+the columns nobody has written yet.** A column that has no content yet is an empty cell, not an
+absent one: the row still has the same number of separators as the header. Do not shorten a row
+by dropping trailing columns, and do not narrow the table to only the columns in play this round.
+A row with fewer cells than the header is a malformed table — downstream tooling and the other
+side's merge both key on position, and a short row silently loses the columns that follow it.
+
+The schedule is a single document passed between three roles across several rounds. Its shape is
+what makes that possible; each round fills one more column of a table whose skeleton never changes.
+
+## Reproduction is a copy, not a re-rendering
+
+Where a column is not yours to write, you reproduce it. Reproduction means the characters
+you emit are the characters you were given. It is a copying operation, not a typesetting or
+editing one, and the schedule is a joint document served on the other side and the tribunal:
+altering their words, even cosmetically, misstates their case.
+
+So, when copying a supplied cell:
+
+- **Emit the same codepoints you were given.** This is the rule that is easiest to break without
+  noticing, because the substitutions are ones that look identical on screen. When a supplied cell
+  is plain ASCII, your reproduction of it must be plain ASCII: every character in the range
+  U+0020 to U+007E and nothing else. In particular, when copying supplied text never emit:
+  - `‑` U+2011 NON-BREAKING HYPHEN, `–` U+2013 EN DASH or `—` U+2014 EM DASH in place of `-` U+002D HYPHEN-MINUS;
+  - `‘ ’` U+2018/U+2019 or `“ ”` U+201C/U+201D in place of `'` U+0027 and `"` U+0022;
+  - ` ` U+00A0 NO-BREAK SPACE or ` ` U+202F NARROW NO-BREAK SPACE in place of U+0020 SPACE;
+  - `…` U+2026 in place of three full stops.
+
+  A schedule is compared byte for byte when it is merged back by the other side, so a
+  typographically improved copy is a corrupted one. If you find yourself reaching for a
+  prettier character while copying, that is the error. Type the plain one.
+
+  **Emit the whole schedule inside a fenced code block** — three backticks on the line before the
+  table and three on the line after it. The schedule is data in transit between three parties
+  across several rounds, not prose being presented to a reader, and a fence is how you say so.
+  Treat everything between the fences as literal: no substituted characters, no smart quotes, no
+  typographic dashes or spaces, no re-wrapping. The table's pipes and header separator are
+  unchanged inside the fence, so it still reads and still merges.
+- Do not abbreviate. "Statement of Claim paragraphs 70 to 78" does not become "SoC 70-78";
+  "1 January 2022" does not become "1 Jan 2022". Expansions and contractions are both changes.
+- Do not tidy, shorten, re-order or correct. If a supplied cell contains an apparent error —
+  a wrong paragraph reference, an inconsistent date — reproduce it exactly as given and note
+  the discrepancy separately, in your own column or in the memo. Silently fixing another
+  party's text is the more serious error, because it is invisible to them.
+- Do not re-wrap or re-punctuate to fit your layout.
+
+If a cell cannot be reproduced in full — it is too long, it is missing, it did not come
+through cleanly — stop and ask the user for it. Never summarise it and never reconstruct it
+from memory.
+
 ## Column ownership
 
 - A role writes only its own columns, named here, never another role's.

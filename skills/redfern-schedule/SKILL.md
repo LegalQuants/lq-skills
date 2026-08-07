@@ -4,8 +4,8 @@ description: "Use whenever the user is working on document production in interna
 author: Alexios vdSK
 jurisdiction: MULTI
 tags: [arbitration, document-production, redfern, iba-rules, procedure]
-version: 1.0.0
-last_reviewed: 2026-06
+version: 1.5.0
+last_reviewed: 2026-08
 last_reviewed_by: Alexios vdSK, Member, LegalQuants
 last_verified: 2026-06-20
 freshness_window: 12 months
@@ -73,6 +73,15 @@ This step runs first, every time, before any ingestion or drafting.
 
 **0a. Privilege gate (hard stop).** Reproduce the capitalised warning at the top of this file. Then name the concrete checks the user should make now: the seat of the arbitration, the institutional rules, the parties' national laws, the applicable bar and ethics rules, and the CIArb 2025 Guideline (sections 2.2 on confidentiality, 6.7 on which rules govern, and 7 on disclosure). Do not read any schedule content, ingest any attachment, or draft anything until the user gives an explicit affirmative that they are fine to proceed. If the user does not confirm, stop.
 
+**The gate has two states, and you must resolve which one you are in before doing anything else.**
+
+- *Not yet confirmed.* No affirmative has been given anywhere in the conversation, including the message you are reading. Print the banner and the checks, and stop. Produce no schedule, no memo, and no analysis.
+- *Confirmed.* An affirmative appears anywhere in the conversation, including in the same message that carries the work. Wording varies: "I confirm", "I am fine to proceed", "go ahead", "confirmed", "proceed". Treat any such affirmative as satisfying the gate. Print the banner, then **carry straight on and do the work in the same reply**. Do not ask again.
+
+Once the gate is confirmed it stays confirmed for the rest of the conversation. Re-issuing the banner as a question after the user has already confirmed is a defect: it stalls the user's work and, when it is a response to a challenge or a correction, it reads as evasion. Re-open the gate only if the engagement itself materially changes, for example a different matter or a different party.
+
+**The banner is printed every time, before the first artefact of the reply, in both states.** It is the standing confidentiality warning, not a question that has been answered and can then be dropped. Reproduce it word for word; do not paraphrase, summarise or replace it with a reference to it.
+
 **0b. Intake interview.** After confirmation, ask only for what you do not already have, one question at a time, in this order. Skip any item the user already supplied. See `reference/intake.md`.
 1. Role: requesting, producing, or tribunal.
 2. Regime: IBA 2020 (default), Prague 2018, ICC, LCIA, or ICSID.
@@ -81,6 +90,31 @@ This step runs first, every time, before any ingestion or drafting.
 5. Is there a pleaded-issues list to tie relevance to.
 6. Where the requests or the returned schedule are.
 7. Optional: are there production deadlines (Procedural Order No. 1 or a procedural order) to record and check.
+
+### Step 0c. Establish the predicates before you reach for any ground
+
+An objection is a conclusion. Every ground in Article 9.2, and every gate in Article 3.3, is a
+function of *facts about the document*: who holds it, who wrote it, what shape the category is,
+what the content is, and whether the request was made in time. If you choose a ground before you
+have established those facts, you are pattern-matching the wording of the request rather than
+analysing it, and you will reach for whichever ground is most available rather than the one that
+fits.
+
+So, for **each request**, and before writing anything in the *Objections* column, record these five
+predicates in your internal working notes:
+
+- **Holder.** Requesting party · the user's own side · a non-party · the user's contract administrator, agent or affiliate · jointly held.
+- **Author class.** Counsel · internal staff · an engineer, consultant or other professional adviser who is not counsel · a governmental or regulatory body · a third party.
+- **Category shape.** An identified document · a narrow and specific category bounded on stated axes · an open-ended class.
+- **Content class.** Ordinary commercial · legal advice · settlement or without-prejudice · third-party confidential or trade secret · governmental, regulatory or sovereign · personal or private.
+- **Timeliness and existence.** Within the procedural timetable · out of time · the document does not exist or is no longer held, and why.
+
+Take each predicate from what the request and the user's own material actually say. Where the
+material does not tell you, record `not established` and say so in the objection rather than
+assuming a value that would support a ground you would like to run.
+
+The predicates then decide the ground; `reference/iba-9-2-objections.md` sets out the mapping.
+Where the predicates support no ground, the correct output is no objection.
 
 ### Step 1. Load the right references for the regime and role
 
@@ -92,7 +126,7 @@ Refer to columns by name throughout, never by number. The requesting party owns 
 
 **Requesting.** Ingest the requests. Assign each a stable ID. Run the Article 3.3 pre-flight per `reference/iba-3-3-checklist.md` and record a pass or fail with a reason for each gate. Tie each request to a pleaded issue using `reference/issue-matching.md` where the issues list is present, otherwise mark the tie unverified. Write the *No.*, *Document(s) or Category Requested*, and *Relevance and Materiality* columns. Produce the schedule and the internal flags memo.
 
-**Producing.** Reproduce the requesting party's columns verbatim. Map each request against the Article 9.2 grounds per `reference/iba-9-2-objections.md`. Where a request is met by confidentiality, privilege, or sensitivity, pair the objection with the Article 9.5 protective-measure option (redaction or a confidentiality ring) rather than a flat refusal, and where only the tribunal need see a document, invite the tribunal to order in-camera review rather than offering it as a party measure. If any party is marked State or state-owned, surface the 9.2(f) sensitivity prompt as a candidate only where the document's content implicates a governmental or sovereign function, not on every request, and not on a request already disposed of on relevance or burden. Write the *Objections* column. Also produce the producing party's internal flags memo naming its own weak or non-colourable objections.
+**Producing.** Reproduce the requesting party's columns verbatim. For each request, establish the Step 0c predicates first, then derive the ground by working the selection order in `reference/iba-9-2-objections.md`. Do not choose a ground before the predicates are recorded. Where a request is met by confidentiality, privilege, or sensitivity, pair the objection with the Article 9.5 protective-measure option (redaction or a confidentiality ring) rather than a flat refusal, and where only the tribunal need see a document, invite the tribunal to order in-camera review rather than offering it as a party measure. If any party is marked State or state-owned, surface the 9.2(f) sensitivity prompt as a candidate only where the document's content implicates a governmental or sovereign function, not on every request, and not on a request already disposed of on relevance or burden. Write the *Objections* column. Also produce the producing party's internal flags memo naming its own weak or non-colourable objections.
 
 **Reply (requesting, later round).** Reproduce the prior columns verbatim. Answer each objection in the *Reply* column, point by point. Narrow a request where that saves it, and say so. Write the *Reply* column.
 
@@ -110,11 +144,49 @@ Produce the schedule as a Markdown table with the columns in `reference/schedule
 
 Two artefacts, both Markdown.
 
-1. **The schedule**, a Markdown table with these columns: `No.`, `Document(s) or Category Requested`, `Relevance and Materiality`, `Objections`, `Reply`, `Tribunal's Decision`. Only the columns owned by the current role carry new text. Every other column is reproduced verbatim or left blank. The tribunal's column is blank until the tribunal rules.
+1. **The schedule**, a Markdown table emitted inside a fenced code block (```) with these six columns, always all six, always in this order: `No.`, `Document(s) or Category Requested`, `Relevance and Materiality`, `Objections`, `Reply`, `Tribunal's Decision`. Only the columns owned by the current role carry new text. Every other column is reproduced verbatim or left blank. The tribunal's column is blank until the tribunal rules. **A blank column is an empty cell, not a missing one** — every data row has the same number of cells as the header, so a row that has nothing to say in the last two columns still ends with the separators that hold their places. Never drop trailing columns to shorten a row, and never emit a narrower table containing only the columns in play this round.
 
 2. **The internal flags memo** (requesting, reply, and producing roles), the user's own weak points named honestly. For the requesting and reply roles it lists requests that are weak under Article 3.3, each with the gate it fails and a one-line reason. For the producing role it lists the user's own weak or non-colourable objections (for example ground (f) on a plainly commercial document, a bare burden assertion, or a blanket privilege claim without 9.4 grounding). This memo is for the user's side only. It is never part of the schedule sent to the other side or the tribunal. Mark it clearly as internal and privileged work product.
 
 Lead the output with a one-line statement of what was produced and for which role. Do not pad.
+
+**The memo lists failures, not anticipations.** A request or an objection belongs in the memo when
+it *fails* a test you have applied: a request that fails an Article 3.3 gate, an objection you
+assess as weak or non-colourable. It does not belong there merely because something about it is
+worth being ready for. An objection the other side may raise, a document that may attract a
+sensitivity ground, a passage that may need redacting later — those are matters for the calibration
+note or for the column itself, not entries in a memo whose stated purpose is the user's own weak
+points. A memo that names every request tells the user nothing, and a request listed without a
+failed test reads to the user as a defect that is not there. If you cannot name the test it fails,
+it does not go in.
+
+Note also which side's possession matters. On the requesting side, Gate C asks whether the
+*requesting party* already holds the document; the possibility that some non-party may also hold a
+copy is not a weakness in the request, and where a non-party is the likely holder the request is
+routed under Article 3.9 rather than flagged as defective.
+
+**The memo and the schedule must agree.** The memo names residual risk on objections you are
+actually running. It is not a confession about objections you should not have run. If, while writing
+the memo, you find yourself describing an objection as weak, tenuous, non-colourable, or unlikely to
+survive, that objection does not belong in the schedule: take it out of the schedule first, then
+write the memo. An output whose memo contradicts its own table has already told the reader which
+half to believe.
+
+**Do not supply facts the user has not.** Never state a quantity, volume, document count, custodian
+count, cost, duration or percentage that the user's material does not contain. A burden objection
+needs specifics, and where you do not have them the honest output is the objection framed on the
+shape of the request plus an explicit `[quantification required from client]`. An invented figure is
+worse than a missing one: it cannot be supported when the other side asks for the search log behind
+it, and it puts the signing lawyer behind a statement they cannot stand up. The same rule covers
+pleading references, dates and document titles — if the user's material and yours disagree, or a
+cited paragraph does not exist, say so and ask, rather than reconciling it silently.
+
+**Documents supplied in context are the user's documents.** Where the material arrives inside the
+conversation rather than as a file you open yourself — in a pasted block, or under a heading such as
+`## Attached documents for this turn` — that is the attachment, and you can read it. Work from it.
+Do not tell the user you are unable to read attachments while their document is in front of you, and
+do not reconstruct from memory what you can read directly. If a document genuinely is not present,
+say which one and ask for it.
 
 ## Edge cases and refusals
 

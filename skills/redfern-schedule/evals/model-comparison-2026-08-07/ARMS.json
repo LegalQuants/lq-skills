@@ -1,0 +1,66 @@
+{
+  "_purpose": "The declared arms of the comparison. This file is inside the net's source fingerprint, so adding, removing or repointing an arm re-arms the regression net — 'a model swap is a code deployment and should be treated as such'. The engine's own NET_MODEL env var is not used here: a five-arm benchmark has no single model id.",
+  "_frozen_skill": {
+    "path": "~/OS/projects/lq-ai/skills/redfern-schedule/SKILL.md",
+    "version": "1.5.0",
+    "sha256_16": "0a52e7199b23f9d2",
+    "note": "Local copy, ahead of the published lq-skills v1.0.0/v1.1.1. Alexios's Gate 1 ruling: ships in the repo in full, and is pushed upstream with a WHY-v1.5.0.md — his attestation, not the model's."
+  },
+  "arms": [
+    {
+      "alias": "opus5",
+      "provider": "anthropic-prod",
+      "model": "claude-opus-5",
+      "tier": 4,
+      "privilege": "third-party cloud processing of privileged material",
+      "rate_usd_per_mtok": { "input": 5.0, "output": 25.0 }
+    },
+    {
+      "alias": "sonnet5",
+      "provider": "anthropic-prod",
+      "model": "claude-sonnet-5",
+      "tier": 4,
+      "privilege": "third-party cloud processing of privileged material",
+      "rate_usd_per_mtok": { "input": 3.0, "output": 15.0 },
+      "rate_note": "Introductory pricing $2.00/$10.00 per MTok runs through 2026-08-31. The run date decides which applies; the report states both and says which was billed."
+    },
+    {
+      "alias": "haiku45",
+      "provider": "anthropic-prod",
+      "model": "claude-haiku-4-5",
+      "tier": 4,
+      "privilege": "third-party cloud processing of privileged material",
+      "rate_usd_per_mtok": { "input": 1.0, "output": 5.0 },
+      "constraint": "200k context ceiling — every other arm is 1M. The ICC case is ~230k tokens of documents, so this arm's eligibility depends on the retrieval-vs-inline decision. Report as a finding, never silently truncate."
+    },
+    {
+      "alias": "geminipro",
+      "provider": "google-gemini",
+      "model": "gemini-3.1-pro-preview",
+      "tier": 4,
+      "privilege": "third-party cloud processing of privileged material",
+      "rate_usd_per_mtok": null,
+      "rate_note": "UNPRICED — Google's published rate must be confirmed before any cost figure is reported. The gateway writes NULL for an unpriced pair by design (lq-ai CLAUDE.md: 'we don't invent prices'); an unpriced arm shows as unpriced, never as zero.",
+      "reached_via": "https://generativelanguage.googleapis.com/v1beta/openai (OpenAI-compatible shim) — provider type 'openai', config only, no gateway adapter code",
+      "cost_trap": "The shim omits thinking tokens from completion_tokens (measured: completion_tokens 1 vs total_tokens 92 on a one-word reply). Bill output as total_tokens - prompt_tokens, or use the native endpoint's usageMetadata.thoughtsTokenCount. Billing off completion_tokens understates this arm by roughly 50x.",
+      "stability": "PREVIEW model id — may change behaviour or disappear under the same name. The report pins it and says so."
+    },
+    {
+      "alias": "gptoss120b",
+      "provider": "ollama-local",
+      "model": "hf.co/unsloth/gpt-oss-120b-GGUF:F16",
+      "tier": 1,
+      "privilege": "FULLY ON-PREMISES — nothing leaves the machine. The only arm on which the skill's own privilege banner is satisfied without seat rules, party agreement and client consent.",
+      "rate_usd_per_mtok": null,
+      "rate_note": "No per-token price exists. Cost is electricity: wall-clock x measured package power (macmon) x tariff. The method is stated wherever the number appears.",
+      "endpoint": "http://100.123.56.75:11434/v1",
+      "endpoint_note": "Ollama binds this host's Tailscale address, NOT localhost — 127.0.0.1:11434 is refused. Several other projects still carry the stale localhost value.",
+      "constraint": "Reasoning-first: emits reasoning before content, so max_tokens >= 16000 or the answer comes back empty with finish_reason 'length'."
+    }
+  ],
+  "no_pass_bars": {
+    "ruling": "Alexios, Gate 1, 2026-08-06",
+    "wording": "Just explain the score, and score them. No need to attach an idea to a number. Just tell the truth and stay objective, no need to say who failed who didn't fail, let the reader decide.",
+    "consequence": "NET.json tiers carry NO authored threshold. Regression is detected by the blessed baseline only — 'below what we last measured and Alexios blessed' — which is grounded in measurement rather than opinion. The publication reports raw ranked numbers and no pass/fail language."
+  }
+}

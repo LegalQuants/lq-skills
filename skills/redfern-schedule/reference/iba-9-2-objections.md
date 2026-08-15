@@ -1,8 +1,59 @@
 # Article 9.2 objection map
 
-The grounds on which a tribunal may exclude a document from production or evidence, under the IBA Rules on the Taking of Evidence (2020), Article 9.2. The producing party maps each request against this menu. The skill frames and records the objection. It does not decide whether the objection holds. That is the tribunal's call.
+The grounds on which a tribunal may exclude a document from production or evidence, under the IBA Rules on the Taking of Evidence (2020), Article 9.2. The skill frames and records the objection. It does not decide whether the objection holds. That is the tribunal's call.
 
 This file paraphrases the rule and cites article numbers. It does not reproduce the rule text. Confirm the official sub-numbering and wording against the IBA PDF before relying on it in a filing.
+
+## How to select a ground: predicates first, in this order
+
+The grounds below are a menu, and a menu invites picking whatever looks appetising. Do not pick.
+Derive. Run the five predicates from Step 0c of the skill, then work the following order for each
+request. The first step that resolves the request is the answer; stop there and do not stack further
+grounds on top of it.
+
+1. **Does it exist, and is it still held?** If the document never existed, or no longer exists, say
+   so plainly and give the reason (for example a retention policy that ran before the dispute arose).
+   That is a statement of fact, not an objection. Do not object to something that is not there.
+2. **Who holds it?**
+   - *Requesting party holds or held it* — the point is possession under Article 3.3(c). Say so.
+     Burden is not the objection. Producing anyway, without prejudice, is often the cheaper course.
+   - *A non-party holds it* — nothing on the 9.2 menu applies. Route it to Article 3.9 (the tribunal
+     may be asked to take steps to obtain it). Do not dress this up as a substantive objection.
+   - *Jointly held, or held by a contract administrator, agent or affiliate* — you may have control
+     even though you are not the sole holder. State what is within your control and what is not,
+     and make reasonable efforts as to the former. A blanket "not ours" is wrong.
+   - *You hold it* — continue.
+3. **What shape is the category?** An open-ended class ("all documents mentioning X", no date range,
+   no custodians) fails **Article 3.3(a)** on identification. That is the primary objection and it
+   comes before any 9.2 ground. Burden under (c) is the alternative, not the lead. The cure to offer
+   is re-framing by issue, custodian and window, not partial production.
+4. **Who authored it?** Privilege under **(b)** reaches communications with counsel, and material
+   created for the dominant purpose of legal advice or of the proceedings. An engineer, consultant,
+   auditor, contract administrator or other professional adviser **is not counsel**; correspondence
+   with them is not privileged, and asserting privilege over it is non-colourable. Where only
+   discrete passages are privileged, carve them out and log them; do not claim the whole document.
+5. **What is the content?** The content, not the identity or ownership of the holder, decides which
+   confidentiality-type ground applies:
+   - *Settlement or without-prejudice* — **(b)** legal impediment. Not commercial confidentiality.
+   - *Personal or employee data engaging a statutory bar* — **(b)** legal impediment; name the
+     impediment. A bare appeal to privacy is weak.
+   - *Third-party commercial or technical confidence, trade secret, pricing* — **(e)**.
+   - *Governmental, regulatory or sovereign content* — **(f)**. See the section below.
+   - *Ordinary commercial* — none of the confidentiality grounds is available on content.
+6. **Was it asked in time, and is it proportionate?** A request served outside the procedural
+   timetable, or duplicative of another request in the same schedule, is a **(g)** procedural-economy
+   point. Deal with a duplicate by cross-reference rather than answering it twice.
+7. **Only now, is there a burden point?** **(c)** requires specifics — volume, systems, custodians,
+   cost. If you do not have those figures from the user, you do not have the objection: say what
+   quantification is needed rather than estimating it.
+
+Two standing rules that follow from this order:
+
+- **A request may resolve to no objection at all.** If the predicates support nothing, produce.
+  Reflex objections on clean requests cost credibility on the requests that matter.
+- **Split compound requests by limb.** Where a request has sub-parts (i), (ii), (iii), each limb gets
+  its own predicates and its own answer. One ground applied to the whole request is wrong even when
+  it is right about one limb.
 
 ## The seven grounds: Article 9.2(a) to (g)
 
@@ -29,9 +80,34 @@ Note the 2020 renumbering. The 2020 revision inserted a new provision on illegal
 - **9.5: protective measures the producing party can offer.** Even where production is ordered, confidentiality can be preserved short of full disclosure by measures under which the requesting side's counsel still receives the document under protection: redaction (clearly marked, with the basis stated), confidentiality rings or clubs, and restricted access. Pair grounds (b), (e), and (f) with a 9.5 option rather than a flat refusal. Note the boundary: in-camera or tribunal-only review, where only the tribunal sees the document, is a tribunal mechanism, not a 9.5 measure the producing party can offer. Frame it as something the producing party invites the tribunal to order, not as a measure it grants.
 - **9.6 and 9.7: adverse inferences.** The tribunal may infer that a withheld document, or other withheld evidence, would be unfavourable to a party that fails, without satisfactory explanation, to produce it. The inference ordinarily requires either a request the party did not object to, or a tribunal order to produce, that the party then failed to satisfy, rather than any unanswered request. In practice the inference attaches to material the tribunal regards as relevant and material, but treat that as a practical tendency, not a fixed precondition.
 
-## State or state-owned party: the (f) sensitivity prompt
+## Ground (f): decided by content, never by who owns the party
 
-When any party is marked a State or a state-owned entity, surface ground (f) as a candidate for the producing party's consideration. Do not auto-assert it on every request. Ownership of the party does not by itself make a document politically or institutionally sensitive. Recommend asserting (f) only where the document's **content** plausibly implicates a governmental or sovereign function: ministry or cabinet material, classified or national-security material, deliberative governmental documents, public-interest immunity. On the ordinary commercial documents of a state-owned enterprise (board minutes about a commercial decision, ordinary contracts, invoices), (f) is weak to inapt, and the candidate prompt should say so rather than dress a commercial document as a state secret.
+**Ground (f) is not armed by the identity of a party. It is decided document by document, on content.**
+Read the two tests below in both directions before asserting or declining it.
+
+**The test to assert (f).** You must be able to name, in one sentence, the specific governmental,
+regulatory or sovereign content in the document sought: cabinet or ministerial deliberative material,
+material classified by a government or a public international institution, national-security or
+critical-infrastructure assessment, supervisory or regulatory correspondence with a public authority,
+public-interest immunity. **If you cannot name that content, you may not raise (f).** Write the
+sentence out; if writing it forces you to gesture at who the party is rather than at what the document
+says, the ground is not available.
+
+**The two failure modes, and they run in opposite directions.**
+
+- *Over-reach.* A party being a State, a state-owned enterprise, or under public oversight does
+  **not** make its documents sensitive. The ordinary commercial documents of a state-owned entity —
+  board minutes about a commercial decision, contracts, invoices, project-controls reports, tender
+  files — are commercial. Asserting (f) over them is non-colourable, and a schedule that stamps (f)
+  across many requests invites the tribunal to discount it on the requests where it genuinely fires.
+- *Under-reach.* A party being private does **not** make governmental content ordinary. Where a
+  private entity holds or has adopted material whose content is governmental, regulatory or
+  security-related — a regulator's supervisory correspondence, a ministry assessment adopted by a
+  board, classified material shared with a contractor — (f) fires on the content notwithstanding the
+  private holder. Do not reason from ownership in this direction either.
+
+Note the party's public or private status if the user has given it, because it explains the setting.
+It is context. It is never the reason.
 
 Ground (f) is the one ground tailored to public actors. Its express reach is special political or institutional sensitivity, including material a government or a public international institution has classified as secret. In practice tribunals also weigh deliberative or governmental sensitivity, national security, and public-interest immunity under this head, but those are practitioner gloss on what institutional sensitivity can reach, not separately enumerated grounds in the rule.
 
